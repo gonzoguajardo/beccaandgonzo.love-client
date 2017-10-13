@@ -7,11 +7,13 @@ import { DataTableModule } from 'angular2-datatable';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistTableComponent } from './playlist/table/playlist-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaylistComponent,
+    PlaylistTableComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,6 @@ import { Item } from './item';
 export class PlaylistComponent implements OnInit {
 
     playlist: Item[];
-    audio = new Audio();
-    paused = true;
 
     constructor(private playlistService: PlaylistService) { }
 
@@ -23,17 +21,8 @@ export class PlaylistComponent implements OnInit {
         });
     }
 
-    playSample(source) {
-        if (this.paused) {
-            this.audio.src = source;
-            this.audio.load();
-            this.audio.play();
-            this.paused = false;
-        } else {
-            this.audio.pause();
-            this.paused = true;
-        }
-
+    search(search) {
+        console.log(search);
     }
 
 }
