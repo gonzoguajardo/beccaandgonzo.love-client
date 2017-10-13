@@ -8,7 +8,6 @@ import { Item } from './item';
 export class PlaylistService implements OnInit {
 
     observablePlaylist: Observable<Item[]>;
-    playlist: Item[];
 
     constructor(private http: HttpClient) {
 
@@ -19,15 +18,12 @@ export class PlaylistService implements OnInit {
     }
 
     getPlaylist(): Observable<Item[]> {
-        if (this.playlist) {
-            return Observable.of(this.playlist);
-        } else if (this.observablePlaylist) {
+        if (this.observablePlaylist) {
             return this.observablePlaylist;
         } else {
             this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
                 .map((response: Response) => {
-                    this.playlist = response['items'] as Item[];
-                    return this.playlist;
+                    return response['items'] as Item[];
                 }).catch(error => {
                     return Observable.throw(new Item());
                 }).share();
