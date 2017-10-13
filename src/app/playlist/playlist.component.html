@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of items">
+        <tr *ngFor="let item of playlist">
             <td><img [src]="item.track.album.images[2].url"></td>
             <td>
                 <button (click)="playSample(item.track.preview_url)" class="btn btn-danger">x</button>
