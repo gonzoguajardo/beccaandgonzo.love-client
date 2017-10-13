@@ -1,3 +1,4 @@
 <app-playlist-table [playlist]="playlist"></app-playlist-table>
-<input #search (keyup.enter)="search(search)" (blur)="search(search);">
-<button (click)="search(search)">Add</button>
+<input #input (keyup.enter)="search(input.value)" (blur)="search(input.value); input.value='' ">
+<button (click)="search(input.value)">Add</button>
+<app-playlist-table [playlist]="searchPlaylist"></app-playlist-table>

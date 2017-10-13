@@ -11,6 +11,8 @@ import { Artist } from './artist';
 @Injectable()
 export class PlaylistService implements OnInit {
 
+    search: Item[];
+
     observablePlaylist: Observable<Item[]>;
     observableSearch: Observable<Item[]>;
 
@@ -37,9 +39,11 @@ export class PlaylistService implements OnInit {
     }
 
     searchPlaylist(searchString: String): Observable<Item[]> {
-        if (this.observableSearch) {
-            return this.observableSearch;
-        } else {
+        // if (this.search) {
+        //     return Observable.of(this.search);
+        // } else if (this.observableSearch) {
+        //     return this.observableSearch;
+        // } else {
             this.observableSearch = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/search/' + searchString)
                 .map((response: Response) => {
                     const items: Item[] = new Array<Item>();
@@ -53,16 +57,15 @@ export class PlaylistService implements OnInit {
                         item['artists'].forEach(artist => {
                             currentItem.track.artists.push(new Artist(artist['name']));
                         });
-                        console.log(currentItem.track.album.images);
                         items.push(currentItem);
                     });
-                    console.log(response['tracks']['items']);
+                    this.search = items;
                     return items;
                 }).catch(error => {
                     return Observable.throw(new Item());
                 }).share();
             return this.observableSearch;
-        }
+        // }
     }
 
 }
