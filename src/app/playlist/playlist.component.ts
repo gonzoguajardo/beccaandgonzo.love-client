@@ -22,13 +22,6 @@ export class PlaylistComponent implements OnInit {
     dataObserver: Observer<Item[]>;
 
     constructor(private playlistService: PlaylistService) {
-        this.searchPlaylistObservable = new Observable(observer => this.dataObserver = observer);
-        this.searchPlaylistObservable.subscribe((playlist: Item[]) => {
-            this.searchPlaylist = playlist;
-            this.searchPlaylist.forEach((item) => {
-                item.track.onPlaylist = true;
-            });
-        });
     }
 
     ngOnInit(): void {

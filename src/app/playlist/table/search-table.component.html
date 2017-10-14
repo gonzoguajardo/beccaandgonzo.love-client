@@ -19,7 +19,7 @@
         <tr *ngFor="let item of playlist">
             <td>
                 <div *ngIf="!item.track.onPlaylist; else canNotAdd">
-                    <button class="btn btn-danger">
+                    <button (click)="addTrack(item.track)" class="btn btn-danger">
                         <img src="assets/add.png"/>
                     </button>
                 </div>
@@ -27,6 +27,9 @@
                     <button class="btn btn-danger">
                         <img src="assets/greyAdd.png"/>
                     </button>
+                    <button class="btn btn-danger">
+                            <img src="assets/delete.png"/>
+                        </button>
                 </ng-template>
             </td>
             <td>

@@ -16,7 +16,8 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
     audio = new Audio();
     paused = true;
 
-    constructor() { }
+    constructor(private playlistService: PlaylistService) {
+    }
 
     ngOnInit(): void {
     }
@@ -34,7 +35,7 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
                 this.audio.pause();
                 this.paused = true;
             }
-        }else {
+        } else {
             this.audio.src = source;
             this.audio.load();
             this.audio.play();
