@@ -2,24 +2,25 @@
     <thead>
         <tr>
             <th style="width: 10%">
-                <mfDefaultSorter by="album">Album</mfDefaultSorter>
+                <mfDefaultSorter by="sample">Album</mfDefaultSorter>
             </th>
-            <th style="width: 10%">
-                <mfDefaultSorter by="sample">Sample</mfDefaultSorter>
-            </th>
-            <th style="width: 40%">
+            <th style="width: 45%">
                 <mfDefaultSorter by="track">Track</mfDefaultSorter>
             </th>
-            <th style="width: 40%">
+            <th style="width: 45%">
                 <mfDefaultSorter by="artists">Artists</mfDefaultSorter>
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of playlist">
-            <td><img [src]="item.track.album.images[2].url"></td>
             <td>
-                <button (click)="playSample(item.track.preview_url)" class="btn btn-danger">x</button>
+                <div *ngIf="item.track.preview_url; else justAlbum">
+                    <button (click)="playSample(item.track.preview_url)" class="btn btn-danger">
+                        <img [src]="item.track.album.images[2].url">
+                    </button>
+                </div>
+                <ng-template #justAlbum><img [src]="item.track.album.images[2].url"></ng-template>
             </td>
             <td>{{item.track.name}}</td>
             <td>

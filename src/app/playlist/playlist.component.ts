@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Rx';
 import { PlaylistService } from './playlist.service';
@@ -18,7 +18,7 @@ export class PlaylistComponent implements OnInit {
     searchPlaylistObservable: Observable<Item[]>;
     dataObserver: Observer<Item[]>;
 
-    constructor(private playlistService: PlaylistService, private ngZone: NgZone) {
+    constructor(private playlistService: PlaylistService) {
         this.searchPlaylistObservable = new Observable(observer => this.dataObserver = observer);
         this.searchPlaylistObservable.subscribe((playlist: Item[]) => {
             this.searchPlaylist = playlist;
@@ -32,17 +32,9 @@ export class PlaylistComponent implements OnInit {
     }
 
     search(search: String) {
-        console.log(search);
         this.playlistService.searchPlaylist(search).subscribe((playlist: Item[]) => {
-            // this.ngZone.run(() => {
                 this.searchPlaylist = playlist;
-            // });
         });
-        // if (this.searchPlaylist) {
-        //     this.searchPlaylist.forEach((item) => {
-        //         console.log(item.track.name);
-        //     });
-        // }
     }
 
 }
