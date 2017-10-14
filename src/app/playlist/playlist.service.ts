@@ -61,7 +61,6 @@ export class PlaylistService implements OnInit {
                 return Observable.throw(new Item());
             }).share();
         }
-        console.log('done with :' + searchString);
         return this.observableSearch;
     }
 

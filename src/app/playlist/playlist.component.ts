@@ -66,7 +66,6 @@ export class PlaylistComponent implements OnInit {
                     searchItem.track.onPlaylist = true;
                     return false;
                 }
-                return true;
             });
         });
     }
