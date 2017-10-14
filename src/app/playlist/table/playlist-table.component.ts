@@ -25,16 +25,20 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
     }
 
     playSample(source) {
-        if (this.paused) {
+        if (this.audio.src === source) {
+            if (this.paused) {
+                this.audio.load();
+                this.audio.play();
+                this.paused = false;
+            } else {
+                this.audio.pause();
+                this.paused = true;
+            }
+        }else {
             this.audio.src = source;
             this.audio.load();
             this.audio.play();
             this.paused = false;
-        } else {
-            this.audio.pause();
-            this.paused = true;
         }
-
     }
-
 }
