@@ -4,6 +4,9 @@ import { Artist } from './artist';
 export class Track {
     album: Album;
     artists: Artist[];
-    name: String;
-    preview_url: String;
+    id: string;
+    name: string;
+    preview_url: string;
+
+    onPlaylist = false;
 }

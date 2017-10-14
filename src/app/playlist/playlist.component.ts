@@ -10,11 +10,13 @@ import { Item } from './item';
     styles: ['./playlist.component.css'],
     providers: [PlaylistService]
 })
-export class PlaylistComponent implements OnInit, OnChanges {
+export class PlaylistComponent implements OnInit {
 
     playlist: Item[];
     searchPlaylist: Item[];
     searchString = '';
+    searching = false;
+    queuedSearch: string;
 
     searchPlaylistObservable: Observable<Item[]>;
     dataObserver: Observer<Item[]>;
@@ -23,6 +25,9 @@ export class PlaylistComponent implements OnInit, OnChanges {
         this.searchPlaylistObservable = new Observable(observer => this.dataObserver = observer);
         this.searchPlaylistObservable.subscribe((playlist: Item[]) => {
             this.searchPlaylist = playlist;
+            this.searchPlaylist.forEach((item) => {
+                item.track.onPlaylist = true;
+            });
         });
     }
 
@@ -32,17 +37,38 @@ export class PlaylistComponent implements OnInit, OnChanges {
         });
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        console.log(changes);
-    }
-
     search(newSearch: string) {
-        if (newSearch) {
+        this.searchString = newSearch;
+        if (newSearch && !this.searching) {
+            this.searching = true;
             this.playlistService.searchPlaylist(newSearch).subscribe((playlist: Item[]) => {
                 this.searchPlaylist = playlist;
+                this.setOnPlaylist(this.playlist, this.searchPlaylist);
+                if (this.queuedSearch) {
+                    const searchString = this.queuedSearch;
+                    this.queuedSearch = null;
+                    this.searching = false;
+                    this.search(searchString);
+                } else {
+                    this.searching = false;
+                }
             });
+
+        } else {
+            this.queuedSearch = newSearch;
         }
-        this.searchString = newSearch;
+    }
+
+    private setOnPlaylist(playlist: Item[], searchPlaylist: Item[]) {
+        searchPlaylist.forEach((searchItem) => {
+            playlist.some((playlistItem) => {
+                if (playlistItem.track.id === searchItem.track.id) {
+                    searchItem.track.onPlaylist = true;
+                    return false;
+                }
+                return true;
+            });
+        });
     }
 
 }

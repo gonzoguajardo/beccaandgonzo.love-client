@@ -46,6 +46,7 @@ export class PlaylistService implements OnInit {
                 response['tracks']['items'].forEach(item => {
                     const currentItem = new Item();
                     currentItem.track = new Track();
+                    currentItem.track.id = item['id'];
                     currentItem.track.name = item['name'];
                     currentItem.track.preview_url = item['preview_url'];
                     currentItem.track.album = new Album(item['album']['images'] as Image[]);
@@ -55,12 +56,12 @@ export class PlaylistService implements OnInit {
                     });
                     items.push(currentItem);
                 });
-                this.search = items;
                 return items;
             }).catch(error => {
                 return Observable.throw(new Item());
             }).share();
         }
+        console.log('done with :' + searchString);
         return this.observableSearch;
     }
 

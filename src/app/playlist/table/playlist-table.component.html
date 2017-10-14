@@ -22,7 +22,7 @@
                 </div>
                 <ng-template #justAlbum><img [src]="item.track.album.images[2].url"></ng-template>
             </td>
-            <td>{{item.track.name}}</td>
+            <td>{{item.track.name}}{{item.track.id}}</td>
             <td>
                 <span *ngFor="let artist of item.track.artists; let isLast=last">
                     {{artist.name}}{{isLast ? '' : ', '}}

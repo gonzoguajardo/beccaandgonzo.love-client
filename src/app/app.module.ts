@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistTableComponent } from './playlist/table/playlist-table.component';
+import { SearchTableComponent } from './playlist/table/search-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaylistComponent,
-    PlaylistTableComponent
+    PlaylistTableComponent,
+    SearchTableComponent,
   ],
   imports: [
     BrowserModule,
