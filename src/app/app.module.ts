@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistTableComponent } from './playlist/table/playlist-table.component';
 import { SearchTableComponent } from './playlist/table/search-table.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SearchTableComponent } from './playlist/table/search-table.component';
     PlaylistComponent,
     PlaylistTableComponent,
     SearchTableComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,
