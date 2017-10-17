@@ -1,4 +1,8 @@
 <app-playlist-table [playlist]="playlist"></app-playlist-table>
-<input type="text" [ngModel]="searchString" (ngModelChange)="search($event)">
+<div>
+    <label for="search">Search</label>
+    <input name="search" type="text" [ngModel]="searchString" (ngModelChange)="search($event)">
+</div>
+
 <h1>{{searchString}}</h1>
 <app-search-table [playlist]="searchPlaylist"></app-search-table>
