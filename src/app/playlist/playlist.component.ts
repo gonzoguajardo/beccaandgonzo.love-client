@@ -26,9 +26,7 @@ export class PlaylistComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.playlistService.getPlaylist().subscribe((playlist: Item[]) => {
-            this.playlist = playlist;
-        });
+        this.updatePlaylist();
     }
 
     search(newSearch: string) {
@@ -53,15 +51,10 @@ export class PlaylistComponent implements OnInit {
         }
     }
 
-    updatePlaylist(track: Track) {
-        let count = 0;
-        while (!this.isTrackInPlaylist(track)) {
-            this.playlistService.getPlaylist().subscribe((playlist: Item[]) => {
-                this.playlist = playlist;
-            });
-            console.log(this.playlist.length);
-            count++;
-        }
+    updatePlaylist() {
+        this.playlistService.getPlaylist().subscribe((playlist: Item[]) => {
+            this.playlist = playlist;
+        });
     }
 
     private setOnPlaylist(playlist: Item[], searchPlaylist: Item[]) {
@@ -73,16 +66,6 @@ export class PlaylistComponent implements OnInit {
                 }
             });
         });
-    }
-
-    private isTrackInPlaylist(track: Track): boolean {
-        this.playlist.some((playlistItem) => {
-            if (playlistItem.track.id === track.id) {
-                return true;
-            }
-            return false;
-        });
-        return false;
     }
 
 }

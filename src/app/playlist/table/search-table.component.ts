@@ -22,9 +22,8 @@ export class SearchTableComponent extends PlaylistTableComponent {
 
     addTrack(trackToAdd: Track) {
         this.searchPlaylistService.addTrackToPlaylist(trackToAdd).subscribe((response: string) => {
-            console.log(response);
+            this.playlistUpdate.emit(trackToAdd);
         });
-        this.playlistUpdate.emit(trackToAdd);
     }
 
 }

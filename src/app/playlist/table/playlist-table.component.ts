@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { PlaylistService } from '../playlist.service';
 import { Item } from '../item';
@@ -17,6 +17,9 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
     audio = new Audio();
     paused = true;
     isAdmin = false;
+
+    @Output()
+    playlistUpdate: EventEmitter<Track> = new EventEmitter();
 
     constructor(private playlistService: PlaylistService) {
     }
@@ -51,7 +54,7 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
 
     deleteTrack(track: Track) {
         this.playlistService.deleteTrackFromPlaylist(track).subscribe((response: string) => {
-            console.log(response);
+            this.playlistUpdate.emit();
         });
     }
 }

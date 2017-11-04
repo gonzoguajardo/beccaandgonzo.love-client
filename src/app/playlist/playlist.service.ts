@@ -25,9 +25,9 @@ export class PlaylistService implements OnInit {
     }
 
     getPlaylist(): Observable<Item[]> {
-        // if (this.observablePlaylist) {
-            // return this.observablePlaylist;
-        // } else {
+        if (this.observablePlaylist) {
+            return this.observablePlaylist;
+        } else {
             this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
                 .map((response: Response) => {
                     return response['items'] as Item[];
@@ -35,7 +35,7 @@ export class PlaylistService implements OnInit {
                     return Observable.throw(new Item());
                 }).share();
             return this.observablePlaylist;
-        // }
+        }
     }
 
     searchPlaylist(searchString: String): Observable<Item[]> {

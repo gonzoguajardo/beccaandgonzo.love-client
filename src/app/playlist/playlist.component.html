@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-playlist-table [playlist]="playlist"></app-playlist-table>
+<app-playlist-table [playlist]="playlist" (playlistUpdate)="updatePlaylist()"></app-playlist-table>
 <div>
     <label for="search">Search</label>
     <input name="search" type="text" [ngModel]="searchString" (ngModelChange)="search($event)">
