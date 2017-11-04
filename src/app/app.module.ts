@@ -11,6 +11,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistTableComponent } from './playlist/table/playlist-table.component';
 import { SearchTableComponent } from './playlist/table/search-table.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     PlaylistTableComponent,
     SearchTableComponent,
     AuthenticateComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

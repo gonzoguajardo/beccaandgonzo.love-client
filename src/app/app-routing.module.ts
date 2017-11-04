@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'playlist', component: PlaylistComponent },
-    { path: 'authenticate', component: AuthenticateComponent}
+    { path: 'authenticate', component: AuthenticateComponent},
+    { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
