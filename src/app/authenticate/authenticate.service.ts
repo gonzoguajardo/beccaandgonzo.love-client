@@ -16,20 +16,6 @@ export class AuthenticateService implements OnInit {
 
     }
 
-    // getPlaylist(): Observable<Item[]> {
-    //     if (this.observablePlaylist) {
-    //         return this.observablePlaylist;
-    //     } else {
-    //         this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
-    //             .map((response: Response) => {
-    //                 return response['items'] as Item[];
-    //             }).catch(error => {
-    //                 return Observable.throw(new Item());
-    //             }).share();
-    //         return this.observablePlaylist;
-    //     }
-    // }
-
     authenticate(): Observable<string> {
         console.log('hi2');
         this.observableAuthenticate = this.http.get('http://localhost:8080/guajardo-wedding-web/api/authenticate/')

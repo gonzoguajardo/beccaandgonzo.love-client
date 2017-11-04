@@ -1,52 +1,40 @@
-<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-    <thead>
+<div>
+    <table>
         <tr>
-            <th style="width: 10%">
-                <mfDefaultSorter by="sample">Album</mfDefaultSorter>
+            <th>
+                Album cover
             </th>
             <th *ngIf="isAdmin">
-                <mfDefaultSorter by="admin">Admin Only Functionality</mfDefaultSorter>
+                Admin Only Functionality
             </th>
-            <th style="width: 45%">
-                <mfDefaultSorter by="track">Track</mfDefaultSorter>
-                <button (click)="toggleAdmin()" class="btn btn-danger">
+            <th>
+                Data
+                <button (click)="toggleAdmin()">
                 </button>
             </th>
-            <th style="width: 45%">
-                <mfDefaultSorter by="artists">Artists</mfDefaultSorter>
-            </th>
         </tr>
-    </thead>
-    <tbody>
         <tr *ngFor="let item of playlist">
             <td>
                 <div *ngIf="item.track.preview_url; else justAlbum">
-                    <button (click)="playSample(item.track.preview_url)" class="btn btn-danger">
+                    <button (click)="playSample(item.track.preview_url)">
                         <img [src]="item.track.album.images[2].url">
                     </button>
                 </div>
                 <ng-template #justAlbum>
-                    <img [src]="item.track.album.images[2].url">
+                    <!-- <img [src]="item.track.album.images[2].url"> -->
                 </ng-template>
             </td>
             <td *ngIf="isAdmin">
-                <button (click)="deleteTrack(item.track)" class="btn btn-danger">
+                <button (click)="deleteTrack(item.track)">
                     <img src="assets/delete.png" />
                 </button>
             </td>
-            <td>{{item.track.name}}{{item.track.id}}</td>
             <td>
+                <div>{{item.track.name}}</div>
                 <span *ngFor="let artist of item.track.artists; let isLast=last">
                     {{artist.name}}{{isLast ? '' : ', '}}
                 </span>
             </td>
         </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="4">
-                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-            </td>
-        </tr>
-    </tfoot>
-</table>
+    </table>
+</div>
