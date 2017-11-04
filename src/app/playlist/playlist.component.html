@@ -6,4 +6,4 @@
 </div>
 
 <h1>{{searchString}}</h1>
-<app-search-table [playlist]="searchPlaylist"></app-search-table>
+<app-search-table [playlist]="searchPlaylist" (playlistUpdate)="updatePlaylist($event)"></app-search-table>

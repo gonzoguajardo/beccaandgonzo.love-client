@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { PlaylistService, } from '../playlist.service';
 import { Item } from '../item';
@@ -13,6 +13,9 @@ import { PlaylistTableComponent } from './playlist-table.component';
 })
 export class SearchTableComponent extends PlaylistTableComponent {
 
+    @Output()
+    playlistUpdate: EventEmitter<Track> = new EventEmitter();
+
     constructor(private searchPlaylistService: PlaylistService) {
         super(searchPlaylistService);
     }
@@ -21,6 +24,7 @@ export class SearchTableComponent extends PlaylistTableComponent {
         this.searchPlaylistService.addTrackToPlaylist(trackToAdd).subscribe((response: string) => {
             console.log(response);
         });
+        this.playlistUpdate.emit(trackToAdd);
     }
 
 }
