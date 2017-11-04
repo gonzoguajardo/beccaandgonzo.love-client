@@ -8,3 +8,21 @@ body {
     left:0;
     margin: 0;
  }
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+.links{
+    font-family: 'Teko', sans-serif, bold;
+}
+h1 {
+    font-family: 'Dancing Script', cursive, bold;
+}

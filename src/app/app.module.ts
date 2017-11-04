@@ -12,6 +12,8 @@ import { PlaylistTableComponent } from './playlist/table/playlist-table.componen
 import { SearchTableComponent } from './playlist/table/search-table.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { HomeComponent } from './home/home.component';
     SearchTableComponent,
     AuthenticateComponent,
     HomeComponent,
+    HeaderComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
