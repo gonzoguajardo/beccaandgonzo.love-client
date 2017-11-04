@@ -15,6 +15,7 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
     playlist: Item[];
     audio = new Audio();
     paused = true;
+    isAdmin = false;
 
     constructor(private playlistService: PlaylistService) {
     }
@@ -41,5 +42,9 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
             this.audio.play();
             this.paused = false;
         }
+    }
+
+    toggleAdmin() {
+        this.isAdmin = !this.isAdmin;
     }
 }

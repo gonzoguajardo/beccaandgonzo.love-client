@@ -67,7 +67,7 @@ export class PlaylistService implements OnInit {
     addTrackToPlaylist(track: Track) {
         if (track) {
             const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-            this.observableAdd = this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/add/track'
+            this.observableAdd = this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/add'
                 , JSON.stringify({ trackUri: track.uri }), { headers: headers })
                 .map((response: Response) => {
                     return '';

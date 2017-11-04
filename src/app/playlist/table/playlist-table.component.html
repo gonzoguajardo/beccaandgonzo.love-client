@@ -4,8 +4,13 @@
             <th style="width: 10%">
                 <mfDefaultSorter by="sample">Album</mfDefaultSorter>
             </th>
+            <th *ngIf="isAdmin">
+                <mfDefaultSorter by="admin">Admin Only Functionality</mfDefaultSorter>
+            </th>
             <th style="width: 45%">
                 <mfDefaultSorter by="track">Track</mfDefaultSorter>
+                <button (click)="toggleAdmin()" class="btn btn-danger">
+                </button>
             </th>
             <th style="width: 45%">
                 <mfDefaultSorter by="artists">Artists</mfDefaultSorter>
@@ -20,13 +25,20 @@
                         <img [src]="item.track.album.images[2].url">
                     </button>
                 </div>
-                <ng-template #justAlbum><img [src]="item.track.album.images[2].url"></ng-template>
+                <ng-template #justAlbum>
+                    <img [src]="item.track.album.images[2].url">
+                </ng-template>
+            </td>
+            <td *ngIf="isAdmin">
+                <button class="btn btn-danger">
+                    <img src="assets/delete.png" />
+                </button>
             </td>
             <td>{{item.track.name}}{{item.track.id}}</td>
             <td>
                 <span *ngFor="let artist of item.track.artists; let isLast=last">
                     {{artist.name}}{{isLast ? '' : ', '}}
-                 </span>
+                </span>
             </td>
         </tr>
     </tbody>
