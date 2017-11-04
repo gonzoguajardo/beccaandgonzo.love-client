@@ -14,6 +14,7 @@ export class PlaylistService implements OnInit {
     observablePlaylist: Observable<Item[]>;
     observableSearch: Observable<Item[]>;
     observableAdd: Observable<string>;
+    observableDelete: Observable<string>;
 
     constructor(private http: HttpClient) {
 
@@ -74,6 +75,19 @@ export class PlaylistService implements OnInit {
                 }).share();
         }
         return this.observableAdd;
+    }
+
+    deleteTrackFromPlaylist(track: Track) {
+        if (track) {
+            const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+            this.observableDelete = this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/delete'
+                , JSON.stringify({ tracks: [{uri: track.uri}] }), { headers: headers })
+                .map((response: Response) => {
+                    return '';
+                }).share();
+        }
+        return this.observableDelete;
+
     }
 
 }

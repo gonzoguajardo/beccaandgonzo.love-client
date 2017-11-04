@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { Observable } from 'rxjs/Observable';
 import { PlaylistService } from '../playlist.service';
 import { Item } from '../item';
+import { Track } from '../track';
 
 @Component({
     selector: 'app-playlist-table',
@@ -46,5 +47,11 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
 
     toggleAdmin() {
         this.isAdmin = !this.isAdmin;
+    }
+
+    deleteTrack(track: Track) {
+        this.playlistService.deleteTrackFromPlaylist(track).subscribe((response: string) => {
+            console.log(response);
+        });
     }
 }
