@@ -17,12 +17,13 @@ export class SortedTableComponent {
     playlist: Playlist;
     @Input()
     playingSongId: string;
-    @Input()
-    isAdmin: boolean;
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
     @Output()
     playingTrackUpdate: EventEmitter<Track> = new EventEmitter();
+    @Input()
+    isAdmin: boolean;
+    @Output() isAdminChange = new EventEmitter<boolean>();
 
     constructor(private playlistService: PlaylistService) {
 
@@ -52,5 +53,6 @@ export class SortedTableComponent {
 
     toggleAdmin() {
         this.isAdmin = !this.isAdmin;
+        this.isAdminChange.emit(this.isAdmin);
     }
 }

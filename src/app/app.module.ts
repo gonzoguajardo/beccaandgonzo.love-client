@@ -19,6 +19,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { GuestBookComponent } from './guest-book/guest-book.component';
 import { LinksComponent } from './header/links/links.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LinksComponent } from './header/links/links.component';
     RegistryComponent,
     GuestBookComponent,
     LinksComponent,
+    RsvpComponent,
   ],
   imports: [
     BrowserModule,

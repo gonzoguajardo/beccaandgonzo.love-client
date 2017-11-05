@@ -18,6 +18,7 @@ export class SearchResultComponent {
     playingSongId: String;
     @Input()
     isAdmin: boolean;
+    @Output() isAdminChange = new EventEmitter<boolean>();
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
     @Output()

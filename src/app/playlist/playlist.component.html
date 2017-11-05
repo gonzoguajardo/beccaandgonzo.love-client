@@ -1,5 +1,4 @@
-<!-- <app-header></app-header> -->
-<app-sorted-table [playlist]="playlist" [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-sorted-table>
+<app-sorted-table [playlist]="playlist" [playingSongId]="playingSongId" [(isAdmin)]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-sorted-table>
 <div class="searchInput">
     <label for="search">Search</label>
     <input name="search" type="text" [ngModel]="searchString" (ngModelChange)="search($event)">
@@ -8,4 +7,4 @@
 <div class="searchText">
     <h1>{{searchString}}</h1>
 </div>
-<app-search-result [playlist]="searchPlaylist" [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-search-result>
+<app-search-result [playlist]="searchPlaylist" [playingSongId]="playingSongId" [(isAdmin)]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-search-result>

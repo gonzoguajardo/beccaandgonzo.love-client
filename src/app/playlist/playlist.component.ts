@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, OnDestroy, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Rx';
 import { PlaylistService } from './playlist.service';
@@ -14,6 +14,9 @@ import { Playlist } from './playlist';
 })
 export class PlaylistComponent implements OnInit, OnDestroy {
 
+    @Input()
+    isAdmin = false;
+    @Output() isAdminChange = new EventEmitter<boolean>();
 
     playlist: Playlist;
     searchPlaylist: Item[];
@@ -22,7 +25,6 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     queuedSearch: string;
     audio = new Audio();
     playingSongId = '';
-    isAdmin = false;
 
     constructor(private playlistService: PlaylistService) {
     }
@@ -82,9 +84,9 @@ export class PlaylistComponent implements OnInit, OnDestroy {
             this.playingSongId = track.id;
         }
     }
-    toggleAdmin() {
-        this.isAdmin = !this.isAdmin;
-    }
+    // toggleAdmin() {
+    //     this.isAdmin = !this.isAdmin;
+    // }
 
     private setOnPlaylist() {
         if (this.searchPlaylist) {

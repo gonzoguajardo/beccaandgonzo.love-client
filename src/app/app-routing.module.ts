@@ -7,6 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { GuestBookComponent } from './guest-book/guest-book.component';
+import { RsvpComponent } from './rsvp/rsvp.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,8 +16,9 @@ const appRoutes: Routes = [
     { path: 'photos', component: PhotosComponent},
     { path: 'registry', component: RegistryComponent},
     { path: 'guest-book', component: GuestBookComponent},
+    { path: 'rsvp', component: RsvpComponent},
     { path: 'playlist', component: PlaylistComponent },
-    { path: 'authenticate', component: AuthenticateComponent}
+    { path: 'authenticate', component: AuthenticateComponent},
 ];
 
 @NgModule({
