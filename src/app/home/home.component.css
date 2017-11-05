@@ -12,7 +12,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
 }
 .names {
     font-size: 700%;
@@ -20,17 +19,11 @@
     margin-right: 125px;
 }
 .links {
+    font-size: 300%;
+}
+::ng-deep .home-links {
+    display: block;
     text-align: right;
     margin: 0;
     margin-right: 125px;
-    font-size: 300%;
-}
-a:link, a:visited, a:active {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: blue;
-    text-decoration: none;
 }

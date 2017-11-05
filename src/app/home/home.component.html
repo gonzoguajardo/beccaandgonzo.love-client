@@ -3,30 +3,5 @@
     <h1 class="names">
       Rebecca + Gonzo</h1>
   </div>
-  <div class="links">
-    <div>
-      <a routerLink="/" routerLinkActive="active">Home</a>
-    </div>
-    <div>
-      <a routerLink="/details" routerLinkActive="active">Details</a>
-    </div>
-    <div>
-      <a routerLink="/" routerLinkActive="active">Photos</a>
-    </div>
-    <div>
-      <a routerLink="/" routerLinkActive="active">Registry</a>
-    </div>
-    <div>
-      <a routerLink="/" routerLinkActive="active">Guest Book</a>
-    </div>
-    <div>
-      <a routerLink="/" routerLinkActive="active">RSVP</a>
-    </div>
-    <div>
-      <a routerLink="/playlist" routerLinkActive="active">Playlist</a>
-    </div>
-    <div>
-      <a routerLink="/authenticate" routerLinkActive="active">Authenticate</a>
-    </div>
-  </div>
+  <app-links class="links" [className]="'home-links'"></app-links>
 </div>

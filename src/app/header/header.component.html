@@ -2,13 +2,5 @@
     <h1 class="names">
         Rebecca + Gonzo</h1>
 </div>
-<div class="links">
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/details" routerLinkActive="active">Details</a>
-    <a routerLink="/" routerLinkActive="active">Photos</a>
-    <a routerLink="/" routerLinkActive="active">Registry</a>
-    <a routerLink="/" routerLinkActive="active">Guest Book</a>
-    <a routerLink="/" routerLinkActive="active">RSVP</a>
-    <a routerLink="/playlist" routerLinkActive="active">Playlist</a>
-    <a routerLink="/authenticate" routerLinkActive="active">Authenticate</a>
-</div>
+    <app-links class="links" [className]="'header-links'"></app-links>
+<router-outlet></router-outlet>

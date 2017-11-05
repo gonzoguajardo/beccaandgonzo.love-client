@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div *ngIf="router.url !== '/home'; else home">
+    <app-header></app-header>
+</div>
+<ng-template #home><router-outlet></router-outlet></ng-template>

@@ -15,6 +15,10 @@ import { DetailsComponent } from './details/details.component';
 import { SortedTableComponent } from './playlist/sorted-table/sorted-table.component';
 import { SearchResultComponent } from './playlist/search-result/search-result.component';
 import { TrackCardComponent } from './playlist/track-card/track-card.component';
+import { PhotosComponent } from './photos/photos.component';
+import { RegistryComponent } from './registry/registry.component';
+import { GuestBookComponent } from './guest-book/guest-book.component';
+import { LinksComponent } from './header/links/links.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { TrackCardComponent } from './playlist/track-card/track-card.component';
     SortedTableComponent,
     SearchResultComponent,
     TrackCardComponent,
+    PhotosComponent,
+    RegistryComponent,
+    GuestBookComponent,
+    LinksComponent,
   ],
   imports: [
     BrowserModule,

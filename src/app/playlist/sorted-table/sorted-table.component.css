@@ -3,3 +3,34 @@
     border: 0;
     background-color: white;
 }
+.nav {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.table {
+    margin: auto;
+    display: block;
+}
+.table-text {
+    text-align: center;
+    font-family: 'Teko', sans-serif, bold;
+    font-size: 110%;
+}

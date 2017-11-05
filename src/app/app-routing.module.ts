@@ -4,11 +4,17 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
+import { PhotosComponent } from './photos/photos.component';
+import { RegistryComponent } from './registry/registry.component';
+import { GuestBookComponent } from './guest-book/guest-book.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent},
     { path: 'details', component: DetailsComponent},
+    { path: 'photos', component: PhotosComponent},
+    { path: 'registry', component: RegistryComponent},
+    { path: 'guest-book', component: GuestBookComponent},
     { path: 'playlist', component: PlaylistComponent },
     { path: 'authenticate', component: AuthenticateComponent}
 ];

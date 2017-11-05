@@ -1,6 +1,4 @@
-<app-header></app-header>
-<button (click)="toggleAdmin()">
-</button>
+<!-- <app-header></app-header> -->
 <app-sorted-table [playlist]="playlist" [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-sorted-table>
 <div class="searchInput">
     <label for="search">Search</label>

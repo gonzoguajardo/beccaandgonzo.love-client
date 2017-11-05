@@ -6,11 +6,9 @@
     margin-right: 4px;
 }
 .album-cover {
-    margin-top: .5px;
-    margin-right: 3px;
+    margin-right: 4px;
 }
 .card {
-    margin: 0;
     display: flex;
     width: 260px;
     font-family: 'Exo 2', sans-serif;

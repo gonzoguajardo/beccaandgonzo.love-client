@@ -49,4 +49,8 @@ export class SortedTableComponent {
                 this.playlist = playlist;
             });
     }
+
+    toggleAdmin() {
+        this.isAdmin = !this.isAdmin;
+    }
 }
