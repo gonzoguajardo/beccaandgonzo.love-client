@@ -9,5 +9,5 @@ export class Track {
     preview_url: string;
     uri: string;
 
-    onPlaylist = false;
+    onPlaylist = true;
 }

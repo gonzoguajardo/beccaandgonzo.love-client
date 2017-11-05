@@ -1,0 +1,31 @@
+<div class="card">
+    <img class="album-cover" [src]="track.album.images[2].url">
+    <div>
+        <div class="buttons">
+            <div *ngIf="playingSongId !== track.id; else pauseIcon">
+                <button class="button" (click)="playSample(track)">
+                    <img src="assets/listen.png" />
+                </button>
+            </div>
+            <ng-template #pauseIcon>
+                <button class="button" (click)="playSample(track)">
+                    <img src="assets/pause.png" />
+                </button>
+            </ng-template>
+            <div *ngIf="!track.onPlaylist; else canNotAdd">
+                <button class="button" (click)="addTrack(track)">
+                    <img src="assets/add.png" />
+                </button>
+            </div>
+            <ng-template #canNotAdd>
+                <button class="button" (click)="deleteTrack(track)">
+                    <img src="assets/delete.png" />
+                </button>
+            </ng-template>
+        </div>
+        <div>{{track.name}}</div>
+        <span *ngFor="let artist of track.artists; let isLast=last">
+            {{artist.name}}{{isLast ? '' : ', '}}
+        </span>
+    </div>
+</div>

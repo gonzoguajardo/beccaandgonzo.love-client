@@ -5,21 +5,23 @@ import { Item } from '../item';
 import { Track } from '../track';
 
 @Component({
-    selector: 'app-playlist-table',
-    templateUrl: './playlist-table.component.html',
-    styleUrls: ['./playlist-table.component.css'],
+    selector: 'app-track-card',
+    templateUrl: './track-card.component.html',
+    styleUrls: ['./track-card.component.css'],
     providers: [PlaylistService]
 })
-export class PlaylistTableComponent implements OnInit, OnChanges {
+export class TrackCardComponent implements OnInit, OnChanges {
 
     @Input()
-    playlist: Item[];
-    audio = new Audio();
-    paused = true;
+    track: Track;
+    @Input()
+    playingSongId: Track;
     isAdmin = false;
 
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
+    @Output()
+    playingTrackUpdate: EventEmitter<Track> = new EventEmitter();
 
     constructor(private playlistService: PlaylistService) {
     }
@@ -30,22 +32,8 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
     }
 
-    playSample(source) {
-        if (this.audio.src === source) {
-            if (this.paused) {
-                this.audio.load();
-                this.audio.play();
-                this.paused = false;
-            } else {
-                this.audio.pause();
-                this.paused = true;
-            }
-        } else {
-            this.audio.src = source;
-            this.audio.load();
-            this.audio.play();
-            this.paused = false;
-        }
+    playSample(track: Track) {
+        this.playingTrackUpdate.emit(track);
     }
 
     toggleAdmin() {
@@ -57,4 +45,11 @@ export class PlaylistTableComponent implements OnInit, OnChanges {
             this.playlistUpdate.emit();
         });
     }
+
+    addTrack(trackToAdd: Track) {
+        this.playlistService.addTrackToPlaylist(trackToAdd).subscribe((response: string) => {
+            this.playlistUpdate.emit();
+        });
+    }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Rx';
 import { PlaylistService } from './playlist.service';
@@ -11,22 +11,27 @@ import { Track } from './track';
     styleUrls: ['./playlist.component.css'],
     providers: [PlaylistService]
 })
-export class PlaylistComponent implements OnInit {
+export class PlaylistComponent implements OnInit, OnDestroy {
+
 
     playlist: Item[];
     searchPlaylist: Item[];
     searchString = '';
     searching = false;
     queuedSearch: string;
-
-    searchPlaylistObservable: Observable<Item[]>;
-    dataObserver: Observer<Item[]>;
+    audio = new Audio();
+    playingSongId = '';
 
     constructor(private playlistService: PlaylistService) {
     }
 
     ngOnInit(): void {
         this.updatePlaylist();
+    }
+
+    ngOnDestroy(): void {
+        this.audio.pause();
+        this.audio = null;
     }
 
     search(newSearch: string) {
@@ -58,9 +63,28 @@ export class PlaylistComponent implements OnInit {
         });
     }
 
+    playTrack(track: Track) {
+        if (this.audio.src === track.preview_url) {
+            if ((this.playingSongId === '')) {
+                this.audio.load();
+                this.audio.play();
+                this.playingSongId = track.id;
+            } else {
+                this.audio.pause();
+                this.playingSongId = '';
+            }
+        } else {
+            this.audio.src = track.preview_url;
+            this.audio.load();
+            this.audio.play();
+            this.playingSongId = track.id;
+        }
+    }
+
     private setOnPlaylist() {
         if (this.searchPlaylist) {
             this.searchPlaylist.forEach((searchItem) => {
+                searchItem.track.onPlaylist = false;
                 this.playlist.some((playlistItem) => {
                     if (playlistItem.track.id === searchItem.track.id) {
                         searchItem.track.onPlaylist = true;

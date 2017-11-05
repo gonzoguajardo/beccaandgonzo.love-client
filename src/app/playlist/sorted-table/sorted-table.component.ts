@@ -10,51 +10,22 @@ import { Track } from '../track';
     styleUrls: ['./sorted-table.component.css'],
     providers: [PlaylistService]
 })
-export class SortedTableComponent implements OnInit, OnChanges {
+export class SortedTableComponent {
 
     @Input()
     playlist: Item[];
-    audio = new Audio();
-    paused = true;
-    isAdmin = false;
-
+    @Input()
+    playingSongId: string;
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
+    @Output()
+    playingTrackUpdate: EventEmitter<Track> = new EventEmitter();
 
-    constructor(private playlistService: PlaylistService) {
+    updatePlaylist() {
+        this.playlistUpdate.emit();
     }
 
-    ngOnInit(): void {
-    }
-
-    ngOnChanges(changes: SimpleChanges): void {
-    }
-
-    playSample(source) {
-        if (this.audio.src === source) {
-            if (this.paused) {
-                this.audio.load();
-                this.audio.play();
-                this.paused = false;
-            } else {
-                this.audio.pause();
-                this.paused = true;
-            }
-        } else {
-            this.audio.src = source;
-            this.audio.load();
-            this.audio.play();
-            this.paused = false;
-        }
-    }
-
-    toggleAdmin() {
-        this.isAdmin = !this.isAdmin;
-    }
-
-    deleteTrack(track: Track) {
-        this.playlistService.deleteTrackFromPlaylist(track).subscribe((response: string) => {
-            this.playlistUpdate.emit();
-        });
+    playTrack(track: Track) {
+        this.playingTrackUpdate.emit(track);
     }
 }

@@ -30,7 +30,12 @@ export class PlaylistService implements OnInit {
         } else {
             this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
                 .map((response: Response) => {
-                    return response['items'] as Item[];
+                    const items: Item[] = response['items'] as Item[];
+                    items.forEach((item: Item) => {
+                        item.track.onPlaylist = true;
+                    });
+                    // return response['items'] as Item[];
+                    return items;
                 }).catch(error => {
                     return Observable.throw(new Item());
                 }).share();

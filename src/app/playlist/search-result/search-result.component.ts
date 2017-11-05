@@ -10,57 +10,23 @@ import { Track } from '../track';
     styleUrls: ['./search-result.component.css'],
     providers: [PlaylistService]
 })
-export class SearchResultComponent implements OnInit, OnChanges {
+export class SearchResultComponent {
 
     @Input()
     playlist: Item[];
-    audio = new Audio();
-    paused = true;
-    isAdmin = false;
-
+    @Input()
+    playingSongId: String;
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
+    @Output()
+    playingTrackUpdate: EventEmitter<Track> = new EventEmitter;
 
-    constructor(private playlistService: PlaylistService) {
+    updatePlaylist() {
+        this.playlistUpdate.emit();
     }
 
-    ngOnInit(): void {
+    playTrack(track: Track) {
+        this.playingTrackUpdate.emit(track);
     }
 
-    ngOnChanges(changes: SimpleChanges): void {
-    }
-
-    playSample(source) {
-        if (this.audio.src === source) {
-            if (this.paused) {
-                this.audio.load();
-                this.audio.play();
-                this.paused = false;
-            } else {
-                this.audio.pause();
-                this.paused = true;
-            }
-        } else {
-            this.audio.src = source;
-            this.audio.load();
-            this.audio.play();
-            this.paused = false;
-        }
-    }
-
-    toggleAdmin() {
-        this.isAdmin = !this.isAdmin;
-    }
-
-    deleteTrack(track: Track) {
-        this.playlistService.deleteTrackFromPlaylist(track).subscribe((response: string) => {
-            this.playlistUpdate.emit();
-        });
-    }
-
-    addTrack(trackToAdd: Track) {
-        this.playlistService.addTrackToPlaylist(trackToAdd).subscribe((response: string) => {
-            this.playlistUpdate.emit(trackToAdd);
-        });
-    }
 }
