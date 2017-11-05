@@ -4,6 +4,7 @@ import { Observer } from 'rxjs/Rx';
 import { PlaylistService } from './playlist.service';
 import { Item } from './item';
 import { Track } from './track';
+import { Playlist } from './playlist';
 
 @Component({
     selector: 'app-playlist',
@@ -14,7 +15,7 @@ import { Track } from './track';
 export class PlaylistComponent implements OnInit, OnDestroy {
 
 
-    playlist: Item[];
+    playlist: Playlist;
     searchPlaylist: Item[];
     searchString = '';
     searching = false;
@@ -58,7 +59,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     }
 
     updatePlaylist() {
-        this.playlistService.getPlaylist().subscribe((playlist: Item[]) => {
+        this.playlistService.getPlaylist().subscribe((playlist: Playlist) => {
             this.playlist = playlist;
             this.setOnPlaylist();
         });
@@ -89,7 +90,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
         if (this.searchPlaylist) {
             this.searchPlaylist.forEach((searchItem) => {
                 searchItem.track.onPlaylist = false;
-                this.playlist.some((playlistItem) => {
+                this.playlist.items.some((playlistItem) => {
                     if (playlistItem.track.id === searchItem.track.id) {
                         searchItem.track.onPlaylist = true;
                         return false;

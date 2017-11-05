@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { PlaylistService } from '../playlist.service';
 import { Item } from '../item';
 import { Track } from '../track';
+import { Playlist } from '../playlist';
 
 @Component({
     selector: 'app-sorted-table',
@@ -13,7 +14,7 @@ import { Track } from '../track';
 export class SortedTableComponent {
 
     @Input()
-    playlist: Item[];
+    playlist: Playlist;
     @Input()
     playingSongId: string;
     @Input()
@@ -29,5 +30,9 @@ export class SortedTableComponent {
 
     playTrack(track: Track) {
         this.playingTrackUpdate.emit(track);
+    }
+
+    next() {
+        console.log(this.playlist.next);
     }
 }

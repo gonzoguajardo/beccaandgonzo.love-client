@@ -7,11 +7,12 @@ import { Track } from './track';
 import { Album } from './album';
 import { Image } from './image';
 import { Artist } from './artist';
+import { Playlist } from './playlist';
 
 @Injectable()
 export class PlaylistService implements OnInit {
 
-    observablePlaylist: Observable<Item[]>;
+    observablePlaylist: Observable<Playlist>;
     observableSearch: Observable<Item[]>;
     observableAdd: Observable<string>;
     observableDelete: Observable<string>;
@@ -24,20 +25,18 @@ export class PlaylistService implements OnInit {
 
     }
 
-    getPlaylist(): Observable<Item[]> {
+    getPlaylist(): Observable<Playlist> {
         if (this.observablePlaylist) {
             return this.observablePlaylist;
         } else {
             this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
-                .map((response: Response) => {
-                    const items: Item[] = response['items'] as Item[];
-                    items.forEach((item: Item) => {
+                .map((playlist: Playlist) => {
+                    playlist.items.forEach((item: Item) => {
                         item.track.onPlaylist = true;
                     });
-                    // return response['items'] as Item[];
-                    return items;
+                    return playlist;
                 }).catch(error => {
-                    return Observable.throw(new Item());
+                    return Observable.throw(new Playlist());
                 }).share();
             return this.observablePlaylist;
         }

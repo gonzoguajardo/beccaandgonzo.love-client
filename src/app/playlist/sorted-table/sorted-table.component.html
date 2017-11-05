@@ -1,5 +1,12 @@
 <div>
-    <div class="row" *ngFor="let item of playlist">
-        <app-track-card [track]=item.track [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack(item.track)"></app-track-card>
+    Showing {{playlist?.offset + 1}} - {{playlist?.offset + playlist?.items.length}} of {{playlist?.total}} results
+    <div class="row" *ngFor="let item of playlist?.items">
+        <app-track-card [track]=item.track [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()"
+            (playingTrackUpdate)="playTrack(item.track)"></app-track-card>
+    </div>
+    <div *ngIf="playlist?.next">
+        <button class="button" (click)="next()">
+            <img src="assets/next.png" />
+        </button>
     </div>
 </div>
