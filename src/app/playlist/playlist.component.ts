@@ -21,6 +21,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     queuedSearch: string;
     audio = new Audio();
     playingSongId = '';
+    isAdmin = false;
 
     constructor(private playlistService: PlaylistService) {
     }
@@ -79,6 +80,9 @@ export class PlaylistComponent implements OnInit, OnDestroy {
             this.audio.play();
             this.playingSongId = track.id;
         }
+    }
+    toggleAdmin() {
+        this.isAdmin = !this.isAdmin;
     }
 
     private setOnPlaylist() {

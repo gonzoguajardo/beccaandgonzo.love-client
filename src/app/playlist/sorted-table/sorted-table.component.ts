@@ -16,6 +16,8 @@ export class SortedTableComponent {
     playlist: Item[];
     @Input()
     playingSongId: string;
+    @Input()
+    isAdmin: boolean;
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
     @Output()

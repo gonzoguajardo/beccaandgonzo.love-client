@@ -16,7 +16,8 @@ export class TrackCardComponent implements OnInit, OnChanges {
     track: Track;
     @Input()
     playingSongId: Track;
-    isAdmin = false;
+    @Input()
+    isAdmin: boolean;
 
     @Output()
     playlistUpdate: EventEmitter<Track> = new EventEmitter();
@@ -34,10 +35,6 @@ export class TrackCardComponent implements OnInit, OnChanges {
 
     playSample(track: Track) {
         this.playingTrackUpdate.emit(track);
-    }
-
-    toggleAdmin() {
-        this.isAdmin = !this.isAdmin;
     }
 
     deleteTrack(track: Track) {

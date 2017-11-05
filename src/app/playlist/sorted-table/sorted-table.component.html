@@ -1,5 +1,5 @@
 <div>
     <div class="row" *ngFor="let item of playlist">
-        <app-track-card [track]=item.track [playingSongId]="playingSongId" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack(item.track)"></app-track-card>
+        <app-track-card [track]=item.track [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack(item.track)"></app-track-card>
     </div>
 </div>
