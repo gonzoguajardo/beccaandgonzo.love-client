@@ -14,6 +14,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DetailsComponent } from './details/details.component';
+import { SortedTableComponent } from './playlist/sorted-table/sorted-table.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DetailsComponent } from './details/details.component';
     HomeComponent,
     HeaderComponent,
     DetailsComponent,
+    SortedTableComponent,
   ],
   imports: [
     BrowserModule,
