@@ -9,24 +9,24 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { PlaylistTableComponent } from './playlist/table/playlist-table.component';
-import { SearchTableComponent } from './playlist/table/search-table.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DetailsComponent } from './details/details.component';
 import { SortedTableComponent } from './playlist/sorted-table/sorted-table.component';
+import { SearchResultComponent } from './playlist/search-result/search-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaylistComponent,
     PlaylistTableComponent,
-    SearchTableComponent,
     AuthenticateComponent,
     HomeComponent,
     HeaderComponent,
     DetailsComponent,
     SortedTableComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

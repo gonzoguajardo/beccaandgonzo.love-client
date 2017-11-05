@@ -1,0 +1,32 @@
+<div>
+    <div class="row" *ngFor="let item of playlist">
+        <img class="album-cover" [src]="item.track.album.images[2].url">
+        <!-- <td *ngIf="isAdmin">
+            <button (click)="deleteTrack(item.track)">
+                <img src="assets/delete.png" />
+            </button>
+        </td> -->
+        <div>
+            <div class="buttons">
+                <button class="button" (click)="playSample(item.track.preview_url)">
+                    <img src="assets/listen.png" />
+                </button>
+                <div *ngIf="!item.track.onPlaylist; else canNotAdd">
+                    <button class="button" (click)="addTrack(item.track)">
+                        <img src="assets/add.png" />
+                    </button>
+                </div>
+                <ng-template #canNotAdd >
+                    <button class="button" (click)="deleteTrack(item.track)">
+                        <img src="assets/delete.png" />
+                    </button>
+                </ng-template>
+            </div>
+            <div>{{item.track.name}}</div>
+            <span *ngFor="let artist of item.track.artists; let isLast=last">
+                {{artist.name}}{{isLast ? '' : ', '}}
+            </span>
+        </div>
+
+    </div>
+</div>

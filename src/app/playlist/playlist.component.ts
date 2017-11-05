@@ -35,7 +35,7 @@ export class PlaylistComponent implements OnInit {
             this.searching = true;
             this.playlistService.searchPlaylist(newSearch).subscribe((playlist: Item[]) => {
                 this.searchPlaylist = playlist;
-                this.setOnPlaylist(this.playlist, this.searchPlaylist);
+                this.setOnPlaylist();
                 if (this.queuedSearch) {
                     const searchString = this.queuedSearch;
                     this.queuedSearch = null;
@@ -54,18 +54,21 @@ export class PlaylistComponent implements OnInit {
     updatePlaylist() {
         this.playlistService.getPlaylist().subscribe((playlist: Item[]) => {
             this.playlist = playlist;
+            this.setOnPlaylist();
         });
     }
 
-    private setOnPlaylist(playlist: Item[], searchPlaylist: Item[]) {
-        searchPlaylist.forEach((searchItem) => {
-            playlist.some((playlistItem) => {
-                if (playlistItem.track.id === searchItem.track.id) {
-                    searchItem.track.onPlaylist = true;
-                    return false;
-                }
+    private setOnPlaylist() {
+        if (this.searchPlaylist) {
+            this.searchPlaylist.forEach((searchItem) => {
+                this.playlist.some((playlistItem) => {
+                    if (playlistItem.track.id === searchItem.track.id) {
+                        searchItem.track.onPlaylist = true;
+                        return false;
+                    }
+                });
             });
-        });
+        }
     }
 
 }

@@ -21,9 +21,9 @@
     margin-right: 3px;
 }
 .row {
-    outline-color: black;
+    /* outline-color: black;
     outline-width: 1px;
-    outline-style: solid;
+    outline-style: solid; */
     margin-bottom: 10px;
     display: -webkit-box;
     display: -moz-box;
@@ -35,4 +35,14 @@
     width: 260px;
     font-family: 'Exo 2', sans-serif;
     font-size: 80%;
+}
+.buttons {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
 }
