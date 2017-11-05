@@ -59,7 +59,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     }
 
     updatePlaylist() {
-        this.playlistService.getPlaylist().subscribe((playlist: Playlist) => {
+        this.playlistService.getPlaylist(null).subscribe((playlist: Playlist) => {
             this.playlist = playlist;
             this.setOnPlaylist();
         });

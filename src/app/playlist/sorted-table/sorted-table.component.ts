@@ -24,6 +24,10 @@ export class SortedTableComponent {
     @Output()
     playingTrackUpdate: EventEmitter<Track> = new EventEmitter();
 
+    constructor(private playlistService: PlaylistService) {
+
+    }
+
     updatePlaylist() {
         this.playlistUpdate.emit();
     }
@@ -33,6 +37,16 @@ export class SortedTableComponent {
     }
 
     next() {
-        console.log(this.playlist.next);
+        this.playlistService.getPlaylist(this.playlist.next).subscribe(
+            (playlist: Playlist) => {
+                this.playlist = playlist;
+            });
+    }
+
+    previous() {
+        this.playlistService.getPlaylist(this.playlist.previous).subscribe(
+            (playlist: Playlist) => {
+                this.playlist = playlist;
+            });
     }
 }

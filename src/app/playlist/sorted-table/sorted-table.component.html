@@ -4,9 +4,15 @@
         <app-track-card [track]=item.track [playingSongId]="playingSongId" [isAdmin]="isAdmin" (playlistUpdate)="updatePlaylist()"
             (playingTrackUpdate)="playTrack(item.track)"></app-track-card>
     </div>
+    <div *ngIf="playlist?.previous">
+            <button class="button" (click)="previous()">
+                <img src="assets/back.png" />
+            </button>
+        </div>
     <div *ngIf="playlist?.next">
         <button class="button" (click)="next()">
             <img src="assets/next.png" />
         </button>
     </div>
+
 </div>

@@ -25,8 +25,17 @@ export class PlaylistService implements OnInit {
 
     }
 
-    getPlaylist(): Observable<Playlist> {
-        if (this.observablePlaylist) {
+    getPlaylist(url: string): Observable<Playlist> {
+        if (url) {
+            this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/?url=' + url)
+                .map((playlist: Playlist) => {
+                    playlist.items.forEach((item: Item) => {
+                        item.track.onPlaylist = true;
+                    });
+                    return playlist;
+                }).catch(error => {
+                    return Observable.throw(new Playlist());
+                }).share();
             return this.observablePlaylist;
         } else {
             this.observablePlaylist = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/')
@@ -44,7 +53,8 @@ export class PlaylistService implements OnInit {
 
     searchPlaylist(searchString: String): Observable<Item[]> {
         if (searchString) {
-            this.observableSearch = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/search/' + searchString)
+            this.observableSearch = this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/search?queryParameter='
+                + searchString)
                 .map((response: Response) => {
                     const items: Item[] = new Array<Item>();
                     response['tracks']['items'].forEach(item => {
@@ -85,7 +95,7 @@ export class PlaylistService implements OnInit {
         if (track) {
             const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
             this.observableDelete = this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/delete'
-                , JSON.stringify({ tracks: [{uri: track.uri}] }), { headers: headers })
+                , JSON.stringify({ tracks: [{ uri: track.uri }] }), { headers: headers })
                 .map((response: Response) => {
                     return '';
                 }).share();
