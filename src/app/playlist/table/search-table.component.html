@@ -1,48 +1,46 @@
-<div>
-    <table>
-        <tr>
-            <th>
-                Add
-            </th>
-            <th>
-                Album cover
-            </th>
-            <th>
-                Data
-            </th>
-        </tr>
-        <tr *ngFor="let item of playlist">
-            <td>
-                <div *ngIf="!item.track.onPlaylist; else canNotAdd">
-                    <button (click)="addTrack(item.track)">
-                        <img src="assets/add.png" />
-                    </button>
-                </div>
-                <ng-template #canNotAdd>
-                    <button>
-                        <img src="assets/greyAdd.png" />
-                    </button>
-                    <button>
-                        <img src="assets/delete.png" />
-                    </button>
-                </ng-template>
-            </td>
-            <td>
-                <div *ngIf="item.track.preview_url; else justAlbum">
-                    <button (click)="playSample(item.track.preview_url)">
-                        <img [src]="item.track.album.images[2].url">
-                    </button>
-                </div>
-                <ng-template #justAlbum>
-                    <!-- <img [src]="item.track.album.images[2].url"> -->
-                </ng-template>
-            </td>
-            <td>
-                <div>{{item.track.name}}</div>
-                <span *ngFor="let artist of item.track.artists; let isLast=last">
-                    {{artist.name}}{{isLast ? '' : ', '}}
-                </span>
-            </td>
-        </tr>
-    </table>
-</div>
+<table class="table">
+    <!-- <tr>
+        <th>
+            Add
+        </th>
+        <th>
+            Album cover
+        </th>
+        <th>
+            Data
+        </th>
+    </tr> -->
+    <tr *ngFor="let item of playlist">
+        <td>
+            <div *ngIf="!item.track.onPlaylist; else canNotAdd">
+                <button (click)="addTrack(item.track)">
+                    <img src="assets/add.png" />
+                </button>
+            </div>
+            <ng-template #canNotAdd>
+                <button>
+                    <img src="assets/greyAdd.png" />
+                </button>
+                <button>
+                    <img src="assets/delete.png" />
+                </button>
+            </ng-template>
+        </td>
+        <td>
+            <div *ngIf="item.track.preview_url; else justAlbum">
+                <button (click)="playSample(item.track.preview_url)">
+                    <img [src]="item.track.album.images[2].url">
+                </button>
+            </div>
+            <ng-template #justAlbum>
+                <!-- <img [src]="item.track.album.images[2].url"> -->
+            </ng-template>
+        </td>
+        <td>
+            <div>{{item.track.name}}</div>
+            <span *ngFor="let artist of item.track.artists; let isLast=last">
+                {{artist.name}}{{isLast ? '' : ', '}}
+            </span>
+        </td>
+    </tr>
+</table>

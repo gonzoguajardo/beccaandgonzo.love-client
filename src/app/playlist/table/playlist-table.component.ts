@@ -7,7 +7,7 @@ import { Track } from '../track';
 @Component({
     selector: 'app-playlist-table',
     templateUrl: './playlist-table.component.html',
-    styles: ['./playlist-table.component.css'],
+    styleUrls: ['./playlist-table.component.css'],
     providers: [PlaylistService]
 })
 export class PlaylistTableComponent implements OnInit, OnChanges {

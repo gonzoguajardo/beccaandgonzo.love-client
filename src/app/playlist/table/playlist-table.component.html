@@ -1,40 +1,38 @@
-<div>
-    <table>
-        <tr>
-            <th>
-                Album cover
-            </th>
-            <th *ngIf="isAdmin">
-                Admin Only Functionality
-            </th>
-            <th>
-                Data
-                <button (click)="toggleAdmin()">
+<table class="table">
+    <tr>
+        <th>
+            Album cover
+        </th>
+        <th *ngIf="isAdmin">
+            Admin Only Functionality
+        </th>
+        <th>
+            Data
+            <button (click)="toggleAdmin()">
+            </button>
+        </th>
+    </tr>
+    <tr *ngFor="let item of playlist">
+        <td>
+            <div *ngIf="item.track.preview_url; else justAlbum">
+                <button (click)="playSample(item.track.preview_url)">
+                    <img [src]="item.track.album.images[2].url">
                 </button>
-            </th>
-        </tr>
-        <tr *ngFor="let item of playlist">
-            <td>
-                <div *ngIf="item.track.preview_url; else justAlbum">
-                    <button (click)="playSample(item.track.preview_url)">
-                        <img [src]="item.track.album.images[2].url">
-                    </button>
-                </div>
-                <ng-template #justAlbum>
-                    <!-- <img [src]="item.track.album.images[2].url"> -->
-                </ng-template>
-            </td>
-            <td *ngIf="isAdmin">
-                <button (click)="deleteTrack(item.track)">
-                    <img src="assets/delete.png" />
-                </button>
-            </td>
-            <td>
-                <div>{{item.track.name}}</div>
-                <span *ngFor="let artist of item.track.artists; let isLast=last">
-                    {{artist.name}}{{isLast ? '' : ', '}}
-                </span>
-            </td>
-        </tr>
-    </table>
-</div>
+            </div>
+            <ng-template #justAlbum>
+                <!-- <img [src]="item.track.album.images[2].url"> -->
+            </ng-template>
+        </td>
+        <td *ngIf="isAdmin">
+            <button (click)="deleteTrack(item.track)">
+                <img src="assets/delete.png" />
+            </button>
+        </td>
+        <td>
+            <div>{{item.track.name}}</div>
+            <span *ngFor="let artist of item.track.artists; let isLast=last">
+                {{artist.name}}{{isLast ? '' : ', '}}
+            </span>
+        </td>
+    </tr>
+</table>

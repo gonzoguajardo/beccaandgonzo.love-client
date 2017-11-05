@@ -8,7 +8,7 @@ import { PlaylistTableComponent } from './playlist-table.component';
 @Component({
     selector: 'app-search-table',
     templateUrl: './search-table.component.html',
-    styles: ['./search-table.component.css'],
+    styleUrls: ['./search-table.component.css'],
     providers: [PlaylistService]
 })
 export class SearchTableComponent extends PlaylistTableComponent {
