@@ -8,7 +8,7 @@ import { Track } from './track';
 @Component({
     selector: 'app-playlist',
     templateUrl: './playlist.component.html',
-    styles: ['./playlist.component.css'],
+    styleUrls: ['./playlist.component.css'],
     providers: [PlaylistService]
 })
 export class PlaylistComponent implements OnInit {
