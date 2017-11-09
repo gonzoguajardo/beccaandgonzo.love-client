@@ -9,10 +9,17 @@
   <div class="text">
     Miami, Florida US 33132
   </div>
+  <div>
+    <img *ngIf="loading" src="assets/heartsbounce.gif">
+  </div>
 </div>
-<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions
-?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
-&origin=Miami+International+Airport
-&destination=Briza on the Bay, 1717 N Bayshore Dr, Miami, FL 33132
-&avoid=tolls|highways" allowfullscreen>
+
+
+
+<iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
+  &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
 </iframe>
+
+
+<!-- <iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" [src]="googleMapSource" allowfullscreen>
+</iframe> -->
