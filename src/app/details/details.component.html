@@ -1,5 +1,5 @@
-<h1>Where</h1>
 <div class="block">
+  <h1>Where</h1>
   <div class="text">
     Briza on the Bay
   </div>
@@ -9,17 +9,10 @@
   <div class="text">
     Miami, Florida US 33132
   </div>
-  <div>
-    <img *ngIf="loading" src="assets/heartsbounce.gif">
-  </div>
 </div>
-
-
-
-<iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
-  &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
-</iframe>
-
-
-<!-- <iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" [src]="googleMapSource" allowfullscreen>
-</iframe> -->
+<div class="google-map">
+  <img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
+  <iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
+      &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
+  </iframe>
+</div>
