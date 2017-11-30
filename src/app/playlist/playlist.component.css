@@ -1,22 +1,13 @@
 .searchInput {
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
 .searchText {
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+.header {
+    font-size: 130%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    text-align: center;
 }

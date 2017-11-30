@@ -32,17 +32,22 @@
     margin: auto;
     display: block;
 }
+.table-header {
+    text-align: center;
+    font-size: 130%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
 .table-text {
     text-align: center;
-    font-family: 'Teko', sans-serif, bold;
     font-size: 110%;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
 .container {
     margin: auto;
-    border-style: solid;
+    /* border-style: solid;
     border-color: black;
     border-width: 2px;
-    width: 240px;
+    width: 240px; */
 }
 .hide {
     visibility: hidden;

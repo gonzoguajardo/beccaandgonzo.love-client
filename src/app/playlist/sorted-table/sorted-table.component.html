@@ -1,6 +1,8 @@
 <div class="container">
-    <button (click)="toggleAdmin()"></button>
+    <!-- <button (click)="toggleAdmin()"></button> -->
+    <div class="table-header">Recently Added</div>
     <div class="table-text">
+        
         Showing {{playlist?.offset + 1}} - {{playlist?.offset + playlist?.items.length}} of {{playlist?.total}} Results
     </div>
     <div class="table" *ngFor="let item of playlist?.items">
@@ -18,10 +20,5 @@
                 <img src="assets/next.png" />
             </button>
         </div>
-        <!-- <div *ngI f="playlist?.next">
-            <button class="button" (click)="next()">
-                <img src="assets/next.png" />
-            </button>
-        </div> -->
     </div>
 </div>
