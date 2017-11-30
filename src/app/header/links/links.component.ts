@@ -9,6 +9,8 @@ export class LinksComponent implements OnInit {
 
   @Input()
   className: string;
+  @Input()
+  showHome: boolean;
 
   constructor() { }
 

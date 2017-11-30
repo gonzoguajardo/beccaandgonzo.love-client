@@ -1,34 +1,7 @@
-<div>
-  <button (click)="dateFontSize = dateFontSize + 20">+</button>
-  <button (click)="dateFontSize = dateFontSize - 20">-</button>
-  Date Size: {{dateFontSize}} Date Font :
-  <select [(ngModel)]=dateFontFamily>
-    <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
-  </select>
-</div>
-
-<div>
-  <button (click)="headerFontSize = headerFontSize + 20">+</button>
-  <button (click)="headerFontSize = headerFontSize - 20">-</button>
-  Header Size: {{headerFontSize}} Header Font :
-  <select [(ngModel)]=headerFontFamily>
-    <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
-  </select>
-</div>
-
-<div>
-    <button (click)="paragraphFontSize = paragraphFontSize + 20">+</button>
-    <button (click)="paragraphFontSize = paragraphFontSize - 20">-</button>
-    Paragraph Size: {{paragraphFontSize}} Paragraph Font :
-    <select [(ngModel)]=paragraphFontFamily>
-      <option *ngFor="let font of fonts" [value]="font">{{font}}</option>
-    </select>
-  </div>
-
 <div class="block center">
-  <div [style.font-size.%]="dateFontSize" [style.font-family]="dateFontFamily">{{dateOfWedding | date:'fullDate'}}</div>
-  <div [style.font-size.%]="headerFontSize" [style.font-family]="headerFontFamily">Reception</div>
-  <div [style.font-size.%]="paragraphFontSize" [style.font-family]="paragraphFontFamily">
+  <div class="date">{{dateOfWedding | date:'fullDate'}}</div>
+  <div class="header">Reception</div>
+  <div class="text">
     <div>
       Briza on the Bay
     </div>
@@ -42,14 +15,13 @@
 
 </div>
 
-<div class="block">
-</div>
+
 <div class="google-map">
   <img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
   <iframe (load)="load()" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
       &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
   </iframe>
 </div>
-<div class="block">
-  <h1>Accommodations</h1>
+<div class="block center header">
+  <div>Accommodations</div>
 </div>

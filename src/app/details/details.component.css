@@ -1,26 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Crete+Round');
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed');
 .center {
     text-align: center;
 }
-date {
 
+.date {
+    font-size: 150%;
+    margin-bottom: 10px;
 }
-h1{
-    /* font-size: 500%; */
-    text-align: center;
+.header {
+    font-size: 130%;
 }
+
+.text {
+    font-size: 100%;
+}
+
 .block {
     margin: auto;
     display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
-.google-map{
+
+.google-map {
     width: 600px;
     height: 450px;
     margin: auto;
     /* border-style: solid; */
     /* border-width: 2px; */
     text-align: center;
+    margin-bottom: 10px;
 }
-.google-map-loader{
+
+.google-map-loader {
     padding-top: 120px;
 }
