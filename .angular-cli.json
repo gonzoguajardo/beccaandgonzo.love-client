@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "guajardo-wedding-client"
+    "name": "beccaandgonzo.love"
   },
   "apps": [
     {
@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "Heart-icon.png"
       ],
       "index": "index.html",
       "main": "main.ts",
