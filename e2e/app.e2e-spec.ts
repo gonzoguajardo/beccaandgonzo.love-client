@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('guajardo-wedding-client App', () => {
+describe('beccaandgonzo.love App', () => {
   let page: AppPage;
 
   beforeEach(() => {
