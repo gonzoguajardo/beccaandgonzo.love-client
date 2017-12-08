@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router) {
 
+  showHeader = ['/details', '/photos', '/registry', '/guest-book', '/rsvp', '/playlist'];
+
+  constructor(private router: Router) {
   }
 }

@@ -1,4 +1,6 @@
-<div *ngIf="router.url !== '/home'; else home">
+<div *ngIf="showHeader.includes(router.url ); else home">
     <app-header></app-header>
 </div>
-<ng-template #home><router-outlet></router-outlet></ng-template>
+<ng-template #home>
+    <router-outlet></router-outlet>
+</ng-template>

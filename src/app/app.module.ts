@@ -20,6 +20,7 @@ import { RegistryComponent } from './registry/registry.component';
 import { GuestBookComponent } from './guest-book/guest-book.component';
 import { LinksComponent } from './header/links/links.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
     GuestBookComponent,
     LinksComponent,
     RsvpComponent,
+    SecretComponent,
   ],
   imports: [
     BrowserModule,
