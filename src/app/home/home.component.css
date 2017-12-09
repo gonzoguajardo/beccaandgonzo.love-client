@@ -3,10 +3,6 @@
     height: 100%;
     background-repeat: no-repeat;
     margin: auto;
-    /* -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
 }
 
 .header {
@@ -27,27 +23,11 @@
     margin: 0;
     margin-right: 125px;
     margin-bottom: 10px;
-    /* font-family: 'Berkshire Swash', cursive; */
     font-family: 'Dancing Script', cursive, bold;
-    /* font-family: 'Lily Script One', cursive; */
-    /* font-family: 'Lobster', cursive; */
-    /* font-family: 'Pacifico', cursive; */
-    /* font-family: 'Old Standard TT', serif; */
-    /* font-family: 'Satisfy', cursive; */
 }
 
 .links {
     font-size: 250%;
-    /* text-shadow: 1px 1px; */
-    /* text-shadow: 1px 1px 2px black; */
-    /* font-family: 'Berkshire Swash', cursive; */
-    /* font-family: 'Dancing Script', cursive, bold; */
-    /* font-family: 'Lily Script One', cursive; */
-    /* font-family: 'Lobster', cursive; */
-    /* font-family: 'Pacifico', cursive; */
-    /* font-family: 'Old Standard TT', serif; */
-    /* font-family: 'Satisfy', cursive; */
-    /* font-family: 'Raleway', sans-serif; */
     font-family: 'Encode Sans Condensed', sans-serif;
 }
 
