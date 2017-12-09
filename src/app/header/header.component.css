@@ -1,8 +1,14 @@
-::ng-deep .header-links{
+::ng-deep a.header-links {
     margin: 7px;
+    color: white;
 }
 
-.links{
+::ng-deep a:hover.header-links {
+    margin: 7px;
+    color: #9BA17B;
+}
+
+.links {
     margin-bottom: 10px;
     padding: 0;
     margin: 0;
@@ -17,6 +23,7 @@
     font-size: 150%;
     font-family: 'Encode Sans Condensed', sans-serif;
 }
+
 .header {
     margin-bottom: 10px;
     padding: 0;
@@ -29,8 +36,16 @@
     align-items: center;
     justify-content: center;
     font-family: 'Dancing Script', cursive, bold;
+    color: white;
 }
+
 .names {
     font-size: 350%;
     margin: 0;
+}
+
+.header-container {
+    /* background-color: rgb(64, 12, 75); */
+    /* background-color: #4f1025; */
+    background-color: #624152;
 }

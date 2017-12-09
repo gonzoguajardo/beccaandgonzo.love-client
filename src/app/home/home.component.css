@@ -56,4 +56,9 @@
     text-align: right;
     margin: 0;
     margin-right: 125px;
+    color: black;
+}
+
+::ng-deep a:hover.home-links {
+    color: blue;
 }
