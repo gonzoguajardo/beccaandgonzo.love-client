@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataTableModule } from 'angular2-datatable';
+import { Angular2ImageGalleryModule } from 'angular2-image-gallery'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,9 +44,9 @@ import { SecretComponent } from './secret/secret.component';
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    DataTableModule,
     AppRoutingModule,
     FormsModule,
+    Angular2ImageGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
