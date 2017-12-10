@@ -9,12 +9,14 @@ import { RegistryComponent } from './registry/registry.component';
 import { GuestBookComponent } from './guest-book/guest-book.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { SecretComponent } from './secret/secret.component';
+import { OurStoryComponent } from './our-story/our-story.component'
 
 const appRoutes: Routes = [
     // { path: '', redirectTo: '/a', pathMatch: 'full' },
     { path: '', component: SecretComponent },
     { path: 'secret', component: HomeComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'our-story', component: OurStoryComponent},
     { path: 'details', component: DetailsComponent },
     { path: 'photos', component: PhotosComponent },
     { path: 'registry', component: RegistryComponent },

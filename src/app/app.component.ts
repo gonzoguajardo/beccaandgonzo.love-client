@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  showHeader = ['/details', '/photos', '/registry', '/guest-book', '/rsvp', '/playlist'];
+  showHeader = ['/our-story', '/details', '/photos', '/registry', '/guest-book', '/rsvp', '/playlist'];
 
   constructor(private router: Router) {
   }

@@ -21,6 +21,7 @@ import { GuestBookComponent } from './guest-book/guest-book.component';
 import { LinksComponent } from './header/links/links.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { SecretComponent } from './secret/secret.component';
+import { OurStoryComponent } from './our-story/our-story.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SecretComponent } from './secret/secret.component';
     LinksComponent,
     RsvpComponent,
     SecretComponent,
+    OurStoryComponent,
   ],
   imports: [
     BrowserModule,
