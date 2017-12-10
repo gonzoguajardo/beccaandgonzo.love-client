@@ -22,6 +22,7 @@ import { LinksComponent } from './header/links/links.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { SecretComponent } from './secret/secret.component';
 import { OurStoryComponent } from './our-story/our-story.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { OurStoryComponent } from './our-story/our-story.component';
     RsvpComponent,
     SecretComponent,
     OurStoryComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
