@@ -1,0 +1,9 @@
+.center {
+    text-align: center;
+}
+.block {
+    margin: auto;
+    display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    width: 600px;
+}

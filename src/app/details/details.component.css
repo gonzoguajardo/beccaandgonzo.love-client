@@ -3,6 +3,11 @@
 .center {
     text-align: center;
 }
+.block {
+    margin: auto;
+    display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
 
 .date {
     font-size: 130%;
@@ -16,11 +21,7 @@
     font-size: 100%;
 }
 
-.block {
-    margin: auto;
-    display: block;
-    font-family: 'Encode Sans Condensed', sans-serif;
-}
+
 
 .google-map {
     width: 600px;

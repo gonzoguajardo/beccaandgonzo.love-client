@@ -1,0 +1,12 @@
+.header {
+    font-size: 130%;
+}
+.block {
+    margin: auto;
+    display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    width: 600px;
+}
+.center {
+    text-align: center;
+}
