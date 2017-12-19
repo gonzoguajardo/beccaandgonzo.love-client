@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: #614152;
 }
 
 .names {
@@ -36,9 +37,9 @@
     text-align: right;
     margin: 0;
     margin-right: 125px;
-    color: black;
+    color: #614152;
 }
 
 ::ng-deep a:hover.home-links {
-    color: blue;
+    color: #9BA17B;
 }

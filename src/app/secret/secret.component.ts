@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecretComponent implements OnInit {
 
+  dateOfWedding = new Date(1549753200 * 1000);
+
   constructor() { }
 
   ngOnInit() {

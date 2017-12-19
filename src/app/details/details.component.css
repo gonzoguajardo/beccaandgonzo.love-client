@@ -21,16 +21,17 @@
     font-size: 100%;
 }
 
-
-
 .google-map {
     width: 600px;
     height: 450px;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
     /* border-style: solid; */
     /* border-width: 2px; */
     text-align: center;
-    margin-bottom: 10px;
+
 }
 
 .google-map-loader {
