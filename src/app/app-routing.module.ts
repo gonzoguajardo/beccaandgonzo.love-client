@@ -15,9 +15,9 @@ import { ContactComponent } from './contact/contact.component';
 const appRoutes: Routes = [
     // { path: '', redirectTo: '/a', pathMatch: 'full' },
     { path: '', component: SecretComponent },
-    { path: 'secret', component: HomeComponent },
+    { path: 'secret', component: HomeComponent, pathMatch: 'full'},
     { path: 'home', component: HomeComponent },
-    { path: 'our-story', component: OurStoryComponent},
+    { path: 'our-story', component: OurStoryComponent },
     { path: 'details', component: DetailsComponent },
     { path: 'photos', component: PhotosComponent },
     { path: 'registry', component: RegistryComponent },
@@ -32,6 +32,7 @@ const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(
             appRoutes,
+            { useHash: true }
         )
     ],
     exports: [
