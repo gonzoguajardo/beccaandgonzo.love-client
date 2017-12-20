@@ -1,8 +1,9 @@
 .container {
-    background-image: url("../../assets/background3.jpg");
-    height: 100%;
+    background: url(/assets/background3.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-    margin: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .header {
@@ -20,15 +21,15 @@
 }
 
 .names {
-    font-size: 700%;
+    font-size: 12vw;
     margin: 0;
-    margin-right: 125px;
+    margin-right: 12vw;
     margin-bottom: 10px;
     font-family: 'Dancing Script', cursive, bold;
 }
 
 .links {
-    font-size: 250%;
+    font-size: 5vw;
     font-family: 'Encode Sans Condensed', sans-serif;
 }
 
@@ -36,7 +37,7 @@
     display: block;
     text-align: right;
     margin: 0;
-    margin-right: 125px;
+    margin-right: 12vw;
     color: #614152;
 }
 
