@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-details',
@@ -8,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   loading = true;
-  googleMapSource = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8'
-    + '&q=Space+Needle+Seattle+WA';
   dateOfWedding = new Date(1549753200 * 1000);
+  mobHeight: any;
+  mobWidth: any;
+  googleMapHeight = '600px';
 
-  constructor() { }
+  constructor() {
+    this.changeGoogleMapWidth();
+  }
 
   ngOnInit() {
 
@@ -20,6 +24,19 @@ export class DetailsComponent implements OnInit {
 
   load() {
     this.loading = false;
+  }
+
+  changeGoogleMapWidth() {
+    if (window.innerWidth < 640) {
+      this.googleMapHeight = (window.innerWidth * .90) + 'px';
+    } else {
+      this.googleMapHeight = 600 + 'px';
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  sizeChange(event) {
+    this.changeGoogleMapWidth();
   }
 
 }
