@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Angular2ImageGalleryModule } from 'angular2-image-gallery'
+import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,7 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { SecretComponent } from './secret/secret.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ContactComponent } from './contact/contact.component';
     SecretComponent,
     OurStoryComponent,
     ContactComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
