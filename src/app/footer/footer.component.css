@@ -1,12 +1,21 @@
 hr {
     max-width: 600px;
     width: auto;
+    /* margin-right: 10px; */
+    /* margin-left: 10px; */
+    padding-right: 20px;
+}
+.margins {
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .container {
     position:absolute;
     bottom:0;
+
     width: 100%;
     text-align: center;
     margin-bottom: 4px;
+    /* margin-left: 1px; */
     font-family: 'Encode Sans Condensed', sans-serif;
 }

@@ -14,7 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
     // { path: '', redirectTo: '/a', pathMatch: 'full' },
-    { path: '', component: SecretComponent },
+    { path: '', component: HomeComponent },
     { path: 'secret', component: HomeComponent, pathMatch: 'full'},
     { path: 'home', component: HomeComponent },
     { path: 'our-story', component: OurStoryComponent },
@@ -23,7 +23,7 @@ const appRoutes: Routes = [
     { path: 'registry', component: RegistryComponent },
     { path: 'guest-book', component: GuestBookComponent },
     { path: 'rsvp', component: RsvpComponent },
-    { path: 'playlist', component: PlaylistComponent },
+    // { path: 'playlist', component: PlaylistComponent },
     // { path: 'authenticate', component: AuthenticateComponent },
     { path: 'contact', component: ContactComponent },
 ];

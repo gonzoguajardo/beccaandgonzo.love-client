@@ -9,17 +9,22 @@
       Miami, Florida US 33132
     </div>
   </div>
-  
-</div>
 
-<div class="google-map">
-  <img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
-  <iframe (load)="load()" width="{{googleMapHeight}}" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
-      &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
-  </iframe>
-</div>
+  <div class="google-map">
+    <img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
+    <iframe (load)="load()" width="{{googleMapHeight}}" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
+        &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
+    </iframe>
+  </div>
 
-<div class="block center">
+  <!-- <div class="header">Flights</div>
+  <div class="text">
+    <div>Details for hotel rates coming soon.</div>
+  </div> -->
+
   <div class="header">Accommodations</div>
-  <div>Details for hotel rates coming soon.</div>
+  <div class="text">
+    <div>Details for hotel rates coming soon.</div>
+  </div>
+
 </div>

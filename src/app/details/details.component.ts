@@ -8,6 +8,8 @@ import { HostListener } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
+  readonly PX = 'px';
+
   loading = true;
   dateOfWedding = new Date(1549753200 * 1000);
   mobHeight: any;
@@ -24,13 +26,16 @@ export class DetailsComponent implements OnInit {
 
   load() {
     this.loading = false;
+    this.changeGoogleMapWidth();
   }
 
   changeGoogleMapWidth() {
-    if (window.innerWidth < 640) {
-      this.googleMapHeight = (window.innerWidth * .90) + 'px';
+    if (this.loading) {
+      this.googleMapHeight = 0 + this.PX;
+    } else if (window.innerWidth < 640) {
+      this.googleMapHeight = (window.innerWidth * .90) + this.PX;
     } else {
-      this.googleMapHeight = 600 + 'px';
+      this.googleMapHeight = 600 + this.PX;
     }
   }
 

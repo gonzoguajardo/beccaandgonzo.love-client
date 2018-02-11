@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  hrMargins = false;
+
+  constructor() {
+    this.toggleHrMargins();
+  }
 
   ngOnInit() {
   }
 
+  toggleHrMargins() {
+    if (window.innerWidth < 660) {
+      this.hrMargins = true;
+    } else {
+      this.hrMargins = false;
+    }
+  }
+
+
+  @HostListener('window:resize', ['$event'])
+  sizeChange(event) {
+    this.toggleHrMargins();
+  }
 }
