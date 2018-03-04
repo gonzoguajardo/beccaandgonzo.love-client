@@ -8,18 +8,26 @@
 ::ng-deep .cuppa-menu ul > li > a {
     background-color: #614152 !important;
     font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 150%;
 }
 
 ::ng-deep .cuppa-menu ul > li > a:hover {
-    background-color: #614152 !important;
+    background-color: #9BA17B !important;
     font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 150%;
+}
+
+::ng-deep .cuppa-menu ul > li > a.active {
+    background-color: #9BA17B !important;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 150%;
 }
 
 ::ng-deep .hamburger-inner::after{
     background-color: white !important;
 }
 
-::ng-deep span.hamburger-inner::before{
+::ng-deep .hamburger-inner::before{
     background-color: white !important;
 }
 
