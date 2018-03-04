@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
+## Dependencies
+
+* [cuppa-ng2-slidemenu](https://www.npmjs.com/package/cuppa-ng2-slidemenu)
+* [angular2-image-gallery](https://www.npmjs.com/package/angular2-image-gallery)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

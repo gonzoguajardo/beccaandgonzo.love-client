@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   googleMapHeight = '600px';
 
   constructor() {
-    this.changeGoogleMapWidth();
+    this.scaleGoogleMap();
   }
 
   ngOnInit() {
@@ -26,10 +26,10 @@ export class DetailsComponent implements OnInit {
 
   load() {
     this.loading = false;
-    this.changeGoogleMapWidth();
+    this.scaleGoogleMap();
   }
 
-  changeGoogleMapWidth() {
+  scaleGoogleMap() {
     if (this.loading) {
       this.googleMapHeight = 0 + this.PX;
     } else if (window.innerWidth < 640) {
@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   sizeChange(event) {
-    this.changeGoogleMapWidth();
+    this.scaleGoogleMap();
   }
 
 }

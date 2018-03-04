@@ -1,7 +1,9 @@
 <div class="container">
+
     <div class="header">
+        <cuppa-slidemenu *ngIf="hamburgerMenu" [menulist]="menuItemsArray" [config]="config" (onItemSelect)="onItemSelect($event)"></cuppa-slidemenu>
         <h1 class="names">
             Becca + Gonzo</h1>
     </div>
-    <app-links class="links" [className]="'header-links'" [showHome]="true"></app-links>
+    <app-links *ngIf="!hamburgerMenu" class="links" [className]="'header-links'" [showHome]="true"></app-links>
 </div>

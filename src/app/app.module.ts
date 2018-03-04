@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
+import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -52,7 +53,8 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    Angular2ImageGalleryModule
+    Angular2ImageGalleryModule,
+    SlideMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
