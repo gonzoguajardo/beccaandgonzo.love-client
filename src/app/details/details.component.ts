@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 
+import { HeaderService } from '../header/header.service';
+import { HeaderTitles, Header } from '../header/header';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -10,13 +13,19 @@ export class DetailsComponent implements OnInit {
 
   readonly PX = 'px';
 
+  headers: Header[];
+
   loading = true;
   dateOfWedding = new Date(1549753200 * 1000);
   mobHeight: any;
   mobWidth: any;
   googleMapHeight = '600px';
 
-  constructor() {
+  constructor(headerService: HeaderService) {
+    headerService.activateItem(HeaderTitles.DETAILS);
+    headerService.getHeaders().subscribe((headers: Header[]) => {
+      this.headers = headers;
+    });
     this.scaleGoogleMap();
   }
 

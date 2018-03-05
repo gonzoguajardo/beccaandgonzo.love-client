@@ -106,7 +106,6 @@ export class PlaylistService implements OnInit {
                 }).share();
         }
         return this.observableDelete;
-
     }
 
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Header } from './header';
 
 @Component({
     selector: 'app-header',
@@ -10,17 +11,13 @@ import { Observable } from 'rxjs/Observable';
 export class HeaderComponent implements OnInit, OnChanges {
 
     router: Router;
-    private menuItemsArray: any[] = [
-        { 'title': 'Home', 'link': '/home' },
-        { 'title': 'Our Story', 'link': '/our-story' },
-        { 'title': 'Details', 'link': '/details' },
-        { 'title': 'Photos', 'link': '/photos' },
-        { 'title': 'Contact', 'link': '/contact' },
-    ];
+
+    @Input()
+    headers: Header[];
     private config = {
         closeOnCLick: true,
         offset: {
-            top: 68
+            top: 70
         }
     };
     private hamburgerMenu = false;

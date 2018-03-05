@@ -25,6 +25,7 @@ import { SecretComponent } from './secret/secret.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderService } from './header/header.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { FooterComponent } from './footer/footer.component';
     Angular2ImageGalleryModule,
     SlideMenuModule
   ],
-  providers: [],
+  providers: [HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

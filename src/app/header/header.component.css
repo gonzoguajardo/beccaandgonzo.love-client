@@ -79,7 +79,17 @@
     background-color: #614152;
     margin-bottom: 40px;
     flex-wrap: nowrap;
+    padding-bottom: 3px;
 }
 ::ng-deep .menu-container, .cuppa-menu{
     background-color: #614152 !important;
+}
+.active2 ::ng-deep .cuppa-menu ul > li:nth-child(3) > a {
+    background-color: #9BA17B !important;
+}
+.active3 ::ng-deep .cuppa-menu ul > li:nth-child(4) > a {
+    background-color: #9BA17B !important;
+}
+.active4 ::ng-deep .cuppa-menu ul > li:nth-child(5) > a {
+    background-color: #9BA17B !important;
 }
