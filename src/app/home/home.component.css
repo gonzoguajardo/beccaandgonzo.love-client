@@ -2,6 +2,7 @@
     background: url(/assets/background3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center top;
     height: 100%;
     width: 100%;
 }
@@ -21,9 +22,9 @@
 }
 
 .names {
-    font-size: 12vw;
+    font-size: calc(35px + 6vw);
     margin: 0;
-    margin-right: 12vw;
+    margin-right: calc(10px + 8vw);
     margin-bottom: 10px;
     font-family: 'Dancing Script', cursive, bold;
 }
@@ -32,12 +33,19 @@
     display: block;
     text-align: right;
     margin: 0;
-    margin-right: 12vw;
+    margin-right: calc(10px + 8vw);
     color: #614152;
-    font-size: 5vw;
+    font-size: calc(15px + 4vw);
+    /* font-size: 6vmin; */
     font-family: 'Encode Sans Condensed', sans-serif;
+    /* width: 250px; */
 }
 
 ::ng-deep .home-links>a:hover {
     color: #9BA17B;
 }
+@media (min-width: 600px){
+    :root {
+      font-size: 8vw;
+    }
+  }
