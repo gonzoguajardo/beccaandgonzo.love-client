@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Header } from './header';
 
 @Component({
     selector: 'app-header',
@@ -8,10 +10,42 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
+    readonly headerWidth = 505;
+
+    router: Router;
+    @Input()
+    headers: Header[];
+
+    config = {
+        closeOnCLick: true,
+        offset: {
+            top: 65
+        }
+    };
+    hamburgerMenu = false;
+
+    constructor(router: Router) {
+        this.router = router;
+        this.scaleHeader();
+    }
+
     ngOnInit(): void {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+    }
+
+    onItemSelect(item: any) {
+        this.router.navigateByUrl(item['link']);
+    }
+
+    private scaleHeader() {
+        this.hamburgerMenu = window.innerWidth < this.headerWidth;
+    }
+
+    @HostListener('window:resize', ['$event'])
+    sizeChange(event) {
+        this.scaleHeader();
     }
 
 }

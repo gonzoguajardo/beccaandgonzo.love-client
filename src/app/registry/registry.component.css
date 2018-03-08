@@ -1,0 +1,23 @@
+.button {
+    padding: 0;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
+.center {
+    text-align: center;
+}
+.block {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    padding-bottom: 80px;
+}
+.text {
+    margin-bottom: 10px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
