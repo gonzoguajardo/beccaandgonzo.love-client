@@ -10,10 +10,12 @@ import { Header } from './header';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
-    router: Router;
+    readonly headerWidth = 505;
 
+    router: Router;
     @Input()
     headers: Header[];
+
     private config = {
         closeOnCLick: true,
         offset: {
@@ -38,7 +40,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     }
 
     private scaleHeader() {
-        this.hamburgerMenu = window.innerWidth < 420;
+        this.hamburgerMenu = window.innerWidth < this.headerWidth;
     }
 
     @HostListener('window:resize', ['$event'])

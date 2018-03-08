@@ -28,19 +28,16 @@
     font-family: 'Dancing Script', cursive, bold;
 }
 
-.links {
-    font-size: 5vw;
-    font-family: 'Encode Sans Condensed', sans-serif;
-}
-
-::ng-deep .home-links {
+::ng-deep .home-links>a {
     display: block;
     text-align: right;
     margin: 0;
     margin-right: 12vw;
     color: #614152;
+    font-size: 5vw;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
 
-::ng-deep a:hover.home-links {
+::ng-deep .home-links>a:hover {
     color: #9BA17B;
 }

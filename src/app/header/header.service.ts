@@ -7,12 +7,14 @@ import { Header, HeaderLinks, HeaderTitles } from './header';
 @Injectable()
 export class HeaderService implements OnInit {
 
+    // This sets the order of the links
     private _headers: Header[] = [
-        { 'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false },
-        { 'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false },
-        { 'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false },
-        { 'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false },
-        { 'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false },
+        { 'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false, 'viewing': false },
+        { 'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false, 'viewing': false },
+        { 'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false, 'viewing': false },
+        { 'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false, 'viewing': false },
+        { 'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false, 'viewing': false },
+        { 'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false, 'viewing': false },
     ];
     private headers: Observable<Header[]>;
 
@@ -27,9 +29,9 @@ export class HeaderService implements OnInit {
     activateItem(title: string) {
         this._headers.forEach((header: Header) => {
             if (header.title === title) {
-                header.active = true;
+                header.viewing = true;
             } else {
-                header.active = false;
+                header.viewing = false;
             }
         });
         this.headers = Observable.of(this._headers);

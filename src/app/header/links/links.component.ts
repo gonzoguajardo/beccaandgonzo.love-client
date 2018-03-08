@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HeaderService } from '../header.service';
+import { Header } from '../header';
 
 @Component({
   selector: 'app-links',
@@ -7,12 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LinksComponent implements OnInit {
 
-  @Input()
-  className: string;
+  readonly routerLinkActiveClass = 'viewing';
+
   @Input()
   showHome: boolean;
 
-  constructor() { }
+  private headers: Header[];
+
+  constructor(headerService: HeaderService) {
+    headerService.getHeaders().subscribe((headers: Header[]) => {
+      this.headers = headers;
+    });
+  }
 
   ngOnInit() {
   }
