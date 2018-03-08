@@ -1,4 +1,4 @@
-<div class="container" *ngIf="showHeader.includes(router.url ); else home">
+<div class="container" *ngIf="router.url != '/home'; else home">
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>

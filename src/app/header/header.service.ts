@@ -8,6 +8,7 @@ import { Header, HeaderLinks, HeaderTitles } from './header';
 export class HeaderService implements OnInit {
 
     // This sets the order of the links
+    // When adding something here make sure to add css class and update html
     private _headers: Header[] = [
         { 'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false, 'viewing': false },
         { 'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false, 'viewing': false },
