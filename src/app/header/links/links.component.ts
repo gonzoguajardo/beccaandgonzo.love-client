@@ -14,7 +14,7 @@ export class LinksComponent implements OnInit {
   @Input()
   showHome: boolean;
 
-  private headers: Header[];
+  headers: Header[];
 
   constructor(headerService: HeaderService) {
     headerService.getHeaders().subscribe((headers: Header[]) => {

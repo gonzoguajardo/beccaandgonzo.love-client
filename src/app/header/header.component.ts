@@ -16,13 +16,13 @@ export class HeaderComponent implements OnInit, OnChanges {
     @Input()
     headers: Header[];
 
-    private config = {
+    config = {
         closeOnCLick: true,
         offset: {
             top: 65
         }
     };
-    private hamburgerMenu = false;
+    hamburgerMenu = false;
 
     constructor(router: Router) {
         this.router = router;
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
     }
 
-    private onItemSelect(item: any) {
+    onItemSelect(item: any) {
         this.router.navigateByUrl(item['link']);
     }
 
