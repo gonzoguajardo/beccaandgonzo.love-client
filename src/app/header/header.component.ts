@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import { Header } from './header';
 
 @Component({
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
     readonly headerWidth = 505;
 
-    router: Router;
+    private router: Router;
     @Input()
     headers: Header[];
 
