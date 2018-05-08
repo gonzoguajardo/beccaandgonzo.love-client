@@ -22,20 +22,17 @@
 }
 
 .names {
-	font-size: calc(60px + 7vw);
-	margin: 0;
-	margin-right: calc(10px + 8vw);
-	margin-bottom: 10px;
+	font-size: calc(25px + 8vw);
+	margin: 0 calc(10px + 8vw) 10px 0;
 	font-family: 'Lobster', cursive;
 }
 
 ::ng-deep .home-links > a {
 	display: block;
 	text-align: right;
-	margin: 0;
-	margin-right: calc(10px + 8vw);
+	margin: 0 calc(10px + 8vw) 0 0;
 	color: #614152;
-	font-size: calc(15px + 4vw);
+	font-size: calc(15px + 3vw);
 	/* font-size: 6vmin; */
 	font-family: 'Encode Sans Condensed', sans-serif;
 	/* width: 250px; */
