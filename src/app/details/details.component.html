@@ -1,31 +1,56 @@
 <app-header [headers]="headers"></app-header>
 <div class="block center">
-  <div class="date">{{dateOfWedding | date:'fullDate'}}</div>
-  <div class="header">Briza on the Bay</div>
-  <div class="text">
-    <div>
-      1717 N. Bayshore Drive, Suite 115
-    </div>
-    <div>
-      Miami, Florida US 33132
-    </div>
-  </div>
 
-  <div class="google-map">
-    <img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
-    <iframe (load)="load()" width="{{googleMapHeight}}" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
+	<div class="header">I Do BBQ Engagement Party</div>
+	<div class="date">Saturday, May 26, 2018</div>
+
+	<div class="text">
+		<div>
+			5 PM at Guajardo Ranch
+		</div>
+		<div>
+			4607 N Mile 4 1/2 W
+		</div>
+		<div>
+			Weslaco, Texas US 78599
+		</div>
+		<div>
+			<i>close to Hexa</i>
+		</div>
+	</div>
+
+	<div class="google-map">
+		<img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
+		<iframe (load)="load()" width="{{googleMapHeight}}" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
+        &q=4607+N+Mile+4+1/2+W,Weslaco+TX" allowfullscreen>
+		</iframe>
+	</div>
+
+	<hr [ngClass]="{'margins': hrMargins}">
+
+	<div class="header">Wedding Ceremony and Reception</div>
+	<div class="date">{{dateOfWedding | date:'fullDate'}}</div>
+
+	<div class="text">
+		<div>Briza on the Bay</div>
+		<div>
+			1717 N. Bayshore Drive, Suite 115
+		</div>
+		<div>
+			Miami, Florida US 33132
+		</div>
+	</div>
+
+	<div class="google-map">
+		<img class="google-map-loader" *ngIf="loading" src="assets/heartsbounce.gif">
+		<iframe (load)="load()" width="{{googleMapHeight}}" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDKdrs1gTYdi-b5IBRqJdnCpguIZ_SF8y8
         &q=Briza+on+the+bay,Miami+FL" allowfullscreen>
-    </iframe>
-  </div>
+		</iframe>
+	</div>
 
-  <!-- <div class="header">Flights</div>
-  <div class="text">
-    <div>Details for hotel rates coming soon.</div>
-  </div> -->
-
-  <div class="header">Accommodations</div>
-  <div class="text">
-    <div>Details for hotel rates coming soon.</div>
-  </div>
+	<div class="header">Accommodations</div>
+	<div class="text">
+		<div>Details for hotel rates coming soon.</div>
+	</div>
 
 </div>

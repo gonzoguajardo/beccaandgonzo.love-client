@@ -9,7 +9,7 @@ import { Header } from './header';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
-    readonly headerWidth = 505;
+    readonly headerWidth = 515;
 
     private router: Router;
     @Input()
