@@ -1,9 +1,6 @@
-import { Component, OnInit, NgModule, OnChanges, ViewEncapsulation, Input, Output, EventEmitter, ElementRef, AfterViewInit, Pipe, PipeTransform } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { trigger, state, style, animate, transition } from '@angular/animations';
-import { ClickOutsideDirective } from './clickOutside';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'cuppa-slidemenu',
@@ -67,7 +64,7 @@ export class SlideMenu implements AfterViewInit {
     ngAfterViewInit() {
 
     }
-    private menuToggle() {
+    public menuToggle() {
         this.menuState = !this.menuState;
         this.toggleOverlay();
         if (this.menuState) {
@@ -77,7 +74,7 @@ export class SlideMenu implements AfterViewInit {
             this.close.emit();
         }
     }
-    private closeMenu() {
+    public closeMenu() {
         this.menuState = false;
         this.overlayElem.style['opacity'] = 0;
     }
@@ -135,9 +132,3 @@ export class SlideMenu implements AfterViewInit {
         }
     }
 }
-@NgModule({
-    imports: [CommonModule, BrowserAnimationsModule],
-    declarations: [SlideMenu, ClickOutsideDirective],
-    exports: [SlideMenu, ClickOutsideDirective, BrowserAnimationsModule]
-})
-export class SlideMenuModule { }
