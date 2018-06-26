@@ -2,7 +2,8 @@
     <img class="album-cover" [src]="track.album.images[2].url">
     <div>
         <div class="buttons">
-            <div *ngIf="playingSongId !== 'track.id'; else pauseIcon">
+            <!--TODO: look into this change-->
+            <div *ngIf="playingSongId + '' !== track.id; else pauseIcon">
                 <button class="button" (click)="playSample(track)">
                     <img src="assets/listen.png" />
                 </button>

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
-import { SlideMenuModule } from './cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
+import { SlideMenuModule } from './cuppa-ng2-slidemenu/slide-menu.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
