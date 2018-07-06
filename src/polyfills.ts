@@ -71,7 +71,7 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 
 // Required for angular2-image-gallery
 // import 'web-animations-js/web-animations.min';
-// import 'hammerjs/hammer';
+import 'hammerjs/hammer';
 
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
