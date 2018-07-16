@@ -8,6 +8,7 @@ import { GuestBookComponent } from './guest-book/guest-book.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from "./login/login.component";
 
 const appRoutes: Routes = [
 	// { path: '', redirectTo: '/a', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
 	// { path: 'playlist', component: PlaylistComponent },
 	// { path: 'authenticate', component: AuthenticateComponent },
 	{path: 'contact', component: ContactComponent},
+	{path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

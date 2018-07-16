@@ -1,0 +1,17 @@
+<form [formGroup]="loginForm">
+	<div class="form-group">
+		<div>
+			<label class="center-block">Username:
+				<input class="form-control" formControlName="username">
+			</label>
+		</div>
+		<div>
+			<label class="center-block">Password:
+				<input class="form-control" formControlName="password">
+			</label>
+		</div>
+	</div>
+	<button type="submit" [disabled]="loginForm.pristine || loginForm.invalid" class="btn btn-success" (click)="onSubmit()">
+		Submit
+	</button>
+</form>

@@ -1,3 +1,15 @@
-<p>
-  rsvp works!
-</p>
+<a [routerLink]="['/login']">
+	login
+</a>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>RSVP?</th>
+	</tr>
+
+	<tr *ngFor="let person of persons">
+		<td>{{person.firstName}} {{person.lastName}}</td>
+		<td>No</td>
+	</tr>
+</table>
