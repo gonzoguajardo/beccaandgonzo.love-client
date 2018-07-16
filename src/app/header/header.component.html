@@ -1,10 +1,9 @@
 <div class="container">
-    <div class="header">
-        <cuppa-slidemenu [hidden]="!hamburgerMenu" [class.menu1]="headers[1].viewing" [class.menu2]="headers[2].viewing"
-                         [class.menu3]="headers[3].viewing" [class.menu4]="headers[4].viewing"
-                         [class.menu5]="headers[5].viewing" [menulist]="headers" [config]="config"
-                         (onItemSelect)="onItemSelect($event)"></cuppa-slidemenu>
-        <p class="names" [class.names-menu]="hamburgerMenu" [class.names-header]="!hamburgerMenu">Becca + Gonzo</p>
-    </div>
-    <app-links *ngIf="!hamburgerMenu" class="header-links" [showHome]="true"></app-links>
+	<div class="header">
+		<cuppa-slidemenu [hidden]="!hamburgerMenu" [class.menu1]="headers[1].viewing" [class.menu2]="headers[2].viewing" [class.menu3]="headers[3].viewing"
+						 [class.menu4]="headers[4].viewing" [class.menu5]="headers[5].viewing" [class.menu6]="headers[6].viewing" [menulist]="headers"
+						 [config]="config" (onItemSelect)="onItemSelect($event)"></cuppa-slidemenu>
+		<p class="names" [class.names-menu]="hamburgerMenu" [class.names-header]="!hamburgerMenu">Becca + Gonzo</p>
+	</div>
+	<app-links *ngIf="!hamburgerMenu" class="header-links" [showHome]="true"></app-links>
 </div>

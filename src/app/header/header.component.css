@@ -27,9 +27,11 @@
 .names {
 	margin: 0;
 }
+
 .names-menu {
 	font-size: 280%;
 }
+
 .names-header {
 	font-size: 360%;
 }
@@ -89,6 +91,10 @@
 }
 
 .menu5 ::ng-deep .cuppa-menu ul > li:nth-child(6) > a {
+	background-color: #9BA17B !important;
+}
+
+.menu6 ::ng-deep .cuppa-menu ul > li:nth-child(7) > a {
 	background-color: #9BA17B !important;
 }
 

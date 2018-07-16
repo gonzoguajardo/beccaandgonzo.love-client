@@ -1,7 +1,8 @@
-<div class="container" *ngIf="showHeader.includes(router.url ); else home"> 
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+<div class="container" *ngIf="showHeader.includes(router.url ); else home">
+	<app-header [headers]="headers"></app-header>
+	<router-outlet></router-outlet>
+	<app-footer></app-footer>
 </div>
 <ng-template #home>
-    <router-outlet></router-outlet>
+	<router-outlet></router-outlet>
 </ng-template>
