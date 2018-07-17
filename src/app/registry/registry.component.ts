@@ -14,7 +14,7 @@ export class RegistryComponent implements OnInit {
 	readonly amazonLink = 'https://www.amazon.com/wedding/share/beccaandgonzo';
 
 	constructor(headerService: HeaderService) {
-		headerService.activateItem(HeaderTitles.REGISTRY);
+		headerService.activateHeader(HeaderTitles.REGISTRY);
 	}
 
 	ngOnInit() {

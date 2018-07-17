@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -30,7 +30,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 	]
 })
 
-export class SlideMenuComponent implements AfterViewInit, OnInit {
+export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	@Input() menulist: any;
 
@@ -55,7 +55,7 @@ export class SlideMenuComponent implements AfterViewInit, OnInit {
 	currentItem: any;
 
 	constructor(private _elementRef: ElementRef, private sanitizer: DomSanitizer) {
-
+		this.overlayElem = document.getElementById('cuppa-menu-overlay');
 	}
 
 	ngOnInit() {
@@ -64,21 +64,33 @@ export class SlideMenuComponent implements AfterViewInit, OnInit {
 		this.addOverlayElement();
 	}
 
+	ngOnDestroy() {
+		this.close.emit();
+	}
+
 	ngAfterViewInit() {
 
 	}
 
 	public menuToggle() {
 		this.menuState = !this.menuState;
-		this.toggleOverlay();
+		// this.toggleOverlay();
 		if (this.menuState) {
 			this.open.emit();
+			document.getElementById('cuppa-menu-overlay').style['opacity'] = '1';
 		} else {
 			this.close.emit();
+			this.closeMenu();
 		}
 	}
 
 	public closeMenu() {
+		this.menuState = false;
+		// this.overlayElem.style['opacity'] = 0;
+		document.getElementById('cuppa-menu-overlay').style['opacity'] = '0';
+	}
+
+	public openMenu() {
 		this.menuState = false;
 		this.overlayElem.style['opacity'] = 0;
 	}
@@ -114,21 +126,10 @@ export class SlideMenuComponent implements AfterViewInit, OnInit {
 	}
 
 	private addOverlayElement() {
-		this.overlayElem = document.createElement('div');
-		this.overlayElem.classList.add('cuppa-menu-overlay');
-		this.overlayElem.style['position'] = 'fixed';
-		this.overlayElem.style['background'] = 'rgba(0, 0, 0, 0.7)';
-		this.overlayElem.style['top'] = this.config.offset.top + 'px';
-		this.overlayElem.style['left'] = 0;
-		this.overlayElem.style['right'] = 0;
-		this.overlayElem.style['bottom'] = 0;
-		this.overlayElem.style['opacity'] = 0;
-		this.overlayElem.style['pointer-events'] = 'none';
-		this.overlayElem.style['transition'] = 'all .2s linear';
-		document.getElementsByTagName('body')[0].appendChild(this.overlayElem);
 	}
 
 	private toggleOverlay() {
+		this.overlayElem = document.getElementById('cuppa-menu-overlay');
 		const styleElement = this.overlayElem.style['opacity'];
 		if (styleElement === '0') {
 			this.overlayElem.style['opacity'] = 1;

@@ -10,7 +10,7 @@ import { HeaderTitles } from '../header/header';
 export class PhotosComponent implements OnInit {
 
 	constructor(headerService: HeaderService) {
-		headerService.activateItem(HeaderTitles.PHOTOS);
+		headerService.activateHeader(HeaderTitles.PHOTOS);
 	}
 
 	ngOnInit() {

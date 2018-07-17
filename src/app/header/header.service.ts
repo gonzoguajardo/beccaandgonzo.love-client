@@ -1,10 +1,14 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Header, HeaderLinks, HeaderTitles } from './header';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable()
-export class HeaderService implements OnInit {
+export class HeaderService {
+
+	isMenuOpen: boolean;
+	isMenuOpenChange: Subject<boolean> = new Subject<boolean>();
 
 	// This sets the order of the links
 	// When adding something here make sure to add css class and update html
@@ -20,14 +24,17 @@ export class HeaderService implements OnInit {
 	private headers: Observable<Header[]>;
 
 	constructor() {
-
+		this.isMenuOpen = false;
+		this.isMenuOpenChange.subscribe((isMenuOpen: boolean) => {
+			this.isMenuOpen = isMenuOpen;
+		});
 	}
 
 	getHeaders(): Observable<Header[]> {
 		return of(this._headers);
 	}
 
-	activateItem(title: string) {
+	activateHeader(title: string) {
 		this._headers.forEach((header: Header) => {
 			if (header.title === title) {
 				header.viewing = true;
@@ -38,8 +45,8 @@ export class HeaderService implements OnInit {
 		this.headers = of(this._headers);
 	}
 
-	ngOnInit(): void {
-
+	toggleMenuOpen() {
+		this.isMenuOpenChange.next(!this.isMenuOpen);
 	}
 
 }

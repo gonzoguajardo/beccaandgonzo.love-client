@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
 	hrMargins = false;
 
 	constructor(headerService: HeaderService) {
-		headerService.activateItem(HeaderTitles.DETAILS);
+		headerService.activateHeader(HeaderTitles.DETAILS);
 		this.scaleGoogleMap();
 	}
 

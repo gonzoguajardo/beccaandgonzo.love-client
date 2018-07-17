@@ -10,7 +10,7 @@ import { HeaderTitles } from '../header/header';
 export class OurStoryComponent implements OnInit {
 
 	constructor(headerService: HeaderService) {
-		headerService.activateItem(HeaderTitles.OUR_STORY);
+		headerService.activateHeader(HeaderTitles.OUR_STORY);
 	}
 
 	ngOnInit() {

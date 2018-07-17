@@ -26,6 +26,7 @@ import { HeaderService } from './header/header.service';
 import { RsvpService } from './rsvp/rsvp.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { WindowScrollingService } from './header/window-scrolling.service';
 
 @NgModule({
 	declarations: [
@@ -57,7 +58,7 @@ import { LoginService } from './login/login.service';
 		Angular2ImageGalleryModule,
 		SlideMenuModule
 	],
-	providers: [HeaderService, RsvpService, LoginService],
+	providers: [HeaderService, RsvpService, LoginService, WindowScrollingService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
