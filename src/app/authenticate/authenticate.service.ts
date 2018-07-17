@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs/internal/Observable";
-import { catchError, map } from "rxjs/operators";
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticateService implements OnInit {

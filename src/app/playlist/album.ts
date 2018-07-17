@@ -1,9 +1,9 @@
 import { Image } from './image';
 
 export class Album {
-    images: Image[];
+	images: Image[];
 
-    constructor(images: Image[]) {
-        this.images = images;
-    }
+	constructor(images: Image[]) {
+		this.images = images;
+	}
 }

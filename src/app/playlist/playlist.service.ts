@@ -6,8 +6,8 @@ import { Album } from './album';
 import { Image } from './image';
 import { Artist } from './artist';
 import { Playlist } from './playlist';
-import { map } from "rxjs/operators";
-import { Observable } from "rxjs/internal/Observable";
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class PlaylistService implements OnInit {

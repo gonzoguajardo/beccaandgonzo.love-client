@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderService } from "../header/header.service";
-import { HeaderTitles } from "../header/header";
-import { RsvpService } from "./rsvp.service";
-import { catchError } from "rxjs/operators";
-import { Person } from "./person";
+import { HeaderService } from '../header/header.service';
+import { HeaderTitles } from '../header/header';
+import { RsvpService } from './rsvp.service';
+import { catchError } from 'rxjs/operators';
+import { Person } from './person';
 
 @Component({
 	selector: 'app-rsvp',

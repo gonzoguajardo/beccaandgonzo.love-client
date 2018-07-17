@@ -9,4 +9,5 @@ import { NgModule } from "@angular/core";
 	declarations: [SlideMenu, ClickOutsideDirective],
 	exports: [SlideMenu, ClickOutsideDirective, BrowserAnimationsModule]
 })
-export class SlideMenuModule { }
+export class SlideMenuModule {
+}

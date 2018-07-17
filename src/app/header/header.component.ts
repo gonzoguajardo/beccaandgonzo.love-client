@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 	config = {
 		closeOnCLick: true,
 		offset: {
-			top: 65
+			top: 62
 		}
 	};
 	hamburgerMenu = false;

@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Header, HeaderLinks, HeaderTitles } from './header';
-import { Observable } from "rxjs/internal/Observable";
-import { of } from "rxjs/internal/observable/of";
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs/internal/observable/of';
 
 @Injectable()
 export class HeaderService implements OnInit {

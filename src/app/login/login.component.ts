@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from "./login.service";
-import { catchError } from "rxjs/operators";
+import { LoginService } from './login.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-login',
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 			},
 			catchError(err => {
 				console.log(err);
-				return err
+				return err;
 			})
 		);
 	}

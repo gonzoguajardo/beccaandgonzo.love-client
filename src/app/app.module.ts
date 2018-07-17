@@ -23,9 +23,9 @@ import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderService } from './header/header.service';
-import { RsvpService } from "./rsvp/rsvp.service";
+import { RsvpService } from './rsvp/rsvp.service';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from "./login/login.service";
+import { LoginService } from './login/login.service';
 
 @NgModule({
 	declarations: [

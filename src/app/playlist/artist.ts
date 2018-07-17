@@ -1,7 +1,7 @@
 export class Artist {
-    name: String;
+	name: String;
 
-    constructor(name: String) {
-        this.name = name;
-    }
+	constructor(name: String) {
+		this.name = name;
+	}
 }

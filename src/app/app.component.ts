@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HeaderService } from "./header/header.service";
-import { Header } from "./header/header";
-import { Router } from "@angular/router";
+import { HeaderService } from './header/header.service';
+import { Header } from './header/header';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-root',
