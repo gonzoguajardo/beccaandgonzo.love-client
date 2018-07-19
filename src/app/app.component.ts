@@ -18,7 +18,7 @@ export class AppComponent {
 		headerService.getHeaders().subscribe((headers: Header[]) => {
 			this.headers = headers;
 		});
-		headerService.isMenuOpenChange.subscribe((menuOpen: boolean) => {
+		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
 			this.menuOpen = menuOpen;
 		});
 	}

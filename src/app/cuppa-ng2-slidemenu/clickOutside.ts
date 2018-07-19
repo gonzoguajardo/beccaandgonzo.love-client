@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
-import { WindowScrollingService } from '../header/window-scrolling.service';
+import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
+import { HeaderService } from '../header/header.service';
 
 @Directive({
 	selector: '[clickOutside]'
 })
 export class ClickOutsideDirective {
-	constructor(private _elementRef: ElementRef, private windowScrollingService: WindowScrollingService) {
+	constructor(private _elementRef: ElementRef, private headerService: HeaderService) {
 	}
 
 	@Output()
@@ -20,7 +20,9 @@ export class ClickOutsideDirective {
 		const clickedInside = this._elementRef.nativeElement.contains(targetElement);
 		if (!clickedInside) {
 			this.clickOutside.emit(event);
-			this.windowScrollingService.enable();
+			if (this.headerService.isMenuOpen()) {
+				this.headerService.toggleMenuOpen();
+			}
 		}
 	}
 }

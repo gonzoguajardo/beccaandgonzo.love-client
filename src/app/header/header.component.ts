@@ -1,7 +1,6 @@
 import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Header } from './header';
-import { WindowScrollingService } from './window-scrolling.service';
 import { HeaderService } from './header.service';
 
 @Component({
@@ -24,11 +23,10 @@ export class HeaderComponent implements OnInit, OnChanges {
 	};
 	hamburgerMenu = false;
 	menuOpen: boolean;
-	scrollBarRemoved: boolean;
 
-	constructor(private router: Router, private windowScrollingService: WindowScrollingService, private headerService: HeaderService) {
+	constructor(private router: Router, private headerService: HeaderService) {
 		this.scaleHeader();
-		headerService.isMenuOpenChange.subscribe((menuOpen: boolean) => {
+		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
 			this.menuOpen = menuOpen;
 		});
 	}
@@ -40,23 +38,19 @@ export class HeaderComponent implements OnInit, OnChanges {
 	}
 
 	onItemSelect(item: any) {
+		// noinspection JSIgnoredPromiseFromCall
 		this.router.navigateByUrl(item['link']);
 	}
 
 	open() {
 		if (!this.menuOpen) {
-			this.windowScrollingService.disable();
 			this.headerService.toggleMenuOpen();
-			this.scrollBarRemoved = true;
 		}
 	}
 
 	close() {
 		if (this.menuOpen) {
 			this.headerService.toggleMenuOpen();
-			if (this.scrollBarRemoved) {
-				this.windowScrollingService.enable();
-			}
 		}
 	}
 

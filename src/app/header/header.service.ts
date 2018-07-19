@@ -7,8 +7,9 @@ import { Subject } from 'rxjs/internal/Subject';
 @Injectable()
 export class HeaderService {
 
-	isMenuOpen: boolean;
-	isMenuOpenChange: Subject<boolean> = new Subject<boolean>();
+	private menuOpen: boolean;
+	menuOpenChange: Subject<boolean> = new Subject<boolean>();
+	private readonly styleTag: HTMLStyleElement;
 
 	// This sets the order of the links
 	// When adding something here make sure to add css class and update html
@@ -24,10 +25,11 @@ export class HeaderService {
 	private headers: Observable<Header[]>;
 
 	constructor() {
-		this.isMenuOpen = false;
-		this.isMenuOpenChange.subscribe((isMenuOpen: boolean) => {
-			this.isMenuOpen = isMenuOpen;
+		this.menuOpen = false;
+		this.menuOpenChange.subscribe((isMenuOpen: boolean) => {
+			this.menuOpen = isMenuOpen;
 		});
+		this.styleTag = this.buildStyleElement();
 	}
 
 	getHeaders(): Observable<Header[]> {
@@ -46,7 +48,31 @@ export class HeaderService {
 	}
 
 	toggleMenuOpen() {
-		this.isMenuOpenChange.next(!this.isMenuOpen);
+		console.log('changing ' + this.menuOpen + ' to ' + !this.menuOpen);
+		if (!this.menuOpen) {
+			document.body.appendChild(this.styleTag);
+		} else {
+			document.body.removeChild(this.styleTag);
+		}
+		this.menuOpenChange.next(!this.menuOpen);
 	}
+
+	isMenuOpen(): boolean {
+		return this.menuOpen;
+	}
+
+	private buildStyleElement(): HTMLStyleElement {
+		const style = document.createElement('style');
+		style.type = 'text/css';
+		style.setAttribute('data-debug', 'Injected by WindowScrollingService service.');
+		style.textContent = `
+            body {
+                overflow: hidden !important ;
+            }
+        `;
+		return (style);
+
+	}
+
 
 }
