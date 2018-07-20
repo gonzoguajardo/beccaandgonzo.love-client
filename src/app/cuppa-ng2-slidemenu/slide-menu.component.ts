@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HeaderService } from '../header/header.service';
 
 @Component({
 	selector: 'app-cuppa-slidemenu',
@@ -43,7 +44,6 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 	@Output()
 	onItemSelect: EventEmitter<number> = new EventEmitter<number>();
 	menuState: boolean;
-	targetElement: any;
 	overlayElem: any;
 	defaultConfig: any = {
 		'animation': 'collapse',
@@ -54,14 +54,12 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 	};
 	currentItem: any;
 
-	constructor(private _elementRef: ElementRef, private sanitizer: DomSanitizer) {
-		this.overlayElem = document.getElementById('cuppa-menu-overlay');
+	constructor(private _elementRef: ElementRef, private sanitizer: DomSanitizer, private headerService: HeaderService) {
 	}
 
 	ngOnInit() {
 		this.menuState = false;
 		this.config = Object.assign(this.defaultConfig, this.config);
-		this.addOverlayElement();
 	}
 
 	ngOnDestroy() {
@@ -74,10 +72,8 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	public menuToggle() {
 		this.menuState = !this.menuState;
-		// this.toggleOverlay();
 		if (this.menuState) {
 			this.open.emit();
-			document.getElementById('cuppa-menu-overlay').style['opacity'] = '1';
 		} else {
 			this.close.emit();
 			this.closeMenu();
@@ -86,13 +82,10 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	public closeMenu() {
 		this.menuState = false;
-		// this.overlayElem.style['opacity'] = 0;
-		document.getElementById('cuppa-menu-overlay').style['opacity'] = '0';
 	}
 
 	public openMenu() {
 		this.menuState = false;
-		this.overlayElem.style['opacity'] = 0;
 	}
 
 	private onItemClick(item: any) {
@@ -110,6 +103,7 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 			this.onItemSelect.emit(obj);
 			if (this.config.closeOnCLick) {
 				this.closeMenu();
+				this.headerService.toggleMenuOpen();
 			}
 		}
 
@@ -125,16 +119,4 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	}
 
-	private addOverlayElement() {
-	}
-
-	private toggleOverlay() {
-		this.overlayElem = document.getElementById('cuppa-menu-overlay');
-		const styleElement = this.overlayElem.style['opacity'];
-		if (styleElement === '0') {
-			this.overlayElem.style['opacity'] = 1;
-		} else if (styleElement === '1') {
-			this.overlayElem.style['opacity'] = 0;
-		}
-	}
 }

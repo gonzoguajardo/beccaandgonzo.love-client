@@ -22,8 +22,4 @@ export class AppComponent {
 			this.menuOpen = menuOpen;
 		});
 	}
-
-	clickOverlay() {
-		return false;
-	}
 }
