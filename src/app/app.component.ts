@@ -11,13 +11,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
 
 	showHeader = ['/our-story', '/details', '/photos', '/registry', '/guest-book', '/rsvp', '/playlist', '/contact', '/login'];
-	headers: Header[];
 	menuOpen: boolean;
 
 	constructor(public router: Router, public headerService: HeaderService) {
-		headerService.getHeaders().subscribe((headers: Header[]) => {
-			this.headers = headers;
-		});
 		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
 			this.menuOpen = menuOpen;
 		});

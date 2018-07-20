@@ -1,6 +1,6 @@
 <div class="container" *ngIf="showHeader.includes(router.url ); else home"
      [ngClass]="{'scroll-disabled' : menuOpen, 'scroll-enabled': !menuOpen}">
-    <app-header [headers]="headers"></app-header>
+    <app-header></app-header>
     <router-outlet></router-outlet>
     <div id="cuppa-menu-overlay" class="cuppa-menu-overlay" *ngIf="menuOpen"></div>
     <app-footer></app-footer>

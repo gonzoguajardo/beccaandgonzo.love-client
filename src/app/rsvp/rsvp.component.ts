@@ -15,7 +15,7 @@ export class RsvpComponent implements OnInit {
 	persons: Person[];
 
 	constructor(private headerService: HeaderService, private rsvpService: RsvpService) {
-		this.headerService.activateHeader(HeaderTitles.RSVP);
+		// this.headerService.activateHeader(HeaderTitles.RSVP);
 		this.rsvpService.getPersons().subscribe((persons: Person[]) => {
 			this.persons = persons;
 		}, catchError((err => {

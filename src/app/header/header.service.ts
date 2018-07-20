@@ -17,7 +17,6 @@ export class HeaderService {
 		{'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false, 'viewing': false},
 		{'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false, 'viewing': false},
 		{'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.RSVP, 'link': HeaderLinks.RSVP, 'active': false, 'viewing': false},
 		{'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false, 'viewing': false},
 		{'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false, 'viewing': false},
 		{'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false, 'viewing': false},
