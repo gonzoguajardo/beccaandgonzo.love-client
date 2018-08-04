@@ -1,15 +1,56 @@
-<a [routerLink]="['/login']">
-	login
-</a>
+<div id="container">
+	<form [formGroup]="rsvpForm" (submit)="rsvpFormSubmit()">
+		<div class="form-group">
+			<label class="center-block">RSVP Code:
+				<input formControlName="code">
+			</label>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</div>
 
-<table>
-	<tr>
-		<th>Name</th>
-		<th>RSVP?</th>
-	</tr>
+	</form>
 
-	<tr *ngFor="let person of persons">
-		<td>{{person.firstName}} {{person.lastName}}</td>
-		<td>No</td>
-	</tr>
-</table>
+	<div>
+		<p></p>
+	</div>
+
+	<div *ngFor="let person of persons">
+		<div class="personContainer">
+			<div class="personName">
+				{{person.firstName}} {{person.lastName}}
+			</div>
+			<div>
+				Attending:
+				<label for="attendingYes{{person.personToken}}">Yes
+					<input type="radio" id="attendingYes{{person.personToken}}" name="attending{{person.personToken}}"
+					       value="Yes" (click)="person.setAttending(true)">
+				</label>
+
+				<label for="attendingNo{{person.personToken}}">No
+					<input type="radio" id="attendingNo{{person.personToken}}" name="attending{{person.personToken}}"
+					       value="No" (click)="person.setAttending(false)">
+				</label>
+			</div>
+			<div *ngIf="person.attending">
+				Show menu options here
+			</div>
+		</div>
+
+	</div>
+
+	<div>
+		<p></p>
+	</div>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>RSVP Code</th>
+		</tr>
+		<tr *ngFor="let person of allPersons">
+			<td>{{person.firstName}} {{person.lastName}}</td>
+			<td>{{person.rsvpCode}}</td>
+		</tr>
+	</table>
+</div>
+
+

@@ -1,5 +1,12 @@
 export class Person {
 	firstName: string;
 	lastName: string;
-	_links;
+	rsvpCode: string;
+	personToken: string;
+
+	attending: boolean;
+
+	setAttending(attending: boolean) {
+		this.attending = attending;
+	}
 }

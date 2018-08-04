@@ -4,6 +4,7 @@ import { HeaderTitles } from '../header/header';
 import { RsvpService } from './rsvp.service';
 import { catchError } from 'rxjs/operators';
 import { Person } from './person';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-rsvp',
@@ -13,11 +14,19 @@ import { Person } from './person';
 export class RsvpComponent implements OnInit {
 
 	persons: Person[];
+	rsvpForm = new FormGroup({
+		name: new FormControl()
+	});
+	allPersons: Person[];
 
-	constructor(private headerService: HeaderService, private rsvpService: RsvpService) {
-		// this.headerService.activateHeader(HeaderTitles.RSVP);
-		this.rsvpService.getPersons().subscribe((persons: Person[]) => {
-			this.persons = persons;
+	constructor(private headerService: HeaderService, private rsvpService: RsvpService, private formBuilder: FormBuilder) {
+		this.headerService.activateHeader(HeaderTitles.RSVP);
+		this.rsvpForm = this.formBuilder.group({
+			code: ['EBENEZER', Validators.required]
+		});
+
+		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
+			this.allPersons = persons;
 		}, catchError((err => {
 			console.log(err);
 			return err;
@@ -27,4 +36,12 @@ export class RsvpComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	rsvpFormSubmit() {
+		this.rsvpService.getPersonsForReservationCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
+			this.persons = persons;
+		}), catchError((err => {
+			console.log(err);
+			return err;
+		}));
+	}
 }

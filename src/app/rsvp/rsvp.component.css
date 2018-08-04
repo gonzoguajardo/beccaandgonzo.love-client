@@ -1,0 +1,14 @@
+#container {
+	font-family: 'Encode Sans Condensed', sans-serif;
+	text-align: center;
+}
+
+.btn {
+	margin-left: 3px;
+}
+
+.personContainer {
+	/*text-align: left;*/
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
