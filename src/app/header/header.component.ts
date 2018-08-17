@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Header, HeaderLinks, HeaderTitles } from './header';
+import { Header } from './header';
 import { HeaderService } from './header.service';
 
 @Component({
@@ -10,9 +10,9 @@ import { HeaderService } from './header.service';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
-	// readonly headerWidth = 570;
-	readonly headerWidth = 515;
+	readonly headerWidth = 570;
 
+	@Input()
 	headers: Header[];
 
 	hamburgerConfig = {
@@ -28,9 +28,6 @@ export class HeaderComponent implements OnInit, OnChanges {
 		this.scaleHeader();
 		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
 			this.menuOpen = menuOpen;
-		});
-		headerService.getHeaders().subscribe(headers => {
-			this.headers = headers;
 		});
 	}
 

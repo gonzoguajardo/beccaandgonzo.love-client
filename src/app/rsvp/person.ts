@@ -3,10 +3,7 @@ export class Person {
 	lastName: string;
 	rsvpCode: string;
 	personToken: string;
-
 	attending: boolean;
+	dinnerOption: string;
 
-	setAttending(attending: boolean) {
-		this.attending = attending;
-	}
 }

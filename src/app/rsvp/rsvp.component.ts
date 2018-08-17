@@ -17,6 +17,10 @@ export class RsvpComponent implements OnInit {
 	rsvpForm = new FormGroup({
 		name: new FormControl()
 	});
+	guestForm = new FormGroup({});
+	rsvpFound = false;
+
+	// table variables
 	allPersons: Person[];
 
 	constructor(private headerService: HeaderService, private rsvpService: RsvpService, private formBuilder: FormBuilder) {
@@ -25,6 +29,7 @@ export class RsvpComponent implements OnInit {
 			code: ['EBENEZER', Validators.required]
 		});
 
+		// populate table
 		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
 			this.allPersons = persons;
 		}, catchError((err => {
@@ -39,9 +44,15 @@ export class RsvpComponent implements OnInit {
 	rsvpFormSubmit() {
 		this.rsvpService.getPersonsForReservationCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
 			this.persons = persons;
+			this.persons.forEach(person => {
+				this.guestForm.addControl('attending' + person.personToken, new FormControl(person.attending + ''));
+				this.guestForm.addControl('dinnerOption' + person.personToken, new FormControl(person.dinnerOption));
+			});
+			this.rsvpFound = true;
 		}), catchError((err => {
 			console.log(err);
 			return err;
 		}));
 	}
+
 }
