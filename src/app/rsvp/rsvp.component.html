@@ -14,7 +14,7 @@
 
 	<div *ngIf="rsvpFound">
 		The following guests are assigned the RSVP code: {{rsvpForm.get('code').value}}
-		<form [formGroup]="guestForm" (submit)="rsvpFormSubmit()">
+		<form [formGroup]="guestForm" (submit)="guestFormSubmit()">
 			<div *ngFor="let person of persons">
 				<div class="personContainer">
 					<div class="personName">
@@ -62,7 +62,11 @@
 							</div>
 						</div>
 					</div>
+
 				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-success">Save</button>
 			</div>
 		</form>
 
@@ -72,10 +76,14 @@
 		<tr>
 			<th>Name</th>
 			<th>RSVP Code</th>
+			<th>attending</th>
+			<th>dinner option</th>
 		</tr>
 		<tr *ngFor="let person of allPersons">
 			<td>{{person.firstName}} {{person.lastName}}</td>
 			<td>{{person.rsvpCode}}</td>
+			<td>{{person.attending}}</td>
+			<td>{{person.dinnerOption}}</td>
 		</tr>
 	</table>
 </div>

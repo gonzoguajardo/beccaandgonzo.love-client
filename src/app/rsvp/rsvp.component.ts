@@ -55,4 +55,23 @@ export class RsvpComponent implements OnInit {
 		}));
 	}
 
+	guestFormSubmit() {
+		this.persons.forEach(person => {
+			if (this.guestForm.get('attending' + person.personToken).value === 'true') {
+				person.attending = true;
+				person.dinnerOption = this.guestForm.get('dinnerOption' + person.personToken).value;
+			} else if (this.guestForm.get('attending' + person.personToken).value === 'false') {
+				person.attending = false;
+				person.dinnerOption = null;
+			}
+
+			this.rsvpService.savePerson(person).subscribe(
+				(response => {
+				}), catchError(err => {
+					console.log(err);
+					return err;
+				}))
+		});
+	}
+
 }

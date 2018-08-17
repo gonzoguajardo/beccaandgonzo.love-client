@@ -1,14 +1,22 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Person } from './person';
 
 @Injectable()
 export class RsvpService implements OnInit {
 
+	private httpOptions = {
+		headers: new HttpHeaders({
+			'Content-Type': 'application/json'
+		})
+	};
+
+
 	constructor(private httpClient: HttpClient) {
 
 	}
+
 
 	ngOnInit(): void {
 
@@ -20,9 +28,12 @@ export class RsvpService implements OnInit {
 				const persons = [];
 				response['_embedded']['person'].forEach((personString: string) => {
 					const person = new Person();
+					person.personToken = personString['personToken'];
 					person.firstName = personString['firstName'];
 					person.lastName = personString['lastName'];
-					person.personToken = personString['personToken'];
+					person.rsvpCode = personString['rsvpCode'];
+					person.attending = personString['attending'];
+					person.dinnerOption = personString['dinnerOption'];
 					persons.push(person);
 				});
 				return persons;
@@ -39,10 +50,16 @@ export class RsvpService implements OnInit {
 					person.firstName = personString['firstName'];
 					person.lastName = personString['lastName'];
 					person.rsvpCode = personString['rsvpCode'];
+					person.attending = personString['attending'];
+					person.dinnerOption = personString['dinnerOption'];
 					persons.push(person);
 				});
 				return persons;
 			})
 		);
+	}
+
+	savePerson(person: Person) {
+		return this.httpClient.put('http://localhost:8090/api/person/' + person.personToken, JSON.stringify(person), this.httpOptions);
 	}
 }
