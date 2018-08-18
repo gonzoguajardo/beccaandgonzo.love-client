@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderService } from '../header/header.service';
 import { HeaderTitles } from '../header/header';
 import { RsvpService } from './rsvp.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, takeUntil } from 'rxjs/operators';
 import { Person } from './person';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { interval, timer } from 'rxjs';
 
 @Component({
 	selector: 'app-rsvp',
@@ -19,6 +20,8 @@ export class RsvpComponent implements OnInit {
 	});
 	guestForm = new FormGroup({});
 	rsvpFound = false;
+	justSaved = false;
+	validationError = false;
 
 	// table variables
 	allPersons: Person[];
@@ -29,13 +32,7 @@ export class RsvpComponent implements OnInit {
 			code: ['EBENEZER', Validators.required]
 		});
 
-		// populate table
-		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
-			this.allPersons = persons;
-		}, catchError((err => {
-			console.log(err);
-			return err;
-		})));
+		this.populateAllPersonTable();
 	}
 
 	ngOnInit() {
@@ -56,22 +53,44 @@ export class RsvpComponent implements OnInit {
 	}
 
 	guestFormSubmit() {
+		this.validationError = false;
 		this.persons.forEach(person => {
 			if (this.guestForm.get('attending' + person.personToken).value === 'true') {
 				person.attending = true;
 				person.dinnerOption = this.guestForm.get('dinnerOption' + person.personToken).value;
+				if (null === person.dinnerOption) {
+					this.validationError = true;
+				}
 			} else if (this.guestForm.get('attending' + person.personToken).value === 'false') {
 				person.attending = false;
 				person.dinnerOption = null;
 			}
 
-			this.rsvpService.savePerson(person).subscribe(
-				(response => {
-				}), catchError(err => {
-					console.log(err);
-					return err;
-				}))
+			if (!this.validationError) {
+				this.rsvpService.savePerson(person).subscribe(
+					response => {
+					}, catchError(err => {
+						console.log(err);
+						return err;
+					}));
+				this.populateAllPersonTable();
+			}
 		});
+		this.justSaved = true;
+		interval(5000).pipe(
+			takeUntil(timer(5001))
+		).subscribe(value => {
+			this.justSaved = false;
+		});
+	}
+
+	private populateAllPersonTable() {
+		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
+			this.allPersons = persons;
+		}, catchError((err => {
+			console.log(err);
+			return err;
+		})));
 	}
 
 }

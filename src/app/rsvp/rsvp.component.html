@@ -21,7 +21,7 @@
 						{{person.firstName}} {{person.lastName}}
 					</div>
 					<div>
-						Attending:
+						Attending
 						<div class="radio-question form-group">
 							<div class="radio-option">
 								<input type="radio" id="attendingYes{{person.personToken}}"
@@ -65,19 +65,28 @@
 
 				</div>
 			</div>
+			<div *ngIf="justSaved">
+				Your RSVP has been saved.
+			</div>
+			<div *ngIf="validationError" id="validation-error">
+				Please ensure that everyone attending has a dinner option selected.
+			</div>
 			<div>
 				<button type="submit" class="btn btn-success">Save</button>
 			</div>
 		</form>
 
 	</div>
+</div>
 
+<div id="testing">
+	Table for testing purposes only
 	<table>
 		<tr>
 			<th>Name</th>
 			<th>RSVP Code</th>
-			<th>attending</th>
-			<th>dinner option</th>
+			<th>Attending</th>
+			<th>Dinner Option</th>
 		</tr>
 		<tr *ngFor="let person of allPersons">
 			<td>{{person.firstName}} {{person.lastName}}</td>
@@ -87,5 +96,6 @@
 		</tr>
 	</table>
 </div>
+
 
 

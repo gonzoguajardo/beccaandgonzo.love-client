@@ -31,3 +31,11 @@
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
+#validation-error {
+	color: #FF0000;
+	margin-bottom: 3px;
+}
+#testing{
+	font-family: 'Encode Sans Condensed', sans-serif;
+	margin-top: 50px;
+}
