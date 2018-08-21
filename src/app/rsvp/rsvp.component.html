@@ -87,12 +87,14 @@
 			<th>RSVP Code</th>
 			<th>Attending</th>
 			<th>Dinner Option</th>
+			<th>Last Updated</th>
 		</tr>
 		<tr *ngFor="let person of allPersons">
 			<td>{{person.firstName}} {{person.lastName}}</td>
-			<td>{{person.rsvpCode}}</td>
+			<td>{{person.rsvp?.rsvpCode}}</td>
 			<td>{{person.attending}}</td>
 			<td>{{person.dinnerOption}}</td>
+			<td>{{person.rsvp?.lastUpdated}}</td>
 		</tr>
 	</table>
 </div>

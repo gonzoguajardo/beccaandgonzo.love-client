@@ -39,7 +39,7 @@ export class RsvpComponent implements OnInit {
 	}
 
 	rsvpFormSubmit() {
-		this.rsvpService.getPersonsForReservationCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
+		this.rsvpService.getPersonsAndRsvpForRsvpCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
 			this.persons = persons;
 			this.persons.forEach(person => {
 				this.guestForm.addControl('attending' + person.personToken, new FormControl(person.attending + ''));
@@ -87,10 +87,7 @@ export class RsvpComponent implements OnInit {
 	private populateAllPersonTable() {
 		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
 			this.allPersons = persons;
-		}, catchError((err => {
-			console.log(err);
-			return err;
-		})));
+		});
 	}
 
 }
