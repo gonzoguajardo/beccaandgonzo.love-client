@@ -13,7 +13,7 @@ import { Playlist } from './playlist';
 export class PlaylistComponent implements OnInit, OnDestroy {
 
 	@Input()
-	isAdmin = false;
+	isAdmin = true;
 	@Output() isAdminChange = new EventEmitter<boolean>();
 
 	playlist: Playlist;

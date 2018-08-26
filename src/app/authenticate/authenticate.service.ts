@@ -14,16 +14,16 @@ export class AuthenticateService implements OnInit {
 
 	}
 
-	authenticate(): Observable<string> {
-		console.log('hi2');
-		return this.http.get<string>('http://localhost:8080/guajardo-wedding-web/api/authenticate/').pipe(
-			map((response: Response) => {
-				return 'hi';
-			}),
-			catchError(err => {
-				return '';
-			})
-		);
-	}
+	// authenticate(): Observable<string> {
+	// 	console.log('hi2');
+	// 	return this.http.get<string>('http://localhost:8080/guajardo-wedding-web/api/authenticate/').pipe(
+	// 		map((response: Response) => {
+	// 			return 'hi';
+	// 		}),
+	// 		catchError(err => {
+	// 			return '';
+	// 		})
+	// 	);
+	// }
 
 }
