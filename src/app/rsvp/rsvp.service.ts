@@ -49,6 +49,8 @@ export class RsvpService implements OnInit {
 					persons.push(person);
 				});
 				return persons;
+			}), catchError(err => {
+				return err;
 			})
 		);
 	}
