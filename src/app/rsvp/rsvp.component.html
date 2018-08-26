@@ -1,4 +1,4 @@
-<div id="container">
+<div *ngIf="rsvp" id="container">
 	<form *ngIf="!rsvpFound" [formGroup]="rsvpForm" (submit)="rsvpFormSubmit()">
 		<div id="rsvp-intro">
 			Enter the RSVP code you received in your invitation to RSVP
@@ -79,7 +79,7 @@
 	</div>
 </div>
 
-<div id="testing">
+<div *ngIf="testing" id="testing">
 	Table for testing purposes only
 	<table>
 		<tr>

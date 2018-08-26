@@ -14,6 +14,9 @@ import { interval, timer } from 'rxjs';
 })
 export class RsvpComponent implements OnInit {
 
+	readonly rsvp = true;
+	readonly testing = true;
+
 	persons: Person[];
 	rsvpForm = new FormGroup({
 		name: new FormControl()
