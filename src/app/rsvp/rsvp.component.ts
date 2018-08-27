@@ -34,8 +34,9 @@ export class RsvpComponent implements OnInit {
 		this.rsvpForm = this.formBuilder.group({
 			code: ['EBENEZER', Validators.required]
 		});
-
-		this.populateAllPersonTable();
+		if (this.testing) {
+			this.populateAllPersonTable();
+		}
 	}
 
 	ngOnInit() {

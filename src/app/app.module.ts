@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
@@ -26,6 +26,7 @@ import { HeaderService } from './header/header.service';
 import { RsvpService } from './rsvp/rsvp.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { EnvironmentInterceptor } from './core/environment.interceptor';
 
 @NgModule({
 	declarations: [
@@ -57,7 +58,12 @@ import { LoginService } from './login/login.service';
 		Angular2ImageGalleryModule,
 		SlideMenuModule
 	],
-	providers: [HeaderService, RsvpService, LoginService],
+	providers: [HeaderService, RsvpService, LoginService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: EnvironmentInterceptor,
+			multi: true
+		}],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

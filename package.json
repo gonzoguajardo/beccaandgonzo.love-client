@@ -6,6 +6,7 @@
     "ng": "ng",
     "pre-build": "node ./src/assets/cuppa-ng2-slidemenu.override.files/move-files.js",
     "start": "ng serve",
+    "uat": "ng serve --configuration=uat",
     "build": "ng build --prod --output-hashing=all",
     "test": "ng test",
     "lint": "ng lint",

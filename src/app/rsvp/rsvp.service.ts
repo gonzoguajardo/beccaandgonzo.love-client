@@ -36,7 +36,7 @@ export class RsvpService implements OnInit {
 
 
 	getAllPersons(): Observable<Person[]> {
-		return this.httpClient.get<Person[]>('http://localhost:8090/api/person').pipe(
+		return this.httpClient.get<Person[]>('api/person').pipe(
 			map((response: string) => {
 				const persons = [];
 				response['_embedded']['person'].forEach((personObject: object) => {
@@ -54,7 +54,7 @@ export class RsvpService implements OnInit {
 	}
 
 	getPersonsForRsvp(rsvp: Rsvp): Observable<Person[]> {
-		return this.httpClient.get<Person[]>('http://localhost:8090/api/person/search/findByRsvpRsvpCode?rsvpCode=' + rsvp.rsvpCode).pipe(
+		return this.httpClient.get<Person[]>('api/person/search/findByRsvpRsvpCode?rsvpCode=' + rsvp.rsvpCode).pipe(
 			map((response: string) => {
 				const persons = [];
 				response['_embedded']['person'].forEach((personObject: object) => {
@@ -68,7 +68,7 @@ export class RsvpService implements OnInit {
 	}
 
 	getRsvpForRsvpCode(rsvpCode: string): Observable<Rsvp> {
-		return this.httpClient.get<Rsvp>('http://localhost:8090/api/rsvp/' + rsvpCode).pipe(
+		return this.httpClient.get<Rsvp>('api/rsvp/' + rsvpCode).pipe(
 			map(response => {
 				return response as Rsvp;
 			}), catchError(err => {
@@ -78,11 +78,11 @@ export class RsvpService implements OnInit {
 	}
 
 	savePerson(person: Person) {
-		return this.httpClient.put('http://localhost:8090/api/person/' + person.personToken, JSON.stringify(person), this.httpOptions);
+		return this.httpClient.put('api/person/' + person.personToken, JSON.stringify(person), this.httpOptions);
 	}
 
 	saveRsvp(rsvp: Rsvp) {
-		return this.httpClient.put('http://localhost:8090/api/person/' + rsvp.rsvpCode, JSON.stringify(rsvp), this.httpOptions);
+		return this.httpClient.put('api/person/' + rsvp.rsvpCode, JSON.stringify(rsvp), this.httpOptions);
 	}
 
 	private getRsvpWithLink(link: string): Observable<Rsvp> {
