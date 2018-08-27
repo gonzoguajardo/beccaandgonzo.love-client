@@ -10,10 +10,18 @@
 .card {
     display: flex;
     width: 260px;
+    height: 67px;
     font-size: 80%;
     font-family: 'Encode Sans Condensed', sans-serif;
+    margin-bottom: 10px;
 }
 .buttons {
     display: flex;
     background-color: white;
+}
+.overflow-text {
+    width: 196px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

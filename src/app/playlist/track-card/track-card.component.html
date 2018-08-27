@@ -25,9 +25,12 @@
 				</button>
 			</ng-template>
 		</div>
-		<div>{{track.name}}</div>
-		<span *ngFor="let artist of track.artists; let isLast=last">
-            {{artist.name}}{{isLast ? '' : ', '}}
-        </span>
+		<div class="overflow-text">{{track.name}}</div>
+		<div class="overflow-text">
+			<span *ngFor="let artist of track.artists; let isLast=last">
+                {{artist.name}}{{isLast ? '' : ', '}}
+            </span>
+		</div>
+
 	</div>
 </div>

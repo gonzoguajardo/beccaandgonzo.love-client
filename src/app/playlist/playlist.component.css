@@ -11,3 +11,6 @@
     font-family: 'Encode Sans Condensed', sans-serif;
     text-align: center;
 }
+label {
+    margin-right: 3px;
+}

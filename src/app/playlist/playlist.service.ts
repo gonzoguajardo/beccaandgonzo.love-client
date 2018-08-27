@@ -48,6 +48,7 @@ export class PlaylistService implements OnInit {
 					playlist.items.forEach((item: Item) => {
 						item.track.onPlaylist = true;
 					});
+					playlist.items = playlist.items.reverse();
 					return playlist;
 				})
 			);

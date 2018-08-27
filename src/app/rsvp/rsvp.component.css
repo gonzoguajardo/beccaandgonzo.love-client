@@ -1,4 +1,6 @@
 #container {
+	margin: auto;
+	max-width: 600px;
 }
 
 #rsvp-intro {
@@ -37,7 +39,6 @@
 }
 
 #testing {
-
 	margin-top: 50px;
 }
 
@@ -50,4 +51,7 @@
 
 #rsvp-coming-soon {
 	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: block;
 }
