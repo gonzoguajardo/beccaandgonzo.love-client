@@ -12,6 +12,8 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable()
 export class PlaylistService implements OnInit {
 
+	public static readonly PAGE_SIZE = 5;
+
 	constructor(private http: HttpClient) {
 
 	}
@@ -20,13 +22,23 @@ export class PlaylistService implements OnInit {
 
 	}
 
-	getPlaylist(url: string): Observable<Playlist> {
-		if (url) {
-			return this.http.get<Playlist>('http://localhost:8090/api/playlist/?url=' + url).pipe(
+	getPlaylist(offset: number): Observable<Playlist> {
+		if (offset) {
+			let adjustedOffSet;
+			if (offset < 0) {
+				adjustedOffSet = 0;
+			} else {
+				adjustedOffSet = offset;
+			}
+			return this.http.get<Playlist>('http://localhost:8090/api/playlist/?offset=' + adjustedOffSet).pipe(
 				map((playlist: Playlist) => {
 					playlist.items.forEach((item: Item) => {
 						item.track.onPlaylist = true;
 					});
+					if (offset < 0) {
+						playlist.items = playlist.items.splice(0, PlaylistService.PAGE_SIZE + offset);
+					}
+					playlist.items = playlist.items.reverse();
 					return playlist;
 				})
 			);

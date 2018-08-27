@@ -43,14 +43,12 @@ export class RsvpService implements OnInit {
 					const person = personObject as Person;
 					this.getRsvpWithLink(personObject['_links']['rsvp'].href).subscribe((rsvp: Rsvp) => {
 						person.rsvp = rsvp;
-					}, (err: any) => {
+					}, (err) => {
 						person.rsvp = null;
 					});
 					persons.push(person);
 				});
 				return persons;
-			}), catchError(err => {
-				return err;
 			})
 		);
 	}

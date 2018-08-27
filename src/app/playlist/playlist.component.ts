@@ -55,13 +55,16 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 
 		} else {
 			this.queuedSearch = newSearch;
+			this.searchPlaylist = null;
 		}
 	}
 
 	updatePlaylist() {
-		this.playlistService.getPlaylist(null).subscribe((playlist: Playlist) => {
-			this.playlist = playlist;
-			this.setOnPlaylist();
+		this.playlistService.getPlaylist(null).subscribe((unsortedPlaylist: Playlist) => {
+			this.playlistService.getPlaylist(unsortedPlaylist.total - 5).subscribe((playlist: Playlist) => {
+				this.playlist = playlist;
+				this.setOnPlaylist();
+			});
 		});
 	}
 
@@ -100,5 +103,6 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 			});
 		}
 	}
+
 
 }
