@@ -68,6 +68,9 @@ export class HeaderService {
 		style.textContent = `
             body {
                 overflow: hidden !important ;
+                height: 100%;
+                width: 100%;
+                position: fixed;
             }
         `;
 		return (style);

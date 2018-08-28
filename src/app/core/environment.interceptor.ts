@@ -13,6 +13,9 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 	}
 
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+		if (request.url.startsWith('assets')) {
+			return next.handle(request);
+		}
 		let newRequest;
 		if (environment.uat) {
 			newRequest = request.clone({
