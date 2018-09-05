@@ -55,7 +55,13 @@ export class HeaderComponent implements OnInit, OnChanges {
 	}
 
 	private scaleHeader() {
-		this.hamburgerMenu = window.innerWidth < this.headerWidth;
+		const newHamburgerMenu = window.innerWidth < this.headerWidth;
+		if (this.hamburgerMenu !== newHamburgerMenu) {
+			if (!newHamburgerMenu && this.menuOpen) {
+				this.headerService.toggleMenuOpen();
+			}
+		}
+		this.hamburgerMenu = newHamburgerMenu;
 	}
 
 	@HostListener('window:resize', ['$event'])

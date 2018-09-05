@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "pre-build": "node ./src/assets/cuppa-ng2-slidemenu.override.files/move-files.js",
     "start": "ng serve",
     "start-uat": "ng serve --configuration=uat",
     "build-uat": "ng build --configuration=uat --output-hashing=all",
