@@ -1,6 +1,7 @@
 <div id="container" class="pad-footer">
 	<div id="rsvp-coming-soon" class="block font center">
-		RSVP coming soon! In the mean time, do you have a song that will get you up and dancing? Add it to our playlist and we will pass it along to the DJ.
+		RSVP coming soon!
+
 	</div>
 
 	<div *ngIf="rsvp" id="rsvp" class="font center">
@@ -102,6 +103,10 @@
 				<td>{{person.rsvp?.lastUpdated}}</td>
 			</tr>
 		</table>
+	</div>
+
+	<div id="playlist-intro" class="font center">
+		In the mean time, do you have a song that will get you up and dancing? Add it to our playlist and we will pass it along to the DJ.
 	</div>
 
 	<app-playlist></app-playlist>

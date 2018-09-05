@@ -2,6 +2,11 @@
 	<img class="album-cover" [src]="track.album.images[2].url">
 	<div>
 		<div class="buttons">
+			<div *ngIf="!track.onPlaylist; else canNotAdd">
+				<button class="button" (click)="addTrack(track)">
+					<img src="assets/add.png"/>
+				</button>
+			</div>
 			<div *ngIf="track.preview_url">
 				<div *ngIf="playingSongId + '' !== track.id; else pauseIcon">
 					<button class="button" (click)="playSample(track)">
@@ -13,11 +18,6 @@
 						<img src="assets/pause.png"/>
 					</button>
 				</ng-template>
-			</div>
-			<div *ngIf="!track.onPlaylist; else canNotAdd">
-				<button class="button" (click)="addTrack(track)">
-					<img src="assets/add.png"/>
-				</button>
 			</div>
 			<ng-template #canNotAdd>
 				<button *ngIf="isAdmin" class="button" (click)="deleteTrack(track)">
