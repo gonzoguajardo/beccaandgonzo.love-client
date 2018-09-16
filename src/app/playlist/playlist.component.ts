@@ -3,6 +3,7 @@ import { PlaylistService } from './playlist.service';
 import { Item } from './item';
 import { Track } from './track';
 import { Playlist } from './playlist';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-playlist',
@@ -13,7 +14,7 @@ import { Playlist } from './playlist';
 export class PlaylistComponent implements OnInit, OnDestroy {
 
 	@Input()
-	isAdmin = true;
+	isAdmin: boolean;
 	@Output() isAdminChange = new EventEmitter<boolean>();
 
 	playlist: Playlist;
@@ -25,6 +26,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 	playingSongId = '';
 
 	constructor(private playlistService: PlaylistService) {
+		this.isAdmin = !environment.production;
 	}
 
 	ngOnInit(): void {

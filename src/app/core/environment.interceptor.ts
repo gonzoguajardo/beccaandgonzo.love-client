@@ -8,6 +8,7 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 
 	localUrl = 'http://localhost:8090/';
 	uatUrl = 'https://api.gon.zone/';
+	prodUrl = 'https://api.beccaandgonzo.love/';
 
 	constructor() {
 	}
@@ -22,7 +23,9 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 				url: this.uatUrl + request.url
 			});
 		} else if (environment.production) {
-			newRequest = request.clone({});
+			newRequest = request.clone({
+				url: this.prodUrl + request.url
+			});
 		} else {
 			newRequest = request.clone({
 				url: this.localUrl + request.url
