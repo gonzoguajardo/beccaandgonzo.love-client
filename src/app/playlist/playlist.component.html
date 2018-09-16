@@ -1,7 +1,7 @@
-<div class="header">Playlist</div>
+<div class="header">Recently Suggested Songs</div>
 <app-sorted-table [playlist]="playlist" [playingSongId]="playingSongId" [(isAdmin)]="isAdmin" (playlistUpdate)="updatePlaylist()" (playingTrackUpdate)="playTrack($event)"></app-sorted-table>
 <div class="searchInput">
-    <label for="search">Search</label>
+    <label>Search</label>
     <input name="search" type="text" [ngModel]="searchString" (ngModelChange)="search($event)">
 
 </div>

@@ -1,11 +1,16 @@
 .center {
     text-align: center;
 }
+.justify {
+    text-align: justify;
+}
 .block {
     margin: auto;
     display: block;
     font-family: 'Encode Sans Condensed', sans-serif;
-    padding-bottom: 80px;
+    max-width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .date {
@@ -44,4 +49,15 @@ hr {
 .margins {
     margin-right: 20px;
     margin-left: 20px;
+}
+.list {
+    align-items:center;
+    justify-content:center;
+    max-width: 560px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.list div {
+    margin-top: 7px;
 }

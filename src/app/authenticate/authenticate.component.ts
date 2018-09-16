@@ -20,10 +20,10 @@ export class AuthenticateComponent implements OnInit, OnChanges {
 	ngOnChanges(changes: SimpleChanges): void {
 	}
 
-	authenticate() {
-		this.authenticateService.authenticate().subscribe((response: string) => {
-			this.response = response;
-		});
-	}
+	// authenticate() {
+	// 	this.authenticateService.authenticate().subscribe((response: string) => {
+	// 		this.response = response;
+	// 	});
+	// }
 
 }

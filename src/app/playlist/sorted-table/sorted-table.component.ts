@@ -23,8 +23,10 @@ export class SortedTableComponent {
 	isAdmin: boolean;
 	@Output() isAdminChange = new EventEmitter<boolean>();
 
-	constructor(private playlistService: PlaylistService) {
+	private pageNumber: number;
 
+	constructor(public playlistService: PlaylistService) {
+		this.pageNumber = PlaylistService.PAGE_SIZE;
 	}
 
 	updatePlaylist() {
@@ -36,14 +38,24 @@ export class SortedTableComponent {
 	}
 
 	next() {
-		this.playlistService.getPlaylist(this.playlist.next).subscribe(
+		this.playlistService.getPlaylist(this.playlist.offset - PlaylistService.PAGE_SIZE).subscribe(
 			(playlist: Playlist) => {
 				this.playlist = playlist;
 			});
 	}
 
 	previous() {
-		this.playlistService.getPlaylist(this.playlist.previous).subscribe(
+		let offset = this.playlist.offset;
+		if (offset < PlaylistService.PAGE_SIZE) {
+			offset = offset + this.playlist.items.length;
+		} else {
+			offset = offset + PlaylistService.PAGE_SIZE;
+		}
+
+		if (offset > this.playlist.total) {
+			offset = this.playlist.total - PlaylistService.PAGE_SIZE;
+		}
+		this.playlistService.getPlaylist(offset).subscribe(
 			(playlist: Playlist) => {
 				this.playlist = playlist;
 			});

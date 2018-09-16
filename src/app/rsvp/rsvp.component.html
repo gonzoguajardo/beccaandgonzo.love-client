@@ -1,15 +1,118 @@
-<a [routerLink]="['/login']">
-	login
-</a>
+<div id="container" class="pad-footer">
+	<div id="rsvp-coming-soon" class="block font center">
+		RSVP coming soon!
 
-<table>
-	<tr>
-		<th>Name</th>
-		<th>RSVP?</th>
-	</tr>
+	</div>
 
-	<tr *ngFor="let person of persons">
-		<td>{{person.firstName}} {{person.lastName}}</td>
-		<td>No</td>
-	</tr>
-</table>
+	<div *ngIf="rsvp" id="rsvp" class="font center">
+		<form *ngIf="!rsvpFound" [formGroup]="rsvpForm" (submit)="rsvpFormSubmit()">
+			<div id="rsvp-intro">
+				Enter the RSVP code you received in your invitation to RSVP
+			</div>
+			<div class="form-group">
+				<label class="center-block">
+					<input formControlName="code">
+				</label>
+				<button type="submit" class="btn btn-success">Search</button>
+			</div>
+
+		</form>
+
+		<div *ngIf="rsvpFound">
+			The following guests are assigned the RSVP code: {{rsvpForm.get('code').value}}
+			<form [formGroup]="guestForm" (submit)="guestFormSubmit()">
+				<div *ngFor="let person of persons">
+					<div class="personContainer">
+						<div class="personName">
+							{{person.firstName}} {{person.lastName}}
+						</div>
+						<div>
+							Attending
+							<div class="radio-question form-group">
+								<div class="radio-option">
+									<input type="radio" id="attendingYes{{person.personToken}}"
+									       name="attending{{person.personToken}}" value="true"
+									       formControlName="attending{{person.personToken}}">
+									<label for="attendingYes{{person.personToken}}">Yes</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="attendingNo{{person.personToken}}"
+									       name="attending{{person.personToken}}" value="false"
+									       formControlName="attending{{person.personToken}}">
+									<label for="attendingNo{{person.personToken}}">No</label>
+								</div>
+							</div>
+						</div>
+						<div *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
+							<div>
+								Dinner Option
+								<div class="radio-question form-group">
+									<div class="radio-option">
+										<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
+										       name="dinnerOption{{person.personToken}}" value="STEAK"
+										       formControlName="dinnerOption{{person.personToken}}">
+										<label for="dinnerOptionSteak{{person.personToken}}">Steak</label>
+									</div>
+									<div class="radio-option">
+										<input type="radio" id="dinnerOptionFish{{person.personToken}}"
+										       name="dinnerOption{{person.personToken}}" value="FISH"
+										       formControlName="dinnerOption{{person.personToken}}">
+										<label for="dinnerOptionFish{{person.personToken}}">Fish</label>
+									</div>
+									<div class="radio-option">
+										<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
+										       name="dinnerOption{{person.personToken}}" value="VEG"
+										       formControlName="dinnerOption{{person.personToken}}">
+										<label for="dinnerOptionVeg{{person.personToken}}">Vegetarian</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div *ngIf="justSaved">
+					Your RSVP has been saved.
+				</div>
+				<div *ngIf="validationError" id="validation-error">
+					Please ensure that everyone attending has a dinner option selected.
+				</div>
+				<div>
+					<button type="submit" class="btn btn-success">Save</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+	<div *ngIf="testing" id="testing" class="font">
+		Table for testing purposes only
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>RSVP Code</th>
+				<th>Attending</th>
+				<th>Dinner Option</th>
+				<th>Last Updated</th>
+			</tr>
+			<tr *ngFor="let person of allPersons">
+				<td>{{person.firstName}} {{person.lastName}}</td>
+				<td>{{person.rsvp?.rsvpCode}}</td>
+				<td>{{person.attending}}</td>
+				<td>{{person.dinnerOption}}</td>
+				<td>{{person.rsvp?.lastUpdated}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="playlist-intro" class="font center">
+		In the mean time, do you have a song that will get you up and dancing? Add it to our playlist and we will pass it along to the DJ.
+	</div>
+
+	<app-playlist></app-playlist>
+</div>
+
+
+
+
+

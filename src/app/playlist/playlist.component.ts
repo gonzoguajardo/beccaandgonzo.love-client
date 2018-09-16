@@ -3,6 +3,7 @@ import { PlaylistService } from './playlist.service';
 import { Item } from './item';
 import { Track } from './track';
 import { Playlist } from './playlist';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-playlist',
@@ -13,7 +14,7 @@ import { Playlist } from './playlist';
 export class PlaylistComponent implements OnInit, OnDestroy {
 
 	@Input()
-	isAdmin = false;
+	isAdmin: boolean;
 	@Output() isAdminChange = new EventEmitter<boolean>();
 
 	playlist: Playlist;
@@ -25,6 +26,7 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 	playingSongId = '';
 
 	constructor(private playlistService: PlaylistService) {
+		this.isAdmin = !environment.production;
 	}
 
 	ngOnInit(): void {
@@ -55,13 +57,16 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 
 		} else {
 			this.queuedSearch = newSearch;
+			this.searchPlaylist = null;
 		}
 	}
 
 	updatePlaylist() {
-		this.playlistService.getPlaylist(null).subscribe((playlist: Playlist) => {
-			this.playlist = playlist;
-			this.setOnPlaylist();
+		this.playlistService.getPlaylist(null).subscribe((unsortedPlaylist: Playlist) => {
+			this.playlistService.getPlaylist(unsortedPlaylist.total - 5).subscribe((playlist: Playlist) => {
+				this.playlist = playlist;
+				this.setOnPlaylist();
+			});
 		});
 	}
 
@@ -100,5 +105,6 @@ export class PlaylistComponent implements OnInit, OnDestroy {
 			});
 		}
 	}
+
 
 }

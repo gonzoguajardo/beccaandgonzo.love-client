@@ -12,6 +12,8 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable()
 export class PlaylistService implements OnInit {
 
+	public static readonly PAGE_SIZE = 5;
+
 	constructor(private http: HttpClient) {
 
 	}
@@ -20,22 +22,33 @@ export class PlaylistService implements OnInit {
 
 	}
 
-	getPlaylist(url: string): Observable<Playlist> {
-		if (url) {
-			return this.http.get<Playlist>('http://localhost:8080/guajardo-wedding-web/api/playlist/?url=' + url).pipe(
+	getPlaylist(offset: number): Observable<Playlist> {
+		if (offset) {
+			let adjustedOffSet;
+			if (offset < 0) {
+				adjustedOffSet = 0;
+			} else {
+				adjustedOffSet = offset;
+			}
+			return this.http.get<Playlist>('api/playlist/?offset=' + adjustedOffSet).pipe(
 				map((playlist: Playlist) => {
 					playlist.items.forEach((item: Item) => {
 						item.track.onPlaylist = true;
 					});
+					if (offset < 0) {
+						playlist.items = playlist.items.splice(0, PlaylistService.PAGE_SIZE + offset);
+					}
+					playlist.items = playlist.items.reverse();
 					return playlist;
 				})
 			);
 		} else {
-			return this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/').pipe(
+			return this.http.get('api/playlist/').pipe(
 				map((playlist: Playlist) => {
 					playlist.items.forEach((item: Item) => {
 						item.track.onPlaylist = true;
 					});
+					playlist.items = playlist.items.reverse();
 					return playlist;
 				})
 			);
@@ -44,7 +57,7 @@ export class PlaylistService implements OnInit {
 
 	searchPlaylist(searchString: String): Observable<Item[]> {
 		if (searchString) {
-			return this.http.get('http://localhost:8080/guajardo-wedding-web/api/playlist/search?queryParameter='
+			return this.http.get('api/playlist/search?queryParameter='
 				+ searchString).pipe(
 				map((response: Response) => {
 					const items: Item[] = new Array<Item>();
@@ -73,7 +86,7 @@ export class PlaylistService implements OnInit {
 	addTrackToPlaylist(track: Track) {
 		if (track && !track.onPlaylist) {
 			const headers = new HttpHeaders({'Content-Type': 'application/json'});
-			return this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/add'
+			return this.http.post('api/playlist/add'
 				, JSON.stringify({trackUri: track.uri}), {headers: headers}).pipe(
 				map((response: Response) => {
 					return '';
@@ -86,7 +99,7 @@ export class PlaylistService implements OnInit {
 	deleteTrackFromPlaylist(track: Track) {
 		if (track) {
 			const headers = new HttpHeaders({'Content-Type': 'application/json'});
-			return this.http.post('http://localhost:8080/guajardo-wedding-web/api/playlist/delete'
+			return this.http.post('api/playlist/delete'
 				, JSON.stringify({tracks: [{uri: track.uri}]}), {headers: headers}).pipe(
 				map((response: Response) => {
 					return '';

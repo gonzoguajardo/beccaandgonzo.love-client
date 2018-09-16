@@ -55,6 +55,10 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 	currentItem: any;
 
 	constructor(private _elementRef: ElementRef, private sanitizer: DomSanitizer, private headerService: HeaderService) {
+		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
+			this.menuState = menuOpen;
+		});
+
 	}
 
 	ngOnInit() {
