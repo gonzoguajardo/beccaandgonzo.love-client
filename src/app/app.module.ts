@@ -16,7 +16,6 @@ import { SearchResultComponent } from './playlist/search-result/search-result.co
 import { TrackCardComponent } from './playlist/track-card/track-card.component';
 import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
-import { GuestBookComponent } from './guest-book/guest-book.component';
 import { LinksComponent } from './header/links/links.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { OurStoryComponent } from './our-story/our-story.component';
@@ -24,8 +23,6 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderService } from './header/header.service';
 import { RsvpService } from './rsvp/rsvp.service';
-import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
 import { EnvironmentInterceptor } from './core/environment.interceptor';
 
 @NgModule({
@@ -41,13 +38,11 @@ import { EnvironmentInterceptor } from './core/environment.interceptor';
 		TrackCardComponent,
 		PhotosComponent,
 		RegistryComponent,
-		GuestBookComponent,
 		LinksComponent,
 		RsvpComponent,
 		OurStoryComponent,
 		ContactComponent,
 		FooterComponent,
-		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -58,7 +53,7 @@ import { EnvironmentInterceptor } from './core/environment.interceptor';
 		Angular2ImageGalleryModule,
 		SlideMenuModule
 	],
-	providers: [HeaderService, RsvpService, LoginService,
+	providers: [HeaderService, RsvpService,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: EnvironmentInterceptor,
