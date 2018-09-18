@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsComponent } from './details.component';
+import { HeaderService } from '../header/header.service';
 
 describe('DetailsComponent', () => {
 	let component: DetailsComponent;
@@ -8,7 +9,8 @@ describe('DetailsComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [DetailsComponent]
+			declarations: [DetailsComponent],
+			providers: [HeaderService]
 		})
 			.compileComponents();
 	}));

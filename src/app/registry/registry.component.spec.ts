@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistryComponent } from './registry.component';
+import { HeaderService } from '../header/header.service';
 
 describe('RegistryComponent', () => {
 	let component: RegistryComponent;
@@ -8,7 +9,8 @@ describe('RegistryComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [RegistryComponent]
+			declarations: [RegistryComponent],
+			providers: [HeaderService]
 		})
 			.compileComponents();
 	}));

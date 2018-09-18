@@ -1,14 +1,3 @@
-<!-- <a *ngIf="showHome" [className]='className' routerLink="/home" routerLinkActive="viewing">Home</a>
-<a [className]='className' routerLink="/our-story" routerLinkActive="viewing">Our Story</a>
-<a [className]='className' routerLink="/details" routerLinkActive="viewing">Details</a>
-<a [className]='className' routerLink="/photos" routerLinkActive="viewing">Photos</a>
-<a [className]='className' routerLink="/registry" routerLinkActive="viewing">Registry</a> -->
-<!-- <a [className]='className' routerLink="/guest-book" routerLinkActive="active">Guest Book</a> -->
-<!-- <a [className]='className' routerLink="/rsvp" routerLinkActive="active">RSVP</a> -->
-<!-- <a [className]='className' routerLink="/playlist" routerLinkActive="active">Playlist</a> -->
-<!-- <a [className]='className' routerLink="/contact" routerLinkActive="viewing">Contact</a> -->
-
-
 <ng-container *ngFor="let header of headers; let i = index">
     <a routerLink="{{header.link}}" routerLinkActive="{{routerLinkActiveClass}}" *ngIf="i===0 && showHome || i!=0">{{header.title}}</a>
 </ng-container>

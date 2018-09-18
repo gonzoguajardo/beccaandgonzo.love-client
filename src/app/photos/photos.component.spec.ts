@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhotosComponent } from './photos.component';
+import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
+import { HeaderService } from '../header/header.service';
 
 describe('PhotosComponent', () => {
 	let component: PhotosComponent;
@@ -8,7 +10,9 @@ describe('PhotosComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [PhotosComponent]
+			imports: [Angular2ImageGalleryModule],
+			declarations: [PhotosComponent],
+			providers: [HeaderService]
 		})
 			.compileComponents();
 	}));
