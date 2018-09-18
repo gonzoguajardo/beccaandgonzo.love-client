@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-authenticate',
@@ -6,6 +7,9 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 	styleUrls: ['./authenticate.component.css']
 })
 export class AuthenticateComponent implements OnInit, OnChanges {
+
+	uat: boolean = environment.uat;
+	prod: boolean = environment.production;
 
 	constructor() {
 	}
