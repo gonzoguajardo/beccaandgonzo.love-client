@@ -36,7 +36,7 @@ export class RsvpService implements OnInit {
 
 
 	getAllPersons(): Observable<Person[]> {
-		return this.httpClient.get<Person[]>('api/person').pipe(
+		return this.httpClient.get<string>('api/person').pipe(
 			map((response: string) => {
 				const persons = [];
 				response['_embedded']['person'].forEach((personObject: object) => {
@@ -54,7 +54,7 @@ export class RsvpService implements OnInit {
 	}
 
 	getPersonsForRsvp(rsvp: Rsvp): Observable<Person[]> {
-		return this.httpClient.get<Person[]>('api/person/search/findByRsvpRsvpCode?rsvpCode=' + rsvp.rsvpCode).pipe(
+		return this.httpClient.get<string>('api/person/search/findByRsvpRsvpCode?rsvpCode=' + rsvp.rsvpCode).pipe(
 			map((response: string) => {
 				const persons = [];
 				response['_embedded']['person'].forEach((personObject: object) => {

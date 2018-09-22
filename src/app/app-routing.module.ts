@@ -4,11 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
-import { GuestBookComponent } from './guest-book/guest-book.component';
 import { RsvpComponent } from './rsvp/rsvp.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 const appRoutes: Routes = [
@@ -20,12 +18,10 @@ const appRoutes: Routes = [
 	{path: 'details', component: DetailsComponent},
 	{path: 'photos', component: PhotosComponent},
 	{path: 'registry', component: RegistryComponent},
-	{path: 'guest-book', component: GuestBookComponent},
 	{path: 'rsvp', component: RsvpComponent},
 	// { path: 'playlist', component: PlaylistComponent },
 	{ path: 'authenticate', component: AuthenticateComponent },
 	{path: 'contact', component: ContactComponent},
-	{path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

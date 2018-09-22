@@ -1,17 +1,17 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AuthenticateService } from './authenticate.service';
+import { environment } from '../../environments/environment';
 
 @Component({
 	selector: 'app-authenticate',
 	templateUrl: './authenticate.component.html',
-	styles: ['./authenticate.component.css'],
-	providers: [AuthenticateService]
+	styleUrls: ['./authenticate.component.css']
 })
 export class AuthenticateComponent implements OnInit, OnChanges {
 
-	response: string;
+	uat: boolean = environment.uat;
+	prod: boolean = environment.production;
 
-	constructor(private authenticateService: AuthenticateService) {
+	constructor() {
 	}
 
 	ngOnInit(): void {
@@ -19,11 +19,5 @@ export class AuthenticateComponent implements OnInit, OnChanges {
 
 	ngOnChanges(changes: SimpleChanges): void {
 	}
-
-	// authenticate() {
-	// 	this.authenticateService.authenticate().subscribe((response: string) => {
-	// 		this.response = response;
-	// 	});
-	// }
 
 }
