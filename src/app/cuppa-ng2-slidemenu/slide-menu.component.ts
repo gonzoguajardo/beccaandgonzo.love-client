@@ -37,9 +37,9 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
 	@Input() config: any;
 
-	@Output('open')
+	@Output()
 	open: EventEmitter<number> = new EventEmitter<number>();
-	@Output('close')
+	@Output()
 	close: EventEmitter<number> = new EventEmitter<number>();
 	@Output()
 	onItemSelect: EventEmitter<number> = new EventEmitter<number>();

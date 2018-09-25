@@ -48,7 +48,6 @@ export class HeaderService {
 	}
 
 	toggleMenuOpen() {
-		// console.log('changing ' + this.menuOpen + ' to ' + !this.menuOpen);
 		if (!this.menuOpen) {
 			document.body.appendChild(this.styleTag);
 		} else {

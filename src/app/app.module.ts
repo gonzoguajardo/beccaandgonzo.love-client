@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
-import { TrackCardComponent } from './playlist/track-card/track-card.component';
 import { PhotosComponent } from './photos/photos.component';
 import { RegistryComponent } from './registry/registry.component';
 import { RsvpComponent } from './rsvp/rsvp.component';

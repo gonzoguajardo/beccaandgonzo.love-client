@@ -14,7 +14,7 @@ import { interval, timer } from 'rxjs';
 })
 export class RsvpComponent implements OnInit {
 
-	readonly rsvp = false;
+	readonly rsvp = true;
 	readonly testing = false;
 
 	persons: Person[];
