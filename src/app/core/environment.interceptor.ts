@@ -20,7 +20,10 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 		let newRequest;
 		if (environment.uat) {
 			newRequest = request.clone({
-				url: this.uatUrl + request.url
+				url: this.uatUrl + request.url,
+				headers: new HttpHeaders({
+					'Authorization': 'Basic dXNlcjp1c2Vy'
+				})
 			});
 		} else if (environment.production) {
 			newRequest = request.clone({
@@ -28,7 +31,10 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			});
 		} else {
 			newRequest = request.clone({
-				url: this.localUrl + request.url
+				url: this.localUrl + request.url,
+				headers: new HttpHeaders({
+					'Authorization': 'Basic dXNlcjp1c2Vy'
+				})
 			});
 		}
 
