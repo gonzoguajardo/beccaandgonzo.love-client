@@ -3,7 +3,7 @@
 # print outputs and exit on first failure
 set -xe
 
-if [ $TRAVIS_BRANCH == "travis" ] ; then
+if [ $TRAVIS_BRANCH == "uat" ] ; then
 
     # setup ssh agent, git config and remote
 #    mv deploy-uat-rsa ~/.ssh/id_rsa
