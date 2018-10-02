@@ -14,6 +14,7 @@ before_install:
 - chmod 600 deploy-uat-rsa
 - mv deploy-uat-rsa ~/.ssh/id_rsa
 install:
+- npm install
 - npm run build-uat
 after_success:
 - bash .travis/deploy.sh
