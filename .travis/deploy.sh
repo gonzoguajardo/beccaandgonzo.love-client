@@ -6,8 +6,10 @@ set -xe
 if [ $TRAVIS_BRANCH == "travis" ] ; then
 
     # setup ssh agent, git config and remote
+#    mv deploy-uat-rsa ~/.ssh/id_rsa
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
+    git fetch --unshallow origin
     git remote add deploy "deploy@142.93.124.203:/var/www/html/beccaandgonzo.love-client/.git"
     git config user.name "Travis CI"
     git config user.email "deploy@142.93.124.203"
