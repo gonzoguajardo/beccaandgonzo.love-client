@@ -18,11 +18,20 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			return next.handle(request);
 		}
 		let newRequest;
-		if (environment.uat) {
+		if (request.url.startsWith('http')) {
+			newRequest = request.clone({
+				url: request.url,
+				headers: new HttpHeaders({
+					'Authorization': 'Basic dXNlcjp1c2Vy',
+					'Content-Type': 'application/json'
+				})
+			});
+		} else if (environment.uat) {
 			newRequest = request.clone({
 				url: this.uatUrl + request.url,
 				headers: new HttpHeaders({
-					'Authorization': 'Basic dXNlcjp1c2Vy'
+					'Authorization': 'Basic dXNlcjp1c2Vy',
+					'Content-Type': 'application/json'
 				})
 			});
 		} else if (environment.production) {
@@ -33,7 +42,8 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			newRequest = request.clone({
 				url: this.localUrl + request.url,
 				headers: new HttpHeaders({
-					'Authorization': 'Basic dXNlcjp1c2Vy'
+					'Authorization': 'Basic dXNlcjp1c2Vy',
+					'Content-Type': 'application/json'
 				})
 			});
 		}

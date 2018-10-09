@@ -1,9 +1,9 @@
 language: node_js
 node_js:
 - "8"
-#cache:
-#  directories:
-#  - node_modules
+cache:
+  directories:
+  - node_modules
 addons:
   ssh_known_hosts: 142.93.124.203
 branches:
