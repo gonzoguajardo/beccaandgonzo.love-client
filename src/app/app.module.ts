@@ -20,6 +20,9 @@ import { RsvpService } from './rsvp/rsvp.service';
 import { EnvironmentInterceptor } from './core/environment.interceptor';
 import { HeaderModule } from './header/header.module';
 import { PlaylistModule } from './playlist/playlist.module';
+import { UserService } from './user/user.service';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuard } from './user/admin.guard';
 
 @NgModule({
 	imports: [
@@ -45,8 +48,9 @@ import { PlaylistModule } from './playlist/playlist.module';
 		OurStoryComponent,
 		ContactComponent,
 		FooterComponent,
+		AdminComponent,
 	],
-	providers: [HeaderService, RsvpService,
+	providers: [HeaderService, RsvpService, UserService, AdminGuard,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: EnvironmentInterceptor,

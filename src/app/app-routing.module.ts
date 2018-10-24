@@ -8,6 +8,8 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuard } from './user/admin.guard';
 
 const appRoutes: Routes = [
 	// { path: '', redirectTo: '/a', pathMatch: 'full' },
@@ -20,8 +22,9 @@ const appRoutes: Routes = [
 	{path: 'registry', component: RegistryComponent},
 	{path: 'rsvp', component: RsvpComponent},
 	// { path: 'playlist', component: PlaylistComponent },
-	{ path: 'authenticate', component: AuthenticateComponent },
+	{path: 'authenticate', component: AuthenticateComponent},
 	{path: 'contact', component: ContactComponent},
+	{path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
 ];
 
 @NgModule({
@@ -33,6 +36,9 @@ const appRoutes: Routes = [
 	],
 	exports: [
 		RouterModule
+	],
+	providers: [
+
 	]
 })
 export class AppRoutingModule {
