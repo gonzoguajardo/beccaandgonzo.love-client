@@ -20,7 +20,6 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 		}
 		let newRequest;
 		const authString = this.getAuthorizationString(request.url);
-		console.log(authString);
 		if (environment.uat) {
 			newRequest = request.clone({
 				url: this.uatUrl + request.url,
