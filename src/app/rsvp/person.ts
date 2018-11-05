@@ -4,7 +4,7 @@ export class Person {
 	personToken: string;
 	attending: boolean;
 	dinnerOption: string;
-	rsvp: Rsvp;
+	rsvpCode: string;
 }
 
 export class Rsvp {

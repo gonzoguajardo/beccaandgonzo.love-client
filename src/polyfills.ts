@@ -39,7 +39,7 @@
 
 /** Evergreen browsers require these. **/
 import 'core-js/es6/reflect';
-import 'core-js/es7/reflect';
+
 
 
 /**
@@ -88,3 +88,6 @@ import 'core-js/es6/map';
 import 'core-js/es6/set';
 
 // import 'web-animations-js';
+
+// Add global to window, assigning the value of window itself.
+(window as any).global = window;

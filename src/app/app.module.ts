@@ -24,6 +24,7 @@ import { UserService } from './user/user.service';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './user/admin.guard';
 import { LoginComponent } from './login/login.component';
+import { SharkTableModule } from 'shark-ng-table';
 
 @NgModule({
 	imports: [
@@ -35,6 +36,7 @@ import { LoginComponent } from './login/login.component';
 		SlideMenuModule,
 		HeaderModule,
 		PlaylistModule,
+		SharkTableModule,
 
 		AppRoutingModule,
 	],
