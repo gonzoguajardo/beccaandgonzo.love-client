@@ -34,16 +34,16 @@ export class RsvpComponent implements OnInit {
 		this.rsvpForm = this.formBuilder.group({
 			code: ['EBENEZER', Validators.required]
 		});
-		if (this.testing) {
-			this.populateAllPersonTable();
-		}
+		// if (this.testing) {
+		// 	this.populateAllPersonTable();
+		// }
 	}
 
 	ngOnInit() {
 	}
 
 	rsvpFormSubmit() {
-		this.rsvpService.getPersonsAndRsvpForRsvpCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
+		this.rsvpService.getPersonsByRsvpCode(this.rsvpForm.get('code').value).subscribe((persons: Person[]) => {
 			this.persons = persons;
 			this.persons.forEach(person => {
 				this.guestForm.addControl('attending' + person.personToken, new FormControl(person.attending + ''));
@@ -54,6 +54,8 @@ export class RsvpComponent implements OnInit {
 			console.log(err);
 			return err;
 		}));
+
+
 	}
 
 	guestFormSubmit() {
@@ -73,11 +75,8 @@ export class RsvpComponent implements OnInit {
 			if (!this.validationError) {
 				this.rsvpService.savePerson(person).subscribe(
 					response => {
-					}, catchError(err => {
-						console.log(err);
-						return err;
-					}));
-				this.populateAllPersonTable();
+					});
+				// this.populateAllPersonTable();
 			}
 		});
 		this.justSaved = true;
@@ -88,10 +87,10 @@ export class RsvpComponent implements OnInit {
 		});
 	}
 
-	private populateAllPersonTable() {
-		this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
-			this.allPersons = persons;
-		});
-	}
+	// private populateAllPersonTable() {
+	// 	this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
+	// 		this.allPersons = persons;
+	// 	});
+	// }
 
 }
