@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class EnvironmentInterceptor implements HttpInterceptor {
@@ -10,7 +11,7 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 	uatUrl = 'https://api.gon.zone/';
 	prodUrl = 'https://api.beccaandgonzo.love/';
 
-	constructor() {
+	constructor(private userService: UserService) {
 	}
 
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -18,19 +19,13 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			return next.handle(request);
 		}
 		let newRequest;
-		if (request.url.startsWith('http')) {
-			newRequest = request.clone({
-				url: request.url,
-				headers: new HttpHeaders({
-					'Authorization': 'Basic dXNlcjp1c2Vy',
-					'Content-Type': 'application/json'
-				})
-			});
-		} else if (environment.uat) {
+		const authString = this.getAuthorizationString(request.url);
+		console.log(authString);
+		if (environment.uat) {
 			newRequest = request.clone({
 				url: this.uatUrl + request.url,
 				headers: new HttpHeaders({
-					'Authorization': 'Basic dXNlcjp1c2Vy',
+					'Authorization': 'Basic ' + authString,
 					'Content-Type': 'application/json'
 				})
 			});
@@ -42,12 +37,22 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			newRequest = request.clone({
 				url: this.localUrl + request.url,
 				headers: new HttpHeaders({
-					'Authorization': 'Basic dXNlcjp1c2Vy',
+					'Authorization': 'Basic ' + authString,
 					'Content-Type': 'application/json'
 				})
 			});
 		}
 
 		return next.handle(newRequest);
+	}
+
+	private getAuthorizationString(url: string) {
+		if (url.startsWith('api/user') && null != this.userService.getAttemptedCredentials()) {
+			return this.userService.getAttemptedCredentials();
+		} else if (null != this.userService.getCachedCredentials()) {
+			return this.userService.getCachedCredentials();
+		} else {
+			return 'dXNlcjp1c2Vy';
+		}
 	}
 }

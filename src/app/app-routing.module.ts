@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './user/admin.guard';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
 	// { path: '', redirectTo: '/a', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
 	// { path: 'playlist', component: PlaylistComponent },
 	{path: 'authenticate', component: AuthenticateComponent},
 	{path: 'contact', component: ContactComponent},
+	{path: 'login', component: LoginComponent},
 	{path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
 ];
 

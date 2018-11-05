@@ -23,6 +23,7 @@ import { PlaylistModule } from './playlist/playlist.module';
 import { UserService } from './user/user.service';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './user/admin.guard';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
 	imports: [
@@ -49,6 +50,7 @@ import { AdminGuard } from './user/admin.guard';
 		ContactComponent,
 		FooterComponent,
 		AdminComponent,
+		LoginComponent,
 	],
 	providers: [HeaderService, RsvpService, UserService, AdminGuard,
 		{
