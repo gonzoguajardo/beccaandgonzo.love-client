@@ -1,7 +1,7 @@
 <div id="container" class="pad-footer">
 
 
-	<div *ngIf="rsvp" id="rsvp" class="font center">
+	<div *ngIf="rsvp" id="rsvp" class="font">
 		<form *ngIf="!rsvpFound" [formGroup]="rsvpForm" (submit)="rsvpFormSubmit()">
 			<div id="rsvp-intro">
 				Enter the RSVP code you received in your invitation to RSVP
@@ -40,34 +40,34 @@
 								</div>
 							</div>
 						</div>
-						<div *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
-							<div>
-								Dinner Option
-								<div class="radio-question form-group">
-									<div class="radio-option">
-										<input type="radio" id="dinnerOptionFish{{person.personToken}}"
-										       name="dinnerOption{{person.personToken}}" value="FISH"
-										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yello Fin Tuna</label>
-									</div>
-									<div class="radio-option">
-										<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
-										       name="dinnerOption{{person.personToken}}" value="STEAK"
-										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
-									</div>
-									<div class="radio-option">
-										<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
-										       name="dinnerOption{{person.personToken}}" value="VEG"
-										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
-									</div>
-									<div class="radio-option">
-										<input type="radio" id="dinnerOptionChild{{person.personToken}}"
-										       name="dinnerOption{{person.personToken}}" value="CHILD"
-										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
-									</div>
+						<div class="dinner-question"
+						     *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
+							Dinner Option
+							<div class="radio-question form-group">
+								<div class="radio-option">
+									<input type="radio" id="dinnerOptionFish{{person.personToken}}"
+									       name="dinnerOption{{person.personToken}}" value="FISH"
+									       formControlName="dinnerOption{{person.personToken}}">
+									<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin
+										Tuna</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
+									       name="dinnerOption{{person.personToken}}" value="STEAK"
+									       formControlName="dinnerOption{{person.personToken}}">
+									<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
+									       name="dinnerOption{{person.personToken}}" value="VEG"
+									       formControlName="dinnerOption{{person.personToken}}">
+									<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
+								</div>
+								<div class="radio-option">
+									<input type="radio" id="dinnerOptionChild{{person.personToken}}"
+									       name="dinnerOption{{person.personToken}}" value="CHILD"
+									       formControlName="dinnerOption{{person.personToken}}">
+									<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
 								</div>
 							</div>
 						</div>
@@ -86,26 +86,6 @@
 			</form>
 
 		</div>
-	</div>
-
-	<div *ngIf="testing" id="testing" class="font">
-		Table for testing purposes only
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>RSVP Code</th>
-				<th>Attending</th>
-				<th>Dinner Option</th>
-				<th>Last Updated</th>
-			</tr>
-			<tr *ngFor="let person of allPersons">
-				<td>{{person.firstName}} {{person.lastName}}</td>
-				<td>{{person.rsvp?.rsvpCode}}</td>
-				<td>{{person.attending}}</td>
-				<td>{{person.dinnerOption}}</td>
-				<td>{{person.rsvp?.lastUpdated}}</td>
-			</tr>
-		</table>
 	</div>
 
 	<div id="playlist-intro" class="font center">

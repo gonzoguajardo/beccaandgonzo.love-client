@@ -11,6 +11,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './user/admin.guard';
 import { LoginComponent } from './login/login.component';
+import { MiamiComponent } from './miami/miami.component';
 
 const appRoutes: Routes = [
 	// { path: '', redirectTo: '/a', pathMatch: 'full' },
@@ -19,13 +20,13 @@ const appRoutes: Routes = [
 	{path: 'home', component: HomeComponent},
 	{path: 'our-story', component: OurStoryComponent},
 	{path: 'details', component: DetailsComponent},
+	{path: 'rsvp', component: RsvpComponent},
+	{path: 'miami', component: MiamiComponent},
 	{path: 'photos', component: PhotosComponent},
 	{path: 'registry', component: RegistryComponent},
-	{path: 'rsvp', component: RsvpComponent},
-	// { path: 'playlist', component: PlaylistComponent },
-	{path: 'authenticate', component: AuthenticateComponent},
 	{path: 'contact', component: ContactComponent},
 	{path: 'login', component: LoginComponent},
+	{path: 'authenticate', component: AuthenticateComponent},
 	{path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
 ];
 

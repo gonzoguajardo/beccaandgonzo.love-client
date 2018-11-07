@@ -25,6 +25,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './user/admin.guard';
 import { LoginComponent } from './login/login.component';
 import { SharkTableModule } from 'shark-ng-table';
+import { MiamiComponent } from './miami/miami.component';
 
 @NgModule({
 	imports: [
@@ -53,6 +54,7 @@ import { SharkTableModule } from 'shark-ng-table';
 		FooterComponent,
 		AdminComponent,
 		LoginComponent,
+		MiamiComponent,
 	],
 	providers: [HeaderService, RsvpService, UserService, AdminGuard,
 		{
