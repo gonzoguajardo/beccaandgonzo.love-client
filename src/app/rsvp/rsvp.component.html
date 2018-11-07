@@ -30,13 +30,13 @@
 									<input type="radio" id="attendingYes{{person.personToken}}"
 									       name="attending{{person.personToken}}" value="true"
 									       formControlName="attending{{person.personToken}}">
-									<label for="attendingYes{{person.personToken}}">Yes</label>
+									<label for="attendingYes{{person.personToken}}">Let's party!</label>
 								</div>
 								<div class="radio-option">
 									<input type="radio" id="attendingNo{{person.personToken}}"
 									       name="attending{{person.personToken}}" value="false"
 									       formControlName="attending{{person.personToken}}">
-									<label for="attendingNo{{person.personToken}}">No</label>
+									<label for="attendingNo{{person.personToken}}">I'm missing out :(</label>
 								</div>
 							</div>
 						</div>
@@ -45,22 +45,28 @@
 								Dinner Option
 								<div class="radio-question form-group">
 									<div class="radio-option">
-										<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
-										       name="dinnerOption{{person.personToken}}" value="STEAK"
-										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionSteak{{person.personToken}}">Steak</label>
-									</div>
-									<div class="radio-option">
 										<input type="radio" id="dinnerOptionFish{{person.personToken}}"
 										       name="dinnerOption{{person.personToken}}" value="FISH"
 										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionFish{{person.personToken}}">Fish</label>
+										<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yello Fin Tuna</label>
+									</div>
+									<div class="radio-option">
+										<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
+										       name="dinnerOption{{person.personToken}}" value="STEAK"
+										       formControlName="dinnerOption{{person.personToken}}">
+										<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
 									</div>
 									<div class="radio-option">
 										<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
 										       name="dinnerOption{{person.personToken}}" value="VEG"
 										       formControlName="dinnerOption{{person.personToken}}">
-										<label for="dinnerOptionVeg{{person.personToken}}">Vegetarian</label>
+										<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
+									</div>
+									<div class="radio-option">
+										<input type="radio" id="dinnerOptionChild{{person.personToken}}"
+										       name="dinnerOption{{person.personToken}}" value="CHILD"
+										       formControlName="dinnerOption{{person.personToken}}">
+										<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
 									</div>
 								</div>
 							</div>

@@ -34,9 +34,6 @@ export class RsvpComponent implements OnInit {
 		this.rsvpForm = this.formBuilder.group({
 			code: ['EBENEZER', Validators.required]
 		});
-		// if (this.testing) {
-		// 	this.populateAllPersonTable();
-		// }
 	}
 
 	ngOnInit() {
@@ -75,22 +72,15 @@ export class RsvpComponent implements OnInit {
 			if (!this.validationError) {
 				this.rsvpService.savePerson(person).subscribe(
 					response => {
+						this.justSaved = true;
+						interval(5000).pipe(
+							takeUntil(timer(5001))
+						).subscribe(value => {
+							this.justSaved = false;
+						});
 					});
-				// this.populateAllPersonTable();
 			}
 		});
-		this.justSaved = true;
-		interval(5000).pipe(
-			takeUntil(timer(5001))
-		).subscribe(value => {
-			this.justSaved = false;
-		});
 	}
-
-	// private populateAllPersonTable() {
-	// 	this.rsvpService.getAllPersons().subscribe((persons: Person[]) => {
-	// 		this.allPersons = persons;
-	// 	});
-	// }
 
 }
