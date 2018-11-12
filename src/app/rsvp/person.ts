@@ -2,7 +2,7 @@ export class Person {
 	firstName: string;
 	lastName: string;
 	personToken: string;
-	attending: boolean;
+	attending: any;
 	dinnerOption: string;
 	rsvpCode: string;
 }

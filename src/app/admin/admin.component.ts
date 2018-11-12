@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit, OnChanges {
 		{ header: 'Last Name', property: 'lastName'},
 		{ header: 'Attending', property: 'attending'},
 		{ header: 'RSVP Code', property: 'rsvpCode'},
-		{ header: 'Dinner Optoin', property: 'dinnerOption'}
+		{ header: 'Dinner Option', property: 'dinnerOption'}
 	];
 
 	constructor(private rsvpService: RsvpService) {

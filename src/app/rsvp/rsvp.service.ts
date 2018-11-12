@@ -34,7 +34,12 @@ export class RsvpService implements OnInit {
 
 	getAllPersons(): Observable<Person[]> {
 		return this.httpClient.get<Person[]>('api/person/').pipe(
-			map((response) => {
+			map(response => {
+				response.forEach(value => {
+					if (value.attending != null && !value.attending) {
+						value.attending = 'false';
+					}
+				});
 				return response;
 			})
 		);
