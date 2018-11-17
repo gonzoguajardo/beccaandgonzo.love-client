@@ -21,7 +21,22 @@
 				<div *ngFor="let person of persons">
 					<div class="personContainer">
 						<div class="personName">
-							{{person.firstName}} {{person.lastName}}
+							<div *ngIf="!person.plusOne; else plusOne">
+								{{person.firstName}} {{person.lastName}}
+							</div>
+							<ng-template #plusOne>
+								Guest
+								<div *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
+									<div>
+										<label for="firstName{{person.personToken}}">First Name</label>
+										<input id="firstName{{person.personToken}}">
+									</div>
+									<div>
+										<label for="lastName{{person.personToken}}">Last Name</label>
+										<input id="lastName{{person.personToken}}">
+									</div>
+								</div>
+							</ng-template>
 						</div>
 						<div>
 							Attending
@@ -48,8 +63,7 @@
 									<input type="radio" id="dinnerOptionFish{{person.personToken}}"
 									       name="dinnerOption{{person.personToken}}" value="FISH"
 									       formControlName="dinnerOption{{person.personToken}}">
-									<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin
-										Tuna</label>
+									<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin Tuna</label>
 								</div>
 								<div class="radio-option">
 									<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
@@ -71,7 +85,6 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<div *ngIf="justSaved">
@@ -80,7 +93,7 @@
 				<div *ngIf="validationError" id="validation-error">
 					Please ensure that everyone attending has a dinner option selected.
 				</div>
-				<div>
+				<div class="center">
 					<button type="submit" class="btn btn-success">Save</button>
 				</div>
 			</form>

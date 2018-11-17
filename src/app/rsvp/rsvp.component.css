@@ -1,6 +1,8 @@
 #container {
 	margin: auto;
 	max-width: 600px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 #rsvp-intro {
@@ -12,14 +14,19 @@
 }
 
 .personContainer {
-	/*text-align: left;*/
 	margin-bottom: 15px;
 	margin-top: 15px;
 }
 
-.radio-option {
-	margin-right: 3px;
+.dinner-question label {
+	display: table;
+	margin-left: 20px;
 }
+
+.dinner-question input {
+	float: left;
+}
+
 
 .radio-question {
 	display: -webkit-box;
@@ -68,4 +75,8 @@
 .dinner-question {
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+.personName label {
+	margin-right: 5px;
 }
