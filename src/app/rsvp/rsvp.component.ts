@@ -46,6 +46,7 @@ export class RsvpComponent implements OnInit {
 
 		let rsvpCode = this.rsvpForm.get('code').value as string;
 		rsvpCode = rsvpCode.toUpperCase();
+		this.rsvpForm.get('code').patchValue(rsvpCode);
 		if (rsvpCode.length === 0) {
 			this.invalidRsvpCode = true;
 			return;
