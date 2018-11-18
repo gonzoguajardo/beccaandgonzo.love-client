@@ -10,7 +10,7 @@ import { HeaderService } from './header.service';
 })
 export class HeaderComponent implements OnInit, OnChanges {
 
-	readonly headerWidth = 570;
+	readonly headerWidth = 650;
 
 	@Input()
 	headers: Header[];

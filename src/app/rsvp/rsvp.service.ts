@@ -45,7 +45,7 @@ export class RsvpService implements OnInit {
 		);
 	}
 
-	savePerson(person: Person) {
-		return this.httpClient.put('api/person/', JSON.stringify(person), this.httpOptions);
+	savePersons(persons: Person[]) {
+		return this.httpClient.put('api/person/', JSON.stringify(persons), this.httpOptions);
 	}
 }

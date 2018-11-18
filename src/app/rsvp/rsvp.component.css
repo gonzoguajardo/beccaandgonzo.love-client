@@ -29,11 +29,6 @@
 
 
 .radio-question {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-top: 3px;
@@ -79,4 +74,18 @@
 
 .personName label {
 	margin-right: 5px;
+}
+#rsvp-code-input {
+	text-transform: uppercase;
+}
+#invalid-rsvp-code {
+	color: #FF0000;
+	display: inline;
+}
+.flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 }
