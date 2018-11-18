@@ -30,7 +30,11 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 			});
 		} else if (environment.production) {
 			newRequest = request.clone({
-				url: this.prodUrl + request.url
+				url: this.prodUrl + request.url,
+				headers: new HttpHeaders({
+					'Authorization': 'Basic ' + authString,
+					'Content-Type': 'application/json'
+				})
 			});
 		} else {
 			newRequest = request.clone({
@@ -51,7 +55,7 @@ export class EnvironmentInterceptor implements HttpInterceptor {
 		} else if (null != this.userService.getCachedCredentials()) {
 			return this.userService.getCachedCredentials();
 		} else {
-			return 'dXNlcjp1c2Vy';
+			return 'Y2xpZW50OmYyNDVpeExFWUJldlhleVZKbzVwNlhKSWc=';
 		}
 	}
 }

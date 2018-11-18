@@ -34,7 +34,7 @@ export class RsvpComponent implements OnInit {
 		this.setFlex();
 		this.headerService.activateHeader(HeaderTitles.RSVP);
 		this.rsvpForm = this.formBuilder.group({
-			code: ['INTERCOM', Validators.required]
+			code: ['', Validators.required]
 		});
 	}
 
