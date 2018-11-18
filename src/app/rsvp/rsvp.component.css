@@ -20,8 +20,12 @@
 
 .mobile-dinner-question label {
 	display: inline-block;
-
 }
+
+.mobile-dinner-question input {
+	margin-left: 20px;
+}
+
 .non-mobile-dinner-question label {
 	display: block;
 	margin-left: 20px;
@@ -29,13 +33,7 @@
 
 .dinner-question input {
 	float: left;
-
 }
-
-.dinner-question.radio-option {
-	margin-left: 1px;
-}
-
 
 .radio-question {
 	align-items: center;
@@ -76,21 +74,19 @@
 	padding-right: 20px;
 }
 
-/*.dinner-question {*/
-	/*padding-left: 20px;*/
-	/*padding-right: 20px;*/
-/*}*/
-
 .personName label {
 	margin-right: 5px;
 }
+
 #rsvp-code-input {
 	text-transform: uppercase;
 }
+
 #invalid-rsvp-code {
 	color: #FF0000;
 	display: inline;
 }
+
 .flex {
 	display: -webkit-box;
 	display: -moz-box;
