@@ -62,33 +62,33 @@
 						<div class="dinner-question" [ngClass]="{'mobile-dinner-question': !flex, 'non-mobile-dinner-question': flex}"
 						     *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
 							Dinner Option
-							<div class="radio-question form-group" [ngClass]="{'flex': flex}">
-								<div class="radio-option">
+							<table class="radio-question form-group" [ngClass]="{'flex': flex}">
+								<tr class="radio-option">
 									<input type="radio" id="dinnerOptionFish{{person.personToken}}"
 									       name="dinnerOption{{person.personToken}}" value="FISH"
 									       formControlName="dinnerOption{{person.personToken}}">
 									<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin
 										Tuna</label>
-								</div>
-								<div class="radio-option">
+								</tr>
+								<tr class="radio-option">
 									<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
 									       name="dinnerOption{{person.personToken}}" value="STEAK"
 									       formControlName="dinnerOption{{person.personToken}}">
 									<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
-								</div>
-								<div class="radio-option">
+								</tr>
+								<tr class="radio-option">
 									<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
 									       name="dinnerOption{{person.personToken}}" value="VEG"
 									       formControlName="dinnerOption{{person.personToken}}">
 									<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
-								</div>
-								<div class="radio-option">
+								</tr>
+								<tr class="radio-option">
 									<input type="radio" id="dinnerOptionChild{{person.personToken}}"
 									       name="dinnerOption{{person.personToken}}" value="CHILD"
 									       formControlName="dinnerOption{{person.personToken}}">
 									<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
-								</div>
-							</div>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
