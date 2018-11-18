@@ -29,6 +29,11 @@
 
 .dinner-question input {
 	float: left;
+
+}
+
+.dinner-question.radio-option {
+	margin-left: 1px;
 }
 
 
