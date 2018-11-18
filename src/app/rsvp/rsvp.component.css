@@ -18,7 +18,11 @@
 	margin-top: 15px;
 }
 
-.dinner-question label {
+.mobile-dinner-question label {
+	display: inline-block;
+
+}
+.non-mobile-dinner-question label {
 	display: block;
 	margin-left: 20px;
 }
