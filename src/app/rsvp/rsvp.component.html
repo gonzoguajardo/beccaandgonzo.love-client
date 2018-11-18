@@ -59,36 +59,70 @@
 								</div>
 							</div>
 						</div>
-						<div class="dinner-question" [ngClass]="{'mobile-dinner-question': !flex, 'non-mobile-dinner-question': flex}"
+						<div class="dinner-question"
+						     [ngClass]="{'mobile-dinner-question': !flex, 'non-mobile-dinner-question': flex}"
 						     *ngIf="this.guestForm.get('attending'+person.personToken).value === 'true'">
 							Dinner Option
-							<table class="radio-question form-group" [ngClass]="{'flex': flex}">
-								<tr class="radio-option">
-									<input type="radio" id="dinnerOptionFish{{person.personToken}}"
-									       name="dinnerOption{{person.personToken}}" value="FISH"
-									       formControlName="dinnerOption{{person.personToken}}">
-									<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin
-										Tuna</label>
-								</tr>
-								<tr class="radio-option">
-									<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
-									       name="dinnerOption{{person.personToken}}" value="STEAK"
-									       formControlName="dinnerOption{{person.personToken}}">
-									<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
-								</tr>
-								<tr class="radio-option">
-									<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
-									       name="dinnerOption{{person.personToken}}" value="VEG"
-									       formControlName="dinnerOption{{person.personToken}}">
-									<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
-								</tr>
-								<tr class="radio-option">
-									<input type="radio" id="dinnerOptionChild{{person.personToken}}"
-									       name="dinnerOption{{person.personToken}}" value="CHILD"
-									       formControlName="dinnerOption{{person.personToken}}">
-									<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
-								</tr>
-							</table>
+							<div *ngIf="flex; else mobile" class="radio-question form-group" [ngClass]="{'flex': flex}">
+								<div class="radio-option">
+									<ng-container *ngTemplateOutlet="fish"></ng-container>
+								</div>
+								<div class="radio-option">
+									<ng-container *ngTemplateOutlet="steak"></ng-container>
+								</div>
+								<div class="radio-option">
+									<ng-container *ngTemplateOutlet="veg"></ng-container>
+								</div>
+								<div class="radio-option">
+									<ng-container *ngTemplateOutlet="child"></ng-container>
+								</div>
+							</div>
+							<ng-template #mobile>
+								<table class="radio-question form-group" [ngClass]="{'flex': flex}">
+									<tr class="radio-option">
+										<ng-container *ngTemplateOutlet="fish"></ng-container>
+									</tr>
+									<tr class="radio-option">
+										<ng-container *ngTemplateOutlet="steak"></ng-container>
+									</tr>
+									<tr class="radio-option">
+										<ng-container *ngTemplateOutlet="veg"></ng-container>
+									</tr>
+									<tr class="radio-option">
+										<ng-container *ngTemplateOutlet="child"></ng-container>
+									</tr>
+								</table>
+							</ng-template>
+
+							<ng-template #fish>
+								<input type="radio" id="dinnerOptionFish{{person.personToken}}"
+								       name="dinnerOption{{person.personToken}}" value="FISH"
+								       formControlName="dinnerOption{{person.personToken}}">
+								<label for="dinnerOptionFish{{person.personToken}}">Herb Crusted Yellow Fin
+									Tuna</label>
+							</ng-template>
+
+							<ng-template #steak>
+								<input type="radio" id="dinnerOptionSteak{{person.personToken}}"
+								       name="dinnerOption{{person.personToken}}" value="STEAK"
+								       formControlName="dinnerOption{{person.personToken}}">
+								<label for="dinnerOptionSteak{{person.personToken}}">Grilled Skirt Steak</label>
+							</ng-template>
+
+							<ng-template #veg>
+								<input type="radio" id="dinnerOptionVeg{{person.personToken}}"
+								       name="dinnerOption{{person.personToken}}" value="VEG"
+								       formControlName="dinnerOption{{person.personToken}}">
+								<label for="dinnerOptionVeg{{person.personToken}}">Mushroom Risotto</label>
+							</ng-template>
+
+							<ng-template #child>
+								<input type="radio" id="dinnerOptionChild{{person.personToken}}"
+								       name="dinnerOption{{person.personToken}}" value="CHILD"
+								       formControlName="dinnerOption{{person.personToken}}">
+								<label for="dinnerOptionChild{{person.personToken}}">Children's Plate</label>
+							</ng-template>
+
 						</div>
 					</div>
 				</div>
