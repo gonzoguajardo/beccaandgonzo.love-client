@@ -10,7 +10,7 @@ import { SharkColumn } from 'shark-ng-table';
 })
 export class AdminComponent implements OnInit, OnChanges {
 
-	private persons: Person[];
+	persons: Person[];
 
 	tableColumns: SharkColumn[] = [
 		{ header: 'First Name', property: 'firstName'},
