@@ -1,22 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 //
-// import { OurStoryComponent } from './our-story.component';
-// import { HeaderService } from '../header/header.service';
+// import { LoginComponent } from './login.component';
 //
-// describe('OurStoryComponent', () => {
-// 	let component: OurStoryComponent;
-// 	let fixture: ComponentFixture<OurStoryComponent>;
+// describe('LoginComponent', () => {
+// 	let component: LoginComponent;
+// 	let fixture: ComponentFixture<LoginComponent>;
 //
 // 	beforeEach(async(() => {
 // 		TestBed.configureTestingModule({
-// 			declarations: [OurStoryComponent],
-// 			providers: [HeaderService]
+// 			declarations: [LoginComponent]
 // 		})
 // 			.compileComponents();
 // 	}));
 //
 // 	beforeEach(() => {
-// 		fixture = TestBed.createComponent(OurStoryComponent);
+// 		fixture = TestBed.createComponent(LoginComponent);
 // 		component = fixture.componentInstance;
 // 		fixture.detectChanges();
 // 	});

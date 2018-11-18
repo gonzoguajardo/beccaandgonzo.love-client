@@ -8,6 +8,10 @@ import { RsvpComponent } from './rsvp/rsvp.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuard } from './user/admin.guard';
+import { LoginComponent } from './login/login.component';
+import { MiamiComponent } from './miami/miami.component';
 
 const appRoutes: Routes = [
 	// { path: '', redirectTo: '/a', pathMatch: 'full' },
@@ -16,12 +20,14 @@ const appRoutes: Routes = [
 	{path: 'home', component: HomeComponent},
 	{path: 'our-story', component: OurStoryComponent},
 	{path: 'details', component: DetailsComponent},
+	{path: 'rsvp', component: RsvpComponent},
+	{path: 'miami', component: MiamiComponent},
 	{path: 'photos', component: PhotosComponent},
 	{path: 'registry', component: RegistryComponent},
-	{path: 'rsvp', component: RsvpComponent},
-	// { path: 'playlist', component: PlaylistComponent },
-	{ path: 'authenticate', component: AuthenticateComponent },
 	{path: 'contact', component: ContactComponent},
+	{path: 'login', component: LoginComponent},
+	{path: 'authenticate', component: AuthenticateComponent},
+	{path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
 ];
 
 @NgModule({
@@ -33,6 +39,9 @@ const appRoutes: Routes = [
 	],
 	exports: [
 		RouterModule
+	],
+	providers: [
+
 	]
 })
 export class AppRoutingModule {

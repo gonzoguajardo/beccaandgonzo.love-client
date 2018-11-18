@@ -2,9 +2,10 @@ export class Person {
 	firstName: string;
 	lastName: string;
 	personToken: string;
-	attending: boolean;
+	attending: any;
 	dinnerOption: string;
-	rsvp: Rsvp;
+	rsvpCode: string;
+	plusOne: boolean;
 }
 
 export class Rsvp {

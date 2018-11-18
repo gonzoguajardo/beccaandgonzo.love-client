@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- "8"
+cache:
+  directories:
+  - node_modules
+addons:
+  ssh_known_hosts: 142.93.124.203
+branches:
+  only:
+  - uat
+before_install:
+- openssl aes-256-cbc -K $encrypted_97b431abf359_key -iv $encrypted_97b431abf359_iv -in .travis/deploy-uat-rsa.enc -out deploy-uat-rsa -d
+- chmod 600 deploy-uat-rsa
+- mv deploy-uat-rsa ~/.ssh/id_rsa
+install:
+- npm install
+- npm run build-uat
+after_success:
+- bash .travis/deploy.sh
