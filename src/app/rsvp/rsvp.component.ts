@@ -86,6 +86,18 @@ export class RsvpComponent implements OnInit {
 					this.validationError = true;
 					this.addValidationErrorMessage('Please ensure the dinner option is filled in for all guests.');
 				}
+				if (person.plusOne) {
+					person.firstName = this.guestForm.get('firstName' + person.personToken).value;
+					person.lastName = this.guestForm.get('lastName' + person.personToken).value;
+					if (null == person.firstName || person.firstName.length === 0) {
+						this.validationError = true;
+						this.addValidationErrorMessage('Please ensure the first name field is filled in for all guests.');
+					}
+					if (null == person.lastName || person.lastName.length === 0) {
+						this.validationError = true;
+						this.addValidationErrorMessage('Please ensure the last name field is filled in for all guests.');
+					}
+				}
 			} else if (this.guestForm.get('attending' + person.personToken).value === 'false') {
 				person.attending = false;
 				person.dinnerOption = null;
@@ -93,21 +105,6 @@ export class RsvpComponent implements OnInit {
 				this.validationError = true;
 				this.addValidationErrorMessage('Please ensure the attending field is filled in for all guests.');
 			}
-
-			if (person.plusOne) {
-				person.firstName = this.guestForm.get('firstName' + person.personToken).value;
-				person.lastName = this.guestForm.get('lastName' + person.personToken).value;
-				if (null == person.firstName || person.firstName.length === 0) {
-					this.validationError = true;
-					this.addValidationErrorMessage('Please ensure the first name field is filled in for all guests.');
-				}
-				if (null == person.lastName || person.lastName.length === 0) {
-					this.validationError = true;
-					this.addValidationErrorMessage('Please ensure the last name field is filled in for all guests.');
-				}
-			}
-
-
 		});
 
 		if (!this.validationError) {
