@@ -6,6 +6,8 @@ export class Person {
 	dinnerOption: string;
 	rsvpCode: string;
 	plusOne: boolean;
+
+	rsvp: Rsvp;
 }
 
 export class Rsvp {

@@ -1,4 +1,38 @@
-<div class="pad-footer">
+<div class="pad-footer container">
+	<div class="breakdown">
+		<div>
+			RSVP Breakdown
+		</div>
+		<div>
+			Attending: {{rsvpAttending}}
+		</div>
+		<div>
+			Not Attending: {{rsvpNotAttending}}
+		</div>
+		<div>
+			null: {{rsvpNull}}
+		</div>
+	</div>
+	<div class="breakdown">
+		<div>
+			Dinner Breakdown
+		</div>
+		<div>
+			Steak: {{dinnerSteak}}
+		</div>
+		<div>
+			Fish: {{dinnerFish}}
+		</div>
+		<div>
+			Veg: {{dinnerVeg}}
+		</div>
+		<div>
+			child: {{dinnerChild}}
+		</div>
+		<div>
+			null: {{dinnerNull}}
+		</div>
+	</div>
 	<shark-table
 			[data]="persons"
 			[localFilter]="true"
