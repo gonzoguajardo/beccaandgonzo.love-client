@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit, OnChanges {
 		{header: 'RSVP Code', property: 'rsvpCode'},
 		{header: 'Dinner Option', property: 'dinnerOption'},
 		{header: 'Plus One', property: 'plusOne'},
-		{header: 'Last Updated', property: 'rsvp.lastUpdated'},
+		{header: 'Last Updated', property: 'lastUpdated'},
 	];
 
 	constructor(private rsvpService: RsvpService) {
