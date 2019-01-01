@@ -8,6 +8,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
 	hrMargins = false;
+	currentYear = new Date().getFullYear();
 
 	constructor() {
 		this.toggleHrMargins();
