@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-	showHeader = ['/our-story', '/details', '/rsvp', '/miami', '/photos', '/registry', , '/contact', '/login', '/admin'];
+	showHeader = ['/our-story', '/details', , '/miami', '/photos', '/registry', , '/contact', '/login', '/admin'];
 	headers: Header[];
 	menuOpen: boolean;
 
