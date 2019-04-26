@@ -30,21 +30,6 @@
 	font-family: 'Lobster', cursive;
 }
 
-::ng-deep .home-links > a {
-	display: block;
-	text-align: right;
-	margin: 0 calc(10px + 8vw) 0 0;
-	color: #614152;
-	font-size: calc(15px + 3vw);
-	/* font-size: 6vmin; */
-	font-family: 'Encode Sans Condensed', sans-serif;
-	/* width: 250px; */
-}
-
-::ng-deep .home-links > a:hover {
-	color: #9BA17B;
-}
-
 @media (min-width: 600px) {
 	:root {
 		font-size: 8vw;

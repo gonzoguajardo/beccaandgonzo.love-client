@@ -9,8 +9,6 @@ import { Header } from '../header';
 })
 export class LinksComponent implements OnInit {
 
-	readonly routerLinkActiveClass = 'viewing';
-
 	@Input()
 	showHome: boolean;
 
