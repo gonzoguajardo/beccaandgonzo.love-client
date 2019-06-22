@@ -32,6 +32,7 @@
     margin: 7px;
     font-family: 'Encode Sans Condensed', sans-serif;
     color: white;
+    cursor: pointer;
 }
 .album-links > a:hover {
     color: #9BA17B;

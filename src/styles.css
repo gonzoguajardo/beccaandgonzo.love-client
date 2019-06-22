@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster');
-@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed');
+@font-face { font-family: Lobster;
+	src: url('assets/Lobster-Regular.ttf'); }
+@font-face { font-family: "Encode Sans Condensed";
+	src: url('assets/EncodeSansCondensed-Regular.ttf'); }
 
 body {
 	position: absolute;
