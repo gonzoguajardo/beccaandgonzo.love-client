@@ -13,11 +13,11 @@ export class HeaderService {
 
 	private _headers: Header[] = [
 		{'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false},
-		// {'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false, 'viewing': false},
-		// {'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false, 'viewing': false},
-		// {'title': HeaderTitles.MIAMI, 'link': HeaderLinks.MIAMI, 'active': false, 'viewing': false},
+		// {'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false},
+		// {'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false},
+		// {'title': HeaderTitles.MIAMI, 'link': HeaderLinks.MIAMI, 'active': false},
 		{'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false},
-		// {'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false, 'viewing': false},
+		// {'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false},
 		{'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false},
 	];
 	private headers: Observable<Header[]>;

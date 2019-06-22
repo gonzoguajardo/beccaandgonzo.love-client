@@ -16,4 +16,8 @@ export class PhotosComponent implements OnInit {
 	ngOnInit() {
 
 	}
+
+	scroll(el: HTMLElement) {
+		el.scrollIntoView();
+	}
 }

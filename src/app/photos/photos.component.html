@@ -1,4 +1,12 @@
 <div class="container pad-footer">
-	<gallery [flexBorderSize]="5" [flexImageSize]="20" [galleryName]="'wedding'"></gallery>
-	<gallery [flexBorderSize]="5" [flexImageSize]="20" [galleryName]="'engagement'"></gallery>
+	<div class="header album-links">
+		<a (click)="scroll(wedding)">Wedding</a>
+		<a (click)="scroll(engagement)">Engagement</a>
+	</div>
+	<div #wedding class="album">
+		<gallery class="gallery" [flexBorderSize]="5" [flexImageSize]="20" [galleryName]="'wedding'"></gallery>
+	</div>
+	<div #engagement class="album">
+		<gallery [flexBorderSize]="5" [flexImageSize]="20" [galleryName]="'engagement'"></gallery>
+	</div>
 </div>
