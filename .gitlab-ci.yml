@@ -1,0 +1,34 @@
+image: node:10.16.3
+
+stages:
+  - build
+  - deploy uat
+
+build:
+  before_script:
+    - apt-get update -y
+    - apt-get install zip -y
+  stage: build
+  script:
+    - npm install
+    - npm run build
+    - zip -r dist.zip dist
+  artifacts:
+    paths:
+      - dist.zip
+    expire_in: 5 min
+
+deploy:
+  stage: deploy uat
+  before_script:
+    - apt-get update -y
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/apache_key
+    - chmod 400 ~/.ssh/apache_key
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    
+  script:
+    - scp -i ~/.ssh/apache_key dist.zip root@192.168.1.13:/var/www/html/uat-beccaandgonzo.love-client/dist.zip
+    - ssh root@192.168.1.13 -i ~/.ssh/apache_key "cd /var/www/html/uat-beccaandgonzo.love-client && rm -rf dist && unzip dist.zip && rm -f dist.zip && chmod -R 775 dist/"
