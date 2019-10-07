@@ -2,7 +2,6 @@ export class Header {
 	readonly title: string;
 	readonly link: string;
 	active: boolean;
-	viewing: boolean;
 }
 
 export enum HeaderTitles {

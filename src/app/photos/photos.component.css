@@ -1,3 +1,39 @@
 .container {
     margin: 40px 40px 0px 40px;
 }
+.block {
+    margin: auto;
+    display: block;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    max-width: 600px;
+    /*padding-left: 20px;*/
+    padding-right: 20px;
+}
+.header {
+    font-size: 130%;
+    margin-bottom: 3px;
+}
+.album {
+    margin-top: 10px;
+}
+.album-links {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #614152;
+}
+.album-links > a {
+    margin: 7px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.album-links > a:hover {
+    color: #9BA17B;
+}

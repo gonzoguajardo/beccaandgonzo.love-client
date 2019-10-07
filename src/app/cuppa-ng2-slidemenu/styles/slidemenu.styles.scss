@@ -4,7 +4,6 @@ $transition-type: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     width: 250px;
     height: 100%;
     position: fixed;
-    background: #fff;
     top: 60px;
     bottom: 0;
     left: 0;
@@ -40,18 +39,9 @@ $transition-type: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 .cuppa-menu ul > li > a{
     display: block;
     padding: 15px 30px;
-    background: #fff;
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     transition: all .3s linear;
-}
-.cuppa-menu ul > li > a:hover{
-    background: #007bff;
-    color: #fff;
-}
-.cuppa-menu ul > li > a.active {
-    background: #007bff;
-    color: #fff;
 }
 .cuppa-menu ul > li > a > i{
     font-size: 24px;
@@ -61,7 +51,6 @@ $transition-type: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .cuppa-menu-overlay{
     position: fixed;
-    background: #000;
     top: 0;
     left: 0;
     right:0;
@@ -74,4 +63,40 @@ $transition-type: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .hide-overlay{
     display: none;
+}
+
+.menu-container {
+    background-color: #614152;
+}
+.cuppa-menu ul > li > a:hover {
+    background-color: #9BA17B;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 150%;
+}
+.cuppa-menu ul > li > a {
+    background-color: #614152;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 150%;
+}
+cuppa-menu ul > li > a.viewing {
+    background-color: #9BA17B;
+}
+.cuppa-menu ul > li > a.active {
+    background-color: #9BA17B;
+}
+
+.hamburger-inner::after {
+    background-color: white;
+}
+
+.hamburger-inner::before {
+    background-color: white;
+}
+
+.hamburger-inner {
+    background-color: white;
+}
+
+.cuppa-menu ul {
+    -webkit-margin-before: 0;
 }

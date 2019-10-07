@@ -11,16 +11,14 @@ export class HeaderService {
 	menuOpenChange: Subject<boolean> = new Subject<boolean>();
 	private readonly styleTag: HTMLStyleElement;
 
-	// This sets the order of the links
-	// When adding something here make sure to add css class and update html
 	private _headers: Header[] = [
-		{'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.MIAMI, 'link': HeaderLinks.MIAMI, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false, 'viewing': false},
-		{'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false, 'viewing': false},
+		{'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false},
+		// {'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false},
+		// {'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false},
+		// {'title': HeaderTitles.MIAMI, 'link': HeaderLinks.MIAMI, 'active': false},
+		{'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false},
+		// {'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false},
+		{'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false},
 	];
 	private headers: Observable<Header[]>;
 
@@ -39,9 +37,9 @@ export class HeaderService {
 	activateHeader(title: string) {
 		this._headers.forEach((header: Header) => {
 			if (header.title === title) {
-				header.viewing = true;
+				header.active = true;
 			} else {
-				header.viewing = false;
+				header.active = false;
 			}
 		});
 		this.headers = of(this._headers);

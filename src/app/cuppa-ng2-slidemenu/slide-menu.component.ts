@@ -2,6 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HeaderService } from '../header/header.service';
+import { Header } from '../header/header';
 
 @Component({
 	selector: 'app-cuppa-slidemenu',
@@ -33,7 +34,7 @@ import { HeaderService } from '../header/header.service';
 
 export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
-	@Input() menulist: any;
+	menulist: Header[];
 
 	@Input() config: any;
 
@@ -58,7 +59,9 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 		headerService.menuOpenChange.subscribe((menuOpen: boolean) => {
 			this.menuState = menuOpen;
 		});
-
+		headerService.getHeaders().subscribe((headers: Header[]) => {
+			this.menulist = headers;
+		});
 	}
 
 	ngOnInit() {
@@ -77,6 +80,9 @@ export class SlideMenuComponent implements AfterViewInit, OnInit, OnDestroy {
 	public menuToggle() {
 		this.menuState = !this.menuState;
 		if (this.menuState) {
+			this.headerService.getHeaders().subscribe((headers: Header[]) => {
+				this.menulist = headers;
+			});
 			this.open.emit();
 		} else {
 			this.close.emit();

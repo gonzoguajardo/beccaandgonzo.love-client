@@ -1,3 +1,3 @@
 <ng-container *ngFor="let header of headers; let i = index">
-    <a routerLink="{{header.link}}" routerLinkActive="{{routerLinkActiveClass}}" *ngIf="i===0 && showHome || i!=0">{{header.title}}</a>
+    <a routerLink="{{header.link}}" routerLinkActive="active" *ngIf="i===0 && showHome || i!=0">{{header.title}}</a>
 </ng-container>

@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { version } from '../../../package.json';
 
 @Component({
 	selector: 'app-footer',
@@ -9,6 +10,7 @@ export class FooterComponent implements OnInit {
 
 	hrMargins = false;
 	currentYear = new Date().getFullYear();
+	version = version;
 
 	constructor() {
 		this.toggleHrMargins();
