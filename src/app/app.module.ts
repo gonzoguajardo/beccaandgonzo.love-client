@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderService } from './header/header.service';
 import { HeaderModule } from './header/header.module';
+import { VideoComponent } from './video/video.component';
 
 @NgModule({
 	imports: [
@@ -30,6 +31,7 @@ import { HeaderModule } from './header/header.module';
 		PhotosComponent,
 		ContactComponent,
 		FooterComponent,
+		VideoComponent,
 	],
 	providers: [HeaderService],
 	bootstrap: [AppComponent]
