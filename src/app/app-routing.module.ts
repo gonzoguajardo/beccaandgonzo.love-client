@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PhotosComponent } from './photos/photos.component';
 import { ContactComponent } from './contact/contact.component';
+import { VideoComponent } from './video/video.component';
 
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
-	{path: 'secret', component: HomeComponent, pathMatch: 'full'},
 	{path: 'home', component: HomeComponent},
 	{path: 'photos', component: PhotosComponent},
+	{path: 'video', component: VideoComponent},
 	{path: 'contact', component: ContactComponent},
 ];
 

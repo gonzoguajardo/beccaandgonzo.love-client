@@ -11,15 +11,7 @@ export class HeaderService {
 	menuOpenChange: Subject<boolean> = new Subject<boolean>();
 	private readonly styleTag: HTMLStyleElement;
 
-	private _headers: Header[] = [
-		{'title': HeaderTitles.HOME, 'link': HeaderLinks.HOME, 'active': false},
-		// {'title': HeaderTitles.OUR_STORY, 'link': HeaderLinks.OUR_STORY, 'active': false},
-		// {'title': HeaderTitles.DETAILS, 'link': HeaderLinks.DETAILS, 'active': false},
-		// {'title': HeaderTitles.MIAMI, 'link': HeaderLinks.MIAMI, 'active': false},
-		{'title': HeaderTitles.PHOTOS, 'link': HeaderLinks.PHOTOS, 'active': false},
-		// {'title': HeaderTitles.REGISTRY, 'link': HeaderLinks.REGISTRY, 'active': false},
-		{'title': HeaderTitles.CONTACT, 'link': HeaderLinks.CONTACT, 'active': false},
-	];
+	private _headers: Header[] = [];
 	private headers: Observable<Header[]>;
 
 	constructor() {
@@ -28,6 +20,9 @@ export class HeaderService {
 			this.menuOpen = isMenuOpen;
 		});
 		this.styleTag = this.buildStyleElement();
+		Object.keys(HeaderTitles).forEach(header => {
+			this._headers.push({'title': HeaderTitles[header], 'link': HeaderLinks[header], 'active': false});
+		});
 	}
 
 	getHeaders(): Observable<Header[]> {

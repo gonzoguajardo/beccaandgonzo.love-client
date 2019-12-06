@@ -1,4 +1,4 @@
-<div class="container" *ngIf="showHeader.includes(router.url ); else home">
+<div class="container" *ngIf="!(router.url==='/home' || router.url==='/'); else home">
 	<app-header [headers]="headers"></app-header>
 	<router-outlet></router-outlet>
 	<div id="cuppa-menu-overlay" class="cuppa-menu-overlay" *ngIf="menuOpen"></div>

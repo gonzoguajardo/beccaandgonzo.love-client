@@ -6,22 +6,14 @@ export class Header {
 
 export enum HeaderTitles {
 	HOME = 'Home',
-	OUR_STORY = 'Our Story',
-	DETAILS = 'Details',
-	RSVP = 'RSVP',
-	MIAMI = 'Miami',
 	PHOTOS = 'Photos',
-	REGISTRY = 'Registry',
+	VIDEO = 'Video',
 	CONTACT = 'Contact',
 }
 
 export enum HeaderLinks {
 	HOME = '/home',
-	OUR_STORY = '/our-story',
-	DETAILS = '/details',
-	RSVP = '/rsvp',
-	MIAMI = '/miami',
 	PHOTOS = '/photos',
-	REGISTRY = '/registry',
+	VIDEO = '/video',
 	CONTACT = '/contact',
 }
